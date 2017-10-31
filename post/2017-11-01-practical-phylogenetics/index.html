@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+ <title>Phylogenetic tree reconstruction</title>
+
+
+
+<meta name="description" content="Describe your website">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" id="ct-tracks-google-fonts-css" href="//fonts.googleapis.com/css?family=Raleway%3A400%2C700&amp;subset=latin%2Clatin-ext&amp;ver=4.7.2" type="text/css" media="all">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+<link href="/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+<link href="/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+</head>
+  <body>
+    <div id="root">
+      <div class="container-fluid">
+        <div class="row site-header">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12 top-navigation">
+                <div class="row">
+  <div class="col-sm-6">
+    <div class="categories-block">
+      <a href="" class="track-categories">//</a>
+      
+      <a href="/categories/r">r</a>
+      
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="social-media-block">
+
+      
+      <a href="full%20page%20or%20profile%20url%20in%20facebook" data-animate-hover="pulse" class="external facebook">
+        <i class="fa fa-facebook"></i>
+      </a>
+      
+      
+      <a href="full%20profile%20url%20in%20googleplus" data-animate-hover="pulse" class="external gplus">
+        <i class="fa fa-google-plus"></i>
+      </a>
+      
+      
+      <a href="full%20profile%20url%20in%20twitter" data-animate-hover="pulse" class="external twitter">
+        <i class="fa fa-twitter"></i>
+      </a>
+      
+      
+      <a href="full%20profile%20url%20in%20instagram" title="" class="external instagram">
+        <i class="fa fa-instagram"></i>
+      </a>
+      
+      
+      <a href="mailto:email@example.com" data-animate-hover="pulse" class="email">
+        <i class="fa fa-envelope"></i>
+      </a>
+      
+      
+      <a href="full%20profile%20url%20in%20linkedin" data-animate-hover="pulse">
+        <i class="fa fa-linkedin"></i>
+      </a>
+      
+      
+      <a href="full%20profile%20url%20in%20stackoverflow" data-animate-hover="pulse">
+        <i class="fa fa-stack-overflow"></i>
+      </a>
+      
+      
+      <a href="full%20profile%20url%20in%20github" data-animate-hover="pulse">
+        <i class="fa fa-github"></i>
+      </a>
+      
+
+    </div>
+  </div>
+</div>
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-10 header col-md-offset-1">
+                <div class="row">
+  <div class="col-md-6">
+    <div class="title-info">
+      
+      <a href=""> Tracks </a>
+      
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="menu">
+      <a href="/">Home /</a>
+      
+      
+      <a href="/0">0 / </a>
+      
+      
+      
+      <a href="/1">1 / </a>
+      
+      
+      
+      <a href="/2">2 / </a>
+      
+      
+    </div>
+  </div>
+
+</div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10 main-content col-md-offset-1">
+            
+
+<div class="col-md-12 entry">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="entry-meta">
+        November 01
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="entry-header">
+       Phylogenetic tree reconstruction
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <div class="entry-sidebar">
+        <div class="entry-sidebar-title">CATEGORIES</div>
+        
+        <div class="entry-categories">
+          <a href="/categories/r">r</a>
+        </div>
+        
+
+        <div class="entry-sidebar-title">Tags</div>
+        
+        <div class="entry-tags">
+          <a href="/tags/genetics">genetics</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/phylogenetics">phylogenetics</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/practical">practical</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/rmarkdown">rmarkdown</a>
+        </div>
+        
+      </div>
+    </div>
+    <div class="col-md-10">
+      <div class="entry-content">
+        <p>This practical aims to illustrate the basics of <strong>phylogenetic reconstruction</strong> using R, with an emphasis on how the methods work, how their results can be interpreted, and the relative advantages and limitations of the methods. Three main classes of phylogenetic approaches are introduced, namely <strong>distance-based</strong>, <strong>maximum parsimony</strong>, and <strong>maximum likelihood</strong> methods. We also illustrate how to assess the reliability of individual nodes using bootstrap, and show how a simple linear model can be used to estimate a molecular clock in rooted phylogenies. Methods are illustrated using a dataset of seasonal influenza isolates sampled in the US from 1993 to 2008.</p>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<div id="phylogenetics-in-a-nutshell" class="section level2">
+<h2>Phylogenetics in a nutshell</h2>
+<p>The reconstruction of evolutionary relationships of a set of organisms can be a tricky task, and has led to the development of a variety of methods over the last decades, implemented in an even larger number of software. However, these methods can be classified into three main categories:</p>
+<ul>
+<li><p><strong>distance-based methods</strong>: compute a matrix of pairwise genetic distances between the studied taxa, and summarize it using a hierarchical clustering algorithm such as UPGMA or Neighbour-Joining. <em>Advantages</em>: fast (the fastest) and flexible (different genetic distances allow to account for different features of DNA sequence evolution). <em>Limitations</em>: no model comparison (can’t test for the ‘best’ tree, or the ‘best’ model of evolution); may be inaccurate and highly dependent on the distance and clustering algorithm chosen.</p></li>
+<li><p><strong>maximum parsimony</strong>: seeks the tree with the smallest number of overall genetic changes between the taxa. This is achieved by changing randomly the topology of the tree until parsimony is no longer improved. <em>Advantages</em>: intuitive interpretation (assumes that the simplest scenario is the most likely), usually accurate when the amount of genetic changes is small. <em>Limitations</em>: computer-intensive, simplistic model of evolution, no model comparison, inaccurate when substantial evolution takes place, and when heterogeneous mutation rates exist in different parts of the tree.</p></li>
+<li><p><strong>likelihood-based method</strong>: based on a model of sequence evolution which allows to compute a likelihood, that is, the probability of observing the data given the model and a set of parameters. There are two main branches of likelihood-based methods: maximum likelihood and Bayesian methods. The first seeks the ‘best’ tree and parameter values, i.e. the one maximizing the likelihood. The second derives samples of trees and model parameters which are the most consistent with the data and possible prior knowledge about the tree/parameters. <em>Advantages</em>: flexible (any model of evolution can be used), usually accurate, model selection possible, measure of uncertainty (in Bayesian approaches). <em>Limitations</em>: computer-intensive, model selection possibly cumbersome.</p></li>
+</ul>
+<p>The R software implements one of the largest selections of phylogenetic methods, including all of the above except for Bayesian reconstruction.</p>
+</div>
+<div id="required-packages" class="section level2">
+<h2>Required packages</h2>
+<p>This practical requires a working version of ~ <span class="citation">(R Core Team 2017)</span> greater than or equal to 2.15.2. It uses the following packages: <em>stats</em> implements basic hierarchical clustering routines, <em>ade4</em> <span class="citation">(Dray, Dufour, and Chessel 2007)</span> and <em>adegenet</em> <span class="citation">(Jombart 2008; Jombart and Ahmed 2011)</span> are here used essentially for their graphics, <em>ape</em> [<span class="citation">Paradis, Claude, and Strimmer (2004)</span>; Popescu2012-ct] is the core package for phylogenetics, and <em>phangorn</em> <span class="citation">(Schliep 2011)</span> implements parsimony and likelihood-based methods. Make sure that the dependencies are installed as well when installing the packages:</p>
+<pre class="r"><code>install.packages(&quot;adegenet&quot;, dep=TRUE)
+install.packages(&quot;phangorn&quot;, dep=TRUE)</code></pre>
+<p>Then load the packages using:</p>
+<pre class="r"><code>library(stats)
+library(ade4)
+library(ape)
+library(adegenet)
+## 
+##    /// adegenet 2.1.0 is loaded ////////////
+## 
+##    &gt; overview: &#39;?adegenet&#39;
+##    &gt; tutorials/doc/questions: &#39;adegenetWeb()&#39; 
+##    &gt; bug reports/feature requests: adegenetIssues()
+library(phangorn)
+## 
+## Attaching package: &#39;phangorn&#39;
+## The following object is masked from &#39;package:adegenet&#39;:
+## 
+##     AICc</code></pre>
+</div>
+<div id="the-data" class="section level2">
+<h2>The data</h2>
+<p>The data used in this practical are DNA sequences of seasonal influenza (H3N2) downloaded from Genbank <a href="http://www.ncbi.nlm.nih.gov/genbank/" class="uri">http://www.ncbi.nlm.nih.gov/genbank/</a>. Alignments have been realized beforehand using standard tools (Clustalw2 for basic alignment and Jalview for refining the results). We selected 80 isolates genotyped for the hemagglutinin (HA) segment sampled in the US from 1993 to 2008. The dataset consists of two files: i) <code>usflu.fasta</code>, a file containing aligned DNA sequences and ii) <code>usflu.annot.csv</code>, a comma-separated file containing useful annotations of the sequences. Both files are available online from the <a href="https://github.com/reconhub/phylo-practical"><em>github page</em></a>.</p>
+<p>We first download these files and store them in a <code>data</code> folder; note that <code>paste0</code> is only used here so that you can see the entire path name in the document:</p>
+<pre class="r"><code>if (!dir.exists(&quot;data&quot;)) dir.create(&quot;data&quot;)
+
+## get annotations
+annot.url &lt;- paste0(&quot;https://raw.githubusercontent.com/reconhub/&quot;,
+                   &quot;phylo-practical/master/data/usflu.annot.csv&quot;)
+
+download.file(annot.url, destfile = &quot;data/usflu.annot.csv&quot;, method = &quot;curl&quot;)
+
+## get DNA sequences
+dna.url &lt;- paste0(&quot;https://raw.githubusercontent.com/reconhub/&quot;,
+                   &quot;phylo-practical/master/data/usflu.fasta&quot;)
+
+download.file(dna.url, destfile = &quot;data/usflu.fasta&quot;, method = &quot;curl&quot;)
+</code></pre>
+<p>To read the DNA sequences into R, we use <code>fasta2DNAbin</code> from the <em>adegenet</em> package:</p>
+<pre class="r"><code>dna &lt;- fasta2DNAbin(file = &quot;data/usflu.fasta&quot;)
+dna
+class(dna)</code></pre>
+<pre><code>## 
+##  Converting FASTA alignment into a DNAbin object... 
+## 
+## 
+##  Finding the size of a single genome... 
+## 
+## 
+##  genome size is: 1,701 nucleotides 
+## 
+## ( 30  lines per genome )
+## 
+##  Importing sequences... 
+## ........................................................................................................................................................................................................................................................................................................................................................................
+##  Forming final object... 
+## 
+## ...done.
+## 80 DNA sequences in binary format stored in a matrix.
+## 
+## All sequences of same length: 1701 
+## 
+## Labels:
+##  CY013200
+##  CY013781
+##  CY012128
+##  CY013613
+##  CY012160
+##  CY012272
+## ...
+## 
+## Base composition:
+##     a     c     g     t 
+## 0.335 0.200 0.225 0.239
+## [1] &quot;DNAbin&quot;</code></pre>
+<p>Sequences are stored as <code>DNAbin</code> objects, an efficient representation of DNA/RNA sequences which use bytes (as opposed to character strings) to code nucleotides, resulting in considerable savings in terms of memory required to store the data. While the present dataset is very small, such compression can become essential for larger genomes (bacterial genomes are typically a few millions of nucleotides long). Note that for even larger datasets, more efficient data reduction can be achieved using the bit-level coding of polymorphic sites implemented in <em>adegenet</em> <span class="citation">(Jombart and Ahmed 2011)</span>.</p>
+<p>The annotation file is read in R using the standard procedure:</p>
+<pre class="r"><code>annot &lt;- read.csv(&quot;data/usflu.annot.csv&quot;,
+                  header = TRUE, row.names = 1, stringsAsFactors = FALSE)</code></pre>
+<pre class="r"><code>head(annot)
+##   accession year                        misc
+## 1  CY013200 1993 (A/New York/783/1993(H3N2))
+## 2  CY013781 1993 (A/New York/802/1993(H3N2))
+## 3  CY012128 1993 (A/New York/758/1993(H3N2))
+## 4  CY013613 1993 (A/New York/766/1993(H3N2))
+## 5  CY012160 1993 (A/New York/762/1993(H3N2))
+## 6  CY012272 1994 (A/New York/729/1994(H3N2))
+dim(annot)
+## [1] 80  3</code></pre>
+<p><code>accession</code> contains the Genbank accession numbers, which are unique sequence identifiers; <code>year</code> is the year of collection of the isolates; <code>misc</code> contains other possibly useful information. Before going further, we check that isolates are identical in both files (accession numbers are used as labels for the sequences):</p>
+<pre class="r"><code>dim(dna)
+## [1]   80 1701
+dim(annot)
+## [1] 80  3
+all(annot$accession == rownames(dna))
+## [1] FALSE
+table(annot$year)
+## 
+## 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 
+##    5    5    5    5    5    5    5    5    5    5    5    5    5    5    5 
+## 2008 
+##    5</code></pre>
+<p>Good! The data we will analyse are 80 isolates (5 per year) typed for the same 1701 nucleotides.</p>
+</div>
+</div>
+<div id="distance-based-phylogenies" class="section level1">
+<h1>Distance-based phylogenies</h1>
+<p>Distance-based phylogenetic reconstruction consists in i) computing pairwise genetic distances between individuals (here, isolates), ii) representing these distances using a tree, and iii) evaluating the relevance of this representation.</p>
+<div id="computing-genetic-distances" class="section level2">
+<h2>Computing genetic distances</h2>
+<p>We first compute genetic distances using <em>ape</em>’s <code>dist.dna</code>, which proposes no less than 15 different genetic distances (see <code>?dist.dna</code> for details). Here, we use Tamura and Nei 1993’s model <span class="citation">(Tamura and Nei 1993)</span> which allows for different rates of transitions and transversions, heterogeneous base frequencies, and between-site variation of the substitution rate.</p>
+<pre class="r"><code>D &lt;- dist.dna(dna, model = &quot;TN93&quot;)
+class(D)
+## [1] &quot;dist&quot;
+length(D)
+## [1] 3160</code></pre>
+<p><code>D</code> is an object of class <code>dist</code> which contains the distances between every pairs of sequences.</p>
+<p>Now that genetic distances between isolates have been computed, we need to visualize this information. There are <em>n(n-1)/2</em> distances for <em>n</em> sequences; here, <em>n=80</em> so that the genetic relationships between the sampled isolates are described by <em>80 79 / 2 = 3160</em> pairwise distances. Most of the time, summarising such information is not entirely trivial. The simplest approach is plotting directly the matrix of pairwise distances:</p>
+<pre class="r"><code>temp &lt;- as.data.frame(as.matrix(D))
+table.paint(temp, cleg = 0, clabel.row = .5, clabel.col = .5)</code></pre>
+<p><img src="/post/2017-11-01-practical-phylogenetics_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>Darker shades of grey represent greater distances. Note that to use <code>image</code> to produce similar plots, data need to be transformed first; for instance:</p>
+<pre class="r"><code>temp &lt;- t(as.matrix(D))
+temp &lt;- temp[,ncol(temp):1]</code></pre>
+<pre class="r"><code>par(mar = c(1,5,5,1))
+image(x = 1:80, y = 1:80, temp, col = rev(heat.colors(100)),
+      xaxt = &quot;n&quot;, yaxt = &quot;n&quot;, xlab=&quot;&quot;,ylab=&quot;&quot;)
+axis(side = 2, at = 1:80, lab = rev(rownames(dna)), las = 2, cex.axis = .5)
+axis(side = 3, at = 1:80, lab = rownames(dna), las = 3, cex.axis = .5)</code></pre>
+<p><img src="/post/2017-11-01-practical-phylogenetics_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>(see <code>image.plot</code> in the package <em>fields</em> for similar plots with a legend).</p>
+<p>Since the data are roughly ordered by year, we can already see some genetic structure appearing, but this is admittedly not the most satisfying or informative approach, and tells us little about the evolutionary relationships between our isolates.</p>
+</div>
+<div id="building-trees" class="section level2">
+<h2>Building trees</h2>
+<p>We use trees to get a better representation of the genetic distances between individuals. It is important, however, to bear in mind that the obtained trees are not necessarily efficient representations of the original distances, and information can (and likely will) be lost in the process.</p>
+<p>A wide array of algorithms for constructing trees from a distance matrix are available in R, including:</p>
+<ul>
+<li><p><code>nj</code> (<em>ape</em> package): the classical Neighbor-Joining algorithm.</p></li>
+<li><p><code>bionj</code> (<em>ape</em>): an improved version of Neighbor-Joining.</p></li>
+<li><p><code>fastme.bal</code> and <code>fastme.ols</code> (<em>ape</em>): minimum evolution algorithms. <code>hclust</code> (<em>stats</em>): classical hierarchical clustering algorithms including single linkage, complete linkage, UPGMA, and others.</p></li>
+</ul>
+<p>Here, we go for the standard:</p>
+<pre class="r"><code>tre &lt;- nj(D)
+class(tre)
+## [1] &quot;phylo&quot;
+tre &lt;- ladderize(tre)
+tre
+## 
+## Phylogenetic tree with 80 tips and 78 internal nodes.
+## 
+## Tip labels:
+##   CY013200,  CY013781,  CY012128,  CY013613,  CY012160,  CY012272, ...
+## 
+## Unrooted; includes branch lengths.
+plot(tre, cex = .6)
+title(&quot;A simple NJ tree&quot;)</code></pre>
+<p><img src="/post/2017-11-01-practical-phylogenetics_files/figure-html/unnamed-chunk-13-1.png" width="768" /></p>
+<p>Trees created in the package <em>ape</em> are instances of the class <code>phylo</code>. See <code>?read.tree</code> for a description of this class.</p>
+</div>
+<div id="plotting-trees" class="section level2">
+<h2>Plotting trees</h2>
+<p>The plotting method offers many possibilities for plotting trees; see <code>?plot.phylo</code> for more details. Functions such as <code>tiplabels</code>, <code>nodelabels</code>, <code>edgelabels</code> and <code>axisPhylo</code> can also be useful to annotate trees. For instance, we may simply represent years using different colors (red = ancient; blue = recent):</p>
+<pre class="r"><code>plot(tre, show.tip = FALSE)
+title(&quot;Unrooted NJ tree&quot;)
+myPal &lt;- colorRampPalette(c(&quot;red&quot;,&quot;yellow&quot;,&quot;green&quot;,&quot;blue&quot;))
+tiplabels(annot$year, bg = num2col(annot$year, col.pal = myPal),
+          cex=.5)
+temp &lt;- pretty(1993:2008, 5)
+legend(&quot;bottomleft&quot;, fill = num2col(temp, col.pal = myPal),
+       leg = temp, ncol = 2)</code></pre>
+<p><img src="/post/2017-11-01-practical-phylogenetics_files/figure-html/unnamed-chunk-14-1.png" width="768" /></p>
+<p>This illustrates a common mistake when interpreting phylogenetic trees. In the above figures, we tend to assume that the left-side of the phylogeny is `ancestral’, while the right-side is ‘recent’. This is wrong (as suggested by the colors) unless the phylogeny is actually rooted, i.e. some external taxa has been used to define what is the most ‘ancient’ split in the tree. The present tree is not rooted, and should be better represented as such:</p>
+<pre class="r"><code>plot(tre, type = &quot;unrooted&quot;, show.tip = FALSE)
+title(&quot;Unrooted NJ tree&quot;)
+tiplabels(tre$tip.label, bg = num2col(annot$year, col.pal = myPal),
+          cex = .5)</code></pre>
+<p><img src="/post/2017-11-01-practical-phylogenetics_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p>In the present case, a sensible rooting would be any of the most ancient isolates (from 1993). We can take the first one:</p>
+<pre class="r"><code>head(annot)
+##   accession year                        misc
+## 1  CY013200 1993 (A/New York/783/1993(H3N2))
+## 2  CY013781 1993 (A/New York/802/1993(H3N2))
+## 3  CY012128 1993 (A/New York/758/1993(H3N2))
+## 4  CY013613 1993 (A/New York/766/1993(H3N2))
+## 5  CY012160 1993 (A/New York/762/1993(H3N2))
+## 6  CY012272 1994 (A/New York/729/1994(H3N2))
+tre2 &lt;- root(tre, out = 1)
+tre2 &lt;- ladderize(tre2)</code></pre>
+<p>and plot the result:</p>
+<pre class="r"><code>plot(tre2, show.tip = FALSE, edge.width = 2)
+title(&quot;Rooted NJ tree&quot;)
+tiplabels(tre$tip.label,
+          bg = transp(num2col(annot$year, col.pal = myPal),.7),
+          cex = .5, fg = &quot;transparent&quot;)
+axisPhylo()
+temp &lt;- pretty(1993:2008, 5)
+legend(&quot;topright&quot;,
+       fill = transp(num2col(temp, col.pal = myPal),.7),
+       leg = temp, ncol = 2)</code></pre>
+<p><img src="/post/2017-11-01-practical-phylogenetics_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p>The phylogeny is now rooted. The shape of this tree is typical of influenza. What can you say about the evolution of influenza and the fitness of different viral lineages, based on this tree? What does the ‘trunk’ of this tree represent? Would there be any interest in predicting the genome of the trunk?</p>
+</div>
+<div id="estimating-a-molecular-clock" class="section level2">
+<h2>Estimating a molecular clock</h2>
+<p>Rooted trees are also useful for assessing the rate of evolution of a given gene. We call <strong>molecular clock</strong> the accumulation of mutations over time. Can you visually assess if there are signs of a molecular clock in this tree? A quantitative analysis is very easy to perform, and merely relies on regressing the number of mutations from the root to the time of divergence from the root:</p>
+<pre class="r"><code>mutFromRoot &lt;- as.matrix(dist.dna(dna, model = &quot;N&quot;))[1,]
+yearFromRoot &lt;- annot$year - annot$year[1]
+plot(mutFromRoot ~ yearFromRoot, xlab = &quot;Years from the root&quot;,
+     ylab = &quot;Mutations from the root&quot;, main = &quot;H3N2 molecular clock&quot;)
+lm.clock &lt;- lm(mutFromRoot ~ -1 + yearFromRoot)
+abline(lm.clock, col = &quot;blue&quot;,lwd = 2)</code></pre>
+<p><img src="/post/2017-11-01-practical-phylogenetics_files/figure-html/molecular-clock-1.png" width="672" /></p>
+<pre class="r"><code>summary(lm.clock)
+## 
+## Call:
+## lm(formula = mutFromRoot ~ -1 + yearFromRoot)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -12.327  -1.577   1.004   6.386  13.000 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## yearFromRoot  7.73274    0.07443   103.9   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 5.86 on 79 degrees of freedom
+## Multiple R-squared:  0.9927, Adjusted R-squared:  0.9926 
+## F-statistic: 1.079e+04 on 1 and 79 DF,  p-value: &lt; 2.2e-16
+lm.clock$coefficients
+## yearFromRoot 
+##     7.732742
+lm.clock$coefficients/ncol(dna)
+## yearFromRoot 
+##  0.004545998
+365/ lm.clock$coefficients
+## yearFromRoot 
+##     47.20189</code></pre>
+<p>What is the substitution rate per year for the HA segment? What is the substitution rate per year and per site? On average, how many days would you expect to wait before observing one mutation on a transmission chain? Knowing that the generation time of influenza is roughly around 2-3 days, would you recommend using HA sequences for reconstructing transmission trees of influenza epidemics? What alternative would you suggest?</p>
+</div>
+<div id="assessing-the-quality-of-a-phylogeny" class="section level2">
+<h2>Assessing the quality of a phylogeny</h2>
+<p>Many genetic distances and hierarchical clustering algorithms can be used to build trees; not all of them are appropriate for a given dataset. Genetic distances rely on hypotheses about the evolution of DNA sequences which should be taken into account. For instance, the mere proportion of differing nucleotides between sequences (<code>model = 'raw</code>} in <code>dist.dna</code>) is easy to interprete, but only makes sense if all substitutions are equally frequent. In practice, simple yet flexible models such as that of Tamura and Nei <span class="citation">(Tamura and Nei 1993)</span> are probably fair choices. At the very least, the genetic distance used should allow different rates for transitions (<em>a &lt;-&gt; g</em>, <em>c &lt;-&gt; t</em>) and transversions (other changes).</p>
+<p><br></p>
+<p>Once one has chosen an appropriate genetic distance and built a tree using this distance, an essential yet most often overlooked question is whether this tree actually is a good representation of the original distance matrix. This is easily investigated using simple biplots and correlation indices. The function <code>cophenetic</code> is used to compute distances between the tips of the tree. Note that more distances are available in the <em>adephylo</em> package (see <code>distTips</code> function).</p>
+<pre class="r"><code>x &lt;- as.vector(D)
+y &lt;- as.vector(as.dist(cophenetic(tre2)))
+plot(x, y, xlab = &quot;original pairwise distances&quot;, ylab = &quot;pairwise distances on the tree&quot;,
+     main = &quot;Is NJ appropriate?&quot;, pch = 20, col = transp(&quot;black&quot;,.1), cex = 3)
+abline(lm(y~x), col = &quot;red&quot;)</code></pre>
+<p><img src="/post/2017-11-01-practical-phylogenetics_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<pre class="r"><code>cor(x,y)^2
+## [1] 0.9975154</code></pre>
+<p>As it turns out, our Neighbor-Joining tree (<code>tre2</code>) is a very good representation of the chosen genetic distances. Things would have been different had we chosen, for instance, UPGMA:</p>
+<pre class="r"><code>tre3 &lt;- as.phylo(hclust(D,method = &quot;average&quot;))
+y &lt;- as.vector(as.dist(cophenetic(tre3)))
+plot(x, y, xlab = &quot;original pairwise distances&quot;, ylab = &quot;pairwise distances on the tree&quot;,
+     main = &quot;Is UPGMA appropriate?&quot;, pch = 20, col = transp(&quot;black&quot;,.1), cex = 3)
+abline(lm(y~x), col = &quot;red&quot;)</code></pre>
+<p><img src="/post/2017-11-01-practical-phylogenetics_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<pre class="r"><code>cor(x,y)^2
+## [1] 0.7393009</code></pre>
+<p>In this case, UPGMA is a poor choice. Why is this? A first explanation is that UPGMA forces ultrametry (all the tips are equidistant to the root):</p>
+<pre class="r"><code>plot(tre3, cex = .5)
+title(&quot;UPGMA tree&quot;)</code></pre>
+<p><img src="/post/2017-11-01-practical-phylogenetics_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p>The underlying assumption is that all lineages have undergone the same amount of evolution, which is obviously not the case in seasonal influenza sampled over 16 years. <br></p>
+<p>Another validation of phylogenetic trees, much more commonly used, is bootstrap. Bootstrapping a phylogeny consists in sampling the nucleotides with replacement, rebuilding the phylogeny, and checking if the original nodes are present in the bootstrapped trees. In practice, this procedure is repeated a large number of times (e.g. 100, 1000), depending on how computer-intensive the phylogenetic reconstruction is. The underlying idea is to assess the variability in the obtained topology which results from conducting the analyses on a random sample the genome. Note that the assumption that the analysed sequences represent a random sample of the genome is often dubious. For instance, this is not the case in our toy dataset, since HA segment has a different rate of evolution and experiences different selective pressures from other segments of the influenza genome. We nonetheless illustrate the procedure, implemented by <code>boot.phylo</code>:</p>
+<pre class="r"><code>myBoots &lt;- boot.phylo(tre2, dna, function(e)
+                      root(nj(dist.dna(e, model = &quot;TN93&quot;)),1))
+myBoots</code></pre>
+<p>The output gives the number of times each node was identified in bootstrapped analyses (the order is the same as in the original object). It is easily represented using <code>nodelabels</code>:</p>
+<pre class="r"><code>plot(tre2, show.tip = FALSE, edge.width = 2)
+title(&quot;NJ tree + bootstrap values&quot;)
+tiplabels(frame = &quot;none&quot;, pch = 20,
+          col = transp(num2col(annot$year, col.pal = myPal),.7),
+          cex = 3, fg = &quot;transparent&quot;)
+axisPhylo()
+temp &lt;- pretty(1993:2008, 5)
+legend(&quot;topright&quot;, fill = transp(num2col(temp, col.pal = myPal),.7),
+       leg = temp, ncol = 2)
+nodelabels(myBoots, cex = .6)</code></pre>
+<p><img src="/post/2017-11-01-practical-phylogenetics_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p>As we can see, some nodes are very poorly supported. One common practice is to collapse these nodes into multifurcations. There is no dedicated method for this in <em>ape</em>, but one simple workaround consists in setting the corresponding edges to a length of zero (here, with bootstrap &lt;70%), and then collapsing the small branches:</p>
+<pre class="r"><code>temp &lt;- tre2
+N &lt;- length(tre2$tip.label)
+toCollapse &lt;- match(which(myBoots&lt;70)+N, temp$edge[,2])
+temp$edge.length[toCollapse] &lt;- 0
+tre3 &lt;- di2multi(temp, tol = 0.00001)</code></pre>
+<p>The new tree might be slightly less informative, but more robust than the previous one:</p>
+<pre class="r"><code>plot(tre3, show.tip = FALSE, edge.width = 2)
+title(&quot;NJ tree after collapsing weak nodes&quot;)
+tiplabels(tre3$tip.label, bg = transp(num2col(annot$year, col.pal = myPal), .7),
+          cex = .5, fg = &quot;transparent&quot;)
+axisPhylo()
+temp &lt;- pretty(1993:2008, 5)
+legend(&quot;topright&quot;, fill = transp(num2col(temp, col.pal = myPal), .7),
+       leg = temp, ncol = 2)</code></pre>
+<p><img src="/post/2017-11-01-practical-phylogenetics_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+</div>
+</div>
+<div id="maximum-parsimony-phylogenies" class="section level1">
+<h1>Maximum parsimony phylogenies</h1>
+<div id="introduction-1" class="section level2">
+<h2>Introduction</h2>
+<p>Phylogenetic reconstruction based on parsimony seeks trees which minimize the total number of changes (substitutions) from ancestors to descendents. While a number of criticisms can be made to this approach, it is a simple way to infer phylogenies for data which display low divergence (i.e. most taxa differ from each other by only a few nucleotides, and the overall substitution rate is low). <br></p>
+<p>In practice, there is often no way to perform an exhaustive search amongst all possible trees to find the most parsimonious one, and heuristic algorithms are used to browse the space of possible trees. The strategy is fairly simple: i) initialize the algorithm using a tree and ii) make small changes to the tree and retain those leading to better parsimony, until the parsimony score stops improving.</p>
+</div>
+<div id="implementation" class="section level2">
+<h2>Implementation</h2>
+<p>Parsimony-based phylogenetic reconstruction is implemented in the package <em>phangorn</em>. It requires a tree (in <em>ape</em>’s format, i.e. a <code>phylo</code> object) and the original DNA sequences in <em>phangorn</em>’s own format, <code>phyDat</code>. We convert the data and generate a tree to initialize the method:</p>
+<pre class="r"><code>dna2 &lt;- as.phyDat(dna)
+class(dna2)
+## [1] &quot;phyDat&quot;
+dna2
+## 80 sequences with 1701 character and 269 different site patterns.
+## The states are a c g t
+tre.ini &lt;- nj(dist.dna(dna,model = &quot;raw&quot;))
+tre.ini
+## 
+## Phylogenetic tree with 80 tips and 78 internal nodes.
+## 
+## Tip labels:
+##   CY013200,  CY013781,  CY012128,  CY013613,  CY012160,  CY012272, ...
+## 
+## Unrooted; includes branch lengths.</code></pre>
+<p>The parsimony of a given tree is given by:</p>
+<pre class="r"><code>parsimony(tre.ini, dna2)
+## [1] 422</code></pre>
+<p>Then, optimization of the parsimony is achieved by:</p>
+<pre class="r"><code>tre.pars &lt;- optim.parsimony(tre.ini, dna2)
+## Final p-score 420 after  2 nni operations
+tre.pars
+## 
+## Phylogenetic tree with 80 tips and 78 internal nodes.
+## 
+## Tip labels:
+##   CY013200,  CY013781,  CY012128,  CY013613,  CY012160,  CY012272, ...
+## 
+## Unrooted; no branch lengths.</code></pre>
+<p>Here, the final result is very close to the original tree. The obtained tree is unrooted and does not have branch lengths, but it can be plotted as previously:</p>
+<pre class="r"><code>plot(tre.pars, type = &quot;unr&quot;, show.tip = FALSE, edge.width = 2)
+title(&quot;Maximum-parsimony tree&quot;)
+tiplabels(tre.pars$tip.label, bg = transp(num2col(annot$year, col.pal = myPal),.7),
+          cex = .5, fg = &quot;transparent&quot;)
+temp &lt;- pretty(1993:2008, 5)
+legend(&quot;bottomright&quot;, fill = transp(num2col(temp, col.pal = myPal),.7),
+       leg = temp, ncol = 2, bg = transp(&quot;white&quot;))</code></pre>
+<p><img src="/post/2017-11-01-practical-phylogenetics_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p>In this case, parsimony gives fairly consistent results with other approaches, which is only to be expected whenever the amount of divergence between the sequences is fairly low, as is the case in our data.</p>
+</div>
+</div>
+<div id="maximum-likelihood-phylogenies" class="section level1">
+<h1>Maximum likelihood phylogenies</h1>
+<div id="introduction-2" class="section level2">
+<h2>Introduction</h2>
+<p>Maximum likelihood phylogenetic reconstruction is somehow similar to parsimony methods in that it browses a space of possible tree topologies looking for the ‘best’ tree. However, it offers far more flexibility in that any model of sequence evolution can be taken into account. Given one model of evolution, one can compute the likelihood of a given tree, and therefore optimization procedures can be used to infer both the most likely tree topology and model parameters. <br></p>
+<p>As in distance-based methods, model-based phylogenetic reconstruction requires thinking about which parameters should be included in a model. Usually, all possible substitutions are allowed to have different rates, and the substitution rate is allowed to vary across sites according to a gamma distribution. We refer to this model as GTR + <span class="math inline">\(\Gamma(4)\)</span> (GTR: global time reversible). More information about phylogenetic models can be found in <span class="citation">(Kelchner and Thomas 2007)</span>.</p>
+</div>
+<div id="getting-a-ml-tree" class="section level2">
+<h2>Getting a ML tree</h2>
+<p>Likelihood-based phylogenetic reconstruction is implemented in the package <em>phangorn</em>. As in the previous section, we use the data <code>dna2</code>, converted into <em>phangorn</em>’s format. We choose a Neighbor-Joining tree of Tamura and Nei’s 1993 distance to get an initial tree.</p>
+<pre class="r"><code>class(dna2)
+## [1] &quot;phyDat&quot;
+dna2
+## 80 sequences with 1701 character and 269 different site patterns.
+## The states are a c g t
+tre.ini &lt;- nj(dist.dna(dna,model = &quot;TN93&quot;))
+tre.ini
+## 
+## Phylogenetic tree with 80 tips and 78 internal nodes.
+## 
+## Tip labels:
+##   CY013200,  CY013781,  CY012128,  CY013613,  CY012160,  CY012272, ...
+## 
+## Unrooted; includes branch lengths.</code></pre>
+<p>This tree is most likely not the ML tree, but we need it as a ‘reasonable’ starting point to initialize the optimization procedure. The likelihood of this initial tree is computed using <code>pml</code>:</p>
+<pre class="r"><code>fit.ini &lt;- pml(tre.ini, dna2, k = 4)
+## negative edges length changed to 0!
+fit.ini
+## 
+##  loglikelihood: -5641.785 
+## 
+## unconstrained loglikelihood: -4736.539 
+## Discrete gamma model
+## Number of rate categories: 4 
+## Shape parameter: 1 
+## 
+## Rate matrix:
+##   a c g t
+## a 0 1 1 1
+## c 1 0 1 1
+## g 1 1 0 1
+## t 1 1 1 0
+## 
+## Base frequencies:  
+## 0.25 0.25 0.25 0.25</code></pre>
+<p>We now have all the information needed for seeking a maximum likelihood solution using <code>optim.pml</code>; we specify that we want to optimize tree topology (<code>optNni = TRUE</code>), base frequencies (<code>optBf = TRUE</code>), the rates of all possible subtitutions (<code>optQ = TRUE</code>), and use a gamma distribution to model variation in the substitution rates across sites (<code>optGamma = TRUE</code>):</p>
+<pre class="r"><code>fit &lt;- optim.pml(fit.ini, optNni = TRUE, optBf = TRUE,
+                 optQ = TRUE, optGamma = TRUE)</code></pre>
+<pre class="r"><code>fit
+## 
+##  loglikelihood: -5325.723 
+## 
+## unconstrained loglikelihood: -4736.539 
+## Discrete gamma model
+## Number of rate categories: 4 
+## Shape parameter: 0.2676679 
+## 
+## Rate matrix:
+##           a         c         g         t
+## a 0.0000000 1.9788777 6.6454508 0.6487418
+## c 1.9788777 0.0000000 0.1715952 8.2484864
+## g 6.6454508 0.1715952 0.0000000 1.0000000
+## t 0.6487418 8.2484864 1.0000000 0.0000000
+## 
+## Base frequencies:  
+## 0.3368452 0.1978542 0.2244658 0.2408349
+class(fit)
+## [1] &quot;pml&quot;
+names(fit)
+##  [1] &quot;logLik&quot;  &quot;inv&quot;     &quot;k&quot;       &quot;shape&quot;   &quot;Q&quot;       &quot;bf&quot;      &quot;rate&quot;   
+##  [8] &quot;siteLik&quot; &quot;weight&quot;  &quot;g&quot;       &quot;w&quot;       &quot;eig&quot;     &quot;data&quot;    &quot;model&quot;  
+## [15] &quot;INV&quot;     &quot;ll.0&quot;    &quot;tree&quot;    &quot;lv&quot;      &quot;call&quot;    &quot;df&quot;      &quot;wMix&quot;   
+## [22] &quot;llMix&quot;</code></pre>
+<p><code>fit</code> is a list with class <code>pml</code> storing various useful information about the model parameters and the optimal tree (stored in <code>fit$tree</code>). In this example, we can see from the output that transitions (<em>a &lt;-&gt; g</em> and <em>c &lt;-&gt; t</em>) are much more frequent than transversions (other changes), which is consistent with biological expectations (transversions induce more drastic changes of chemical properties of the DNA and are more prone to purifying selection). One advantage of using probabilistic models of evolution is that different models can be compared formally. For instance, here, we can verify that the optimized tree is indeed better than the original one using standard likelihood ratio tests and AIC:</p>
+<pre class="r"><code>anova(fit.ini, fit)
+## Likelihood Ratio Test Table
+##   Log lik.  Df Df change Diff log lik. Pr(&gt;|Chi|)    
+## 1  -5641.8 158                                       
+## 2  -5325.7 166         8        632.13  &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+AIC(fit.ini)
+## [1] 11599.57
+AIC(fit)
+## [1] 10983.45</code></pre>
+<p>Both the likelihood ratio test (highly significant, function <code>anova</code>) and the AIC (lower = better) indicate that the new tree is a better model of the data than the initial one.</p>
+<p>We can extract and plot the tree as we did before with other methods:</p>
+<pre class="r"><code>tre4 &lt;- root(fit$tree,1)
+tre4 &lt;- ladderize(tre4)
+plot(tre4, show.tip = FALSE, edge.width = 2)
+title(&quot;Maximum-likelihood tree&quot;)
+tiplabels(annot$year,
+          bg = transp(num2col(annot$year, col.pal = myPal), .7),
+          cex = .5, fg = &quot;transparent&quot;)
+axisPhylo()
+temp &lt;- pretty(1993:2008, 5)
+legend(&quot;topright&quot;, fill = transp(num2col(temp, col.pal = myPal), .7),
+       leg = temp, ncol = 2)</code></pre>
+<p><img src="/post/2017-11-01-practical-phylogenetics_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<p>This tree is statistically better than the original NJ tree based on Tamura and Nei’s distance <span class="citation">(Tamura and Nei 1993)</span>. However, we can note that it is remarkably similar to the ‘robust’ version of this distance-based tree (after collapsing weakly supported nodes). The structure of this dataset is fairly simple, and all methods give fairly consistent results. In practice, different methods can lead to different interpretations, and it is often worth exploring different approaches before drawing conclusions on the data.</p>
+</div>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+<div id="refs" class="references">
+<div id="ref-Dray2007-nv">
+<p>Dray, Stéphane, Anne B Dufour, and Daniel Chessel. 2007. “The Ade4 package-II: Two-Table and K-Table Methods.” <em>R News</em> 7 (2): 47–52.</p>
+</div>
+<div id="ref-Jombart2008-xi">
+<p>Jombart, Thibaut. 2008. “Adegenet: A R Package for the Multivariate Analysis of Genetic Markers.” <em>Bioinformatics</em> 24 (11): 1403–5.</p>
+</div>
+<div id="ref-Jombart2011-fb">
+<p>Jombart, Thibaut, and Ismaïl Ahmed. 2011. “Adegenet 1.3-1: New Tools for the Analysis of Genome-Wide SNP Data.” <em>Bioinformatics</em> 27 (21): 3070–1.</p>
+</div>
+<div id="ref-Kelchner2007-oy">
+<p>Kelchner, Scot A, and Michael A Thomas. 2007. “Model Use in Phylogenetics: Nine Key Questions.” <em>Trends Ecol. Evol.</em> 22 (2): 87–94.</p>
+</div>
+<div id="ref-Paradis2004-rj">
+<p>Paradis, Emmanuel, Julien Claude, and Korbinian Strimmer. 2004. “APE: Analyses of Phylogenetics and Evolution in R Language.” <em>Bioinformatics</em> 20 (2): 289–90.</p>
+</div>
+<div id="ref-R_Core_Team2017-dg">
+<p>R Core Team. 2017. “R: A Language and Environment for Statistical Computing.” Vienna, Austria: R Foundation for Statistical Computing.</p>
+</div>
+<div id="ref-Schliep2011-hf">
+<p>Schliep, Klaus Peter. 2011. “Phangorn: Phylogenetic Analysis in R.” <em>Bioinformatics</em> 27 (4): 592–93.</p>
+</div>
+<div id="ref-Tamura1993-ob">
+<p>Tamura, K, and M Nei. 1993. “Estimation of the Number of Nucleotide Substitutions in the Control Region of Mitochondrial DNA in Humans and Chimpanzees.” <em>Mol. Biol. Evol.</em> 10 (3): 512–26.</p>
+</div>
+</div>
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+  
+
+</div>
+
+          </div>
+        </div>
+        <div class="row site-footer">
+          <div class="col-md-12">
+            <div class="row">
+  <div class="col-md-12 footer-title">
+    <h2>
+      
+      <a href=""> Tracks </a>
+      
+    </h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 footer-menu">
+      <a href="/">Home /</a>
+      
+      
+      <a href="/0">0 / </a>
+      
+      
+      
+      <a href="/1">1 / </a>
+      
+      
+      
+      <a href="/2">2 / </a>
+      
+      
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="social-media-block-footer">
+      
+      <a href="full%20page%20or%20profile%20url%20in%20facebook" data-animate-hover="pulse" class="external facebook">
+        <i class="fa fa-facebook"></i>
+      </a>
+      
+      
+      <a href="full%20profile%20url%20in%20googleplus" data-animate-hover="pulse" class="external gplus">
+        <i class="fa fa-google-plus"></i>
+      </a>
+      
+      
+      <a href="full%20profile%20url%20in%20twitter" data-animate-hover="pulse" class="external twitter">
+        <i class="fa fa-twitter"></i>
+      </a>
+      
+      
+      <a href="full%20profile%20url%20in%20instagram" title="" class="external instagram">
+        <i class="fa fa-instagram"></i>
+      </a>
+      
+      
+      <a href="mailto:email@example.com" data-animate-hover="pulse" class="email">
+        <i class="fa fa-envelope"></i>
+      </a>
+      
+      
+      <a href="full%20profile%20url%20in%20linkedin" data-animate-hover="pulse">
+        <i class="fa fa-linkedin"></i>
+      </a>
+      
+      
+      <a href="full%20profile%20url%20in%20stackoverflow" data-animate-hover="pulse">
+        <i class="fa fa-stack-overflow"></i>
+      </a>
+      
+      
+      <a href="full%20profile%20url%20in%20github" data-animate-hover="pulse">
+        <i class="fa fa-github"></i>
+      </a>
+      
+
+    </div>
+  </div>
+</div>
+<script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.cookie.js"> </script>
+<script src="/js/ekko-lightbox.js"></script>
+<script src="/js/jquery.scrollTo.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script src="/js/imagesloaded.pkgd.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/front.js"></script>
+
+  </body>
+</html>
