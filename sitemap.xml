@@ -3,23 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/contact/</loc>
+    <lastmod>2017-11-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/2017-11-01-practical-phylogenetics/</loc>
     <lastmod>2017-11-01T14:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/contact/</loc>
-    <lastmod>2016-11-06T13:00:25+05:30</lastmod>
+    <loc>/about/</loc>
+    <lastmod>2017-11-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/analysing-epicurves/</loc>
+    <lastmod>2017-10-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/about/</loc>
-    <lastmod>2016-11-05T21:05:33+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>/about/</loc>
-    <lastmod>2016-11-05T21:05:33+05:30</lastmod>
+    <lastmod>2017-11-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -30,13 +35,25 @@
   
   <url>
     <loc>/contact/</loc>
-    <lastmod>2016-11-06T13:00:25+05:30</lastmod>
+    <lastmod>2017-11-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/epicurves/</loc>
+    <lastmod>2017-10-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/genetics/</loc>
     <lastmod>2017-11-01T14:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/incidence/</loc>
+    <lastmod>2017-10-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -53,14 +70,14 @@
   </url>
   
   <url>
-    <loc>/tags/practical/</loc>
+    <loc>/categories/practicals/</loc>
     <lastmod>2017-11-01T14:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2017-11-01T14:00:00+00:00</lastmod>
+    <loc>/</loc>
+    <lastmod>2017-11-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -72,13 +89,7 @@
   
   <url>
     <loc>/tags/</loc>
-    <lastmod>2017-11-01T14:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2017-11-01T14:00:00+00:00</lastmod>
+    <lastmod>2017-10-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

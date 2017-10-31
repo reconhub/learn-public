@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Rmarkdown on RECON learn</title>
-    <link>/tags/rmarkdown/</link>
-    <description>Recent content in Rmarkdown on RECON learn</description>
+    <title>Practicals on RECON learn</title>
+    <link>/categories/practicals/</link>
+    <description>Recent content in Practicals on RECON learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2017 Thibaut Jombart</copyright>
     <lastBuildDate>Wed, 01 Nov 2017 14:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/rmarkdown/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/practicals/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
