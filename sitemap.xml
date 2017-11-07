@@ -3,109 +3,98 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/contact/</loc>
-    <lastmod>2017-11-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/reproducibility/</loc>
+    <loc>https://reconlearn.netlify.com/post/reproducibility/</loc>
     <lastmod>2017-11-07T14:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/analysing-epicurves/</loc>
+    <loc>https://reconlearn.netlify.com/post/analysing-epicurves/</loc>
     <lastmod>2017-11-03T14:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2017-11-01-practical-phylogenetics/</loc>
+    <loc>https://reconlearn.netlify.com/post/2017-11-01-practical-phylogenetics/</loc>
     <lastmod>2017-11-01T14:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/about/</loc>
+    <loc>https://reconlearn.netlify.com/about/</loc>
     <lastmod>2017-11-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/about/</loc>
+    <loc>https://reconlearn.netlify.com/about/</loc>
     <lastmod>2017-11-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/</loc>
+    <loc>https://reconlearn.netlify.com/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/contact/</loc>
-    <lastmod>2017-11-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/epicurves/</loc>
+    <loc>https://reconlearn.netlify.com/tags/epicurves/</loc>
     <lastmod>2017-11-03T14:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/genetics/</loc>
+    <loc>https://reconlearn.netlify.com/tags/genetics/</loc>
     <lastmod>2017-11-01T14:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/incidence/</loc>
+    <loc>https://reconlearn.netlify.com/tags/incidence/</loc>
     <lastmod>2017-11-03T14:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/lectures/</loc>
+    <loc>https://reconlearn.netlify.com/categories/lectures/</loc>
     <lastmod>2017-11-07T14:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/phylogenetics/</loc>
+    <loc>https://reconlearn.netlify.com/tags/phylogenetics/</loc>
     <lastmod>2017-11-01T14:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/post/</loc>
+    <loc>https://reconlearn.netlify.com/post/</loc>
     <lastmod>2017-11-07T14:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/practicals/</loc>
+    <loc>https://reconlearn.netlify.com/categories/practicals/</loc>
     <lastmod>2017-11-03T14:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2017-11-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/reproducibility/</loc>
+    <loc>https://reconlearn.netlify.com/</loc>
     <lastmod>2017-11-07T14:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/rmarkdown/</loc>
+    <loc>https://reconlearn.netlify.com/tags/reproducibility/</loc>
     <lastmod>2017-11-07T14:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/</loc>
+    <loc>https://reconlearn.netlify.com/tags/rmarkdown/</loc>
+    <lastmod>2017-11-07T14:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://reconlearn.netlify.com/tags/</loc>
     <lastmod>2017-11-03T14:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

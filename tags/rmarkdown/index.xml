@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rmarkdown on RECON learn</title>
-    <link>/tags/rmarkdown/</link>
+    <link>https://reconlearn.netlify.com/tags/rmarkdown/</link>
     <description>Recent content in Rmarkdown on RECON learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2017 Thibaut Jombart</copyright>
     <lastBuildDate>Tue, 07 Nov 2017 14:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/rmarkdown/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://reconlearn.netlify.com/tags/rmarkdown/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Reproducibility using R</title>
-      <link>/post/reproducibility/</link>
+      <link>https://reconlearn.netlify.com/post/reproducibility/</link>
       <pubDate>Tue, 07 Nov 2017 14:00:00 +0000</pubDate>
       
-      <guid>/post/reproducibility/</guid>
+      <guid>https://reconlearn.netlify.com/post/reproducibility/</guid>
       <description>Beyond the availability of data and methods, reproducible science requires the traceability of analyses. Whether it is for yourself or for collaborators, as series of tools and good practices can facilitate your work flow, simplify analyses, and prevent the loss of data and results. This lecture provides an introduction to reproducibility using .
 Slides Click on the image below to access the slides:
     Related packages knitr knitr provides excellent resources for literate programming mixing with LaTeX or markdown.</description>
@@ -25,10 +25,10 @@ Slides Click on the image below to access the slides:
     
     <item>
       <title>Analysing epicurves</title>
-      <link>/post/analysing-epicurves/</link>
+      <link>https://reconlearn.netlify.com/post/analysing-epicurves/</link>
       <pubDate>Fri, 03 Nov 2017 14:00:00 +0000</pubDate>
       
-      <guid>/post/analysing-epicurves/</guid>
+      <guid>https://reconlearn.netlify.com/post/analysing-epicurves/</guid>
       <description>This practical shows how the package incidence can be used to build, plot, and analyse epidemic curves which track the evolution of case incidence (i.e. number of new cases per time unit) over time.
 
 Installing the package To install the current stable, CRAN version of the package, type:
@@ -38,10 +38,10 @@ devtools::install_github(&amp;quot;reconhub/incidence&amp;quot;) Note that this 
     
     <item>
       <title>Phylogenetic tree reconstruction</title>
-      <link>/post/2017-11-01-practical-phylogenetics/</link>
+      <link>https://reconlearn.netlify.com/post/2017-11-01-practical-phylogenetics/</link>
       <pubDate>Wed, 01 Nov 2017 14:00:00 +0000</pubDate>
       
-      <guid>/post/2017-11-01-practical-phylogenetics/</guid>
+      <guid>https://reconlearn.netlify.com/post/2017-11-01-practical-phylogenetics/</guid>
       <description>This practical aims to illustrate the basics of phylogenetic reconstruction using R, with an emphasis on how the methods work, how their results can be interpreted, and the relative advantages and limitations of the methods. Three main classes of phylogenetic approaches are introduced, namely distance-based, maximum parsimony, and maximum likelihood methods. We also illustrate how to assess the reliability of individual nodes using bootstrap, and show how a simple linear model can be used to estimate a molecular clock in rooted phylogenies.</description>
     </item>
     

@@ -2,67 +2,67 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on RECON learn</title>
-    <link>/tags/</link>
+    <link>https://reconlearn.netlify.com/tags/</link>
     <description>Recent content in Tags on RECON learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2017 Thibaut Jombart</copyright>
     <lastBuildDate>Fri, 03 Nov 2017 14:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://reconlearn.netlify.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Epicurves</title>
-      <link>/tags/epicurves/</link>
+      <link>https://reconlearn.netlify.com/tags/epicurves/</link>
       <pubDate>Fri, 03 Nov 2017 14:00:00 +0000</pubDate>
       
-      <guid>/tags/epicurves/</guid>
+      <guid>https://reconlearn.netlify.com/tags/epicurves/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Genetics</title>
-      <link>/tags/genetics/</link>
+      <link>https://reconlearn.netlify.com/tags/genetics/</link>
       <pubDate>Wed, 01 Nov 2017 14:00:00 +0000</pubDate>
       
-      <guid>/tags/genetics/</guid>
+      <guid>https://reconlearn.netlify.com/tags/genetics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Incidence</title>
-      <link>/tags/incidence/</link>
+      <link>https://reconlearn.netlify.com/tags/incidence/</link>
       <pubDate>Fri, 03 Nov 2017 14:00:00 +0000</pubDate>
       
-      <guid>/tags/incidence/</guid>
+      <guid>https://reconlearn.netlify.com/tags/incidence/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Phylogenetics</title>
-      <link>/tags/phylogenetics/</link>
+      <link>https://reconlearn.netlify.com/tags/phylogenetics/</link>
       <pubDate>Wed, 01 Nov 2017 14:00:00 +0000</pubDate>
       
-      <guid>/tags/phylogenetics/</guid>
+      <guid>https://reconlearn.netlify.com/tags/phylogenetics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Reproducibility</title>
-      <link>/tags/reproducibility/</link>
+      <link>https://reconlearn.netlify.com/tags/reproducibility/</link>
       <pubDate>Tue, 07 Nov 2017 14:00:00 +0000</pubDate>
       
-      <guid>/tags/reproducibility/</guid>
+      <guid>https://reconlearn.netlify.com/tags/reproducibility/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Rmarkdown</title>
-      <link>/tags/rmarkdown/</link>
+      <link>https://reconlearn.netlify.com/tags/rmarkdown/</link>
       <pubDate>Tue, 07 Nov 2017 14:00:00 +0000</pubDate>
       
-      <guid>/tags/rmarkdown/</guid>
+      <guid>https://reconlearn.netlify.com/tags/rmarkdown/</guid>
       <description></description>
     </item>
     

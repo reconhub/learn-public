@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Reproducibility on RECON learn</title>
-    <link>/tags/reproducibility/</link>
+    <link>https://reconlearn.netlify.com/tags/reproducibility/</link>
     <description>Recent content in Reproducibility on RECON learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2017 Thibaut Jombart</copyright>
     <lastBuildDate>Tue, 07 Nov 2017 14:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/reproducibility/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://reconlearn.netlify.com/tags/reproducibility/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Reproducibility using R</title>
-      <link>/post/reproducibility/</link>
+      <link>https://reconlearn.netlify.com/post/reproducibility/</link>
       <pubDate>Tue, 07 Nov 2017 14:00:00 +0000</pubDate>
       
-      <guid>/post/reproducibility/</guid>
+      <guid>https://reconlearn.netlify.com/post/reproducibility/</guid>
       <description>Beyond the availability of data and methods, reproducible science requires the traceability of analyses. Whether it is for yourself or for collaborators, as series of tools and good practices can facilitate your work flow, simplify analyses, and prevent the loss of data and results. This lecture provides an introduction to reproducibility using .
 Slides Click on the image below to access the slides:
     Related packages knitr knitr provides excellent resources for literate programming mixing with LaTeX or markdown.</description>

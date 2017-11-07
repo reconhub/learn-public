@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Phylogenetics on RECON learn</title>
-    <link>/tags/phylogenetics/</link>
+    <link>https://reconlearn.netlify.com/tags/phylogenetics/</link>
     <description>Recent content in Phylogenetics on RECON learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2017 Thibaut Jombart</copyright>
     <lastBuildDate>Wed, 01 Nov 2017 14:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/phylogenetics/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://reconlearn.netlify.com/tags/phylogenetics/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Phylogenetic tree reconstruction</title>
-      <link>/post/2017-11-01-practical-phylogenetics/</link>
+      <link>https://reconlearn.netlify.com/post/2017-11-01-practical-phylogenetics/</link>
       <pubDate>Wed, 01 Nov 2017 14:00:00 +0000</pubDate>
       
-      <guid>/post/2017-11-01-practical-phylogenetics/</guid>
+      <guid>https://reconlearn.netlify.com/post/2017-11-01-practical-phylogenetics/</guid>
       <description>This practical aims to illustrate the basics of phylogenetic reconstruction using R, with an emphasis on how the methods work, how their results can be interpreted, and the relative advantages and limitations of the methods. Three main classes of phylogenetic approaches are introduced, namely distance-based, maximum parsimony, and maximum likelihood methods. We also illustrate how to assess the reliability of individual nodes using bootstrap, and show how a simple linear model can be used to estimate a molecular clock in rooted phylogenies.</description>
     </item>
     
