@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Practical on Tracks</title>
+    <link>https://example.org/tags/practical/</link>
+    <description>Recent content in Practical on Tracks</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy;2016 Your name or company</copyright>
+    <lastBuildDate>Wed, 01 Nov 2017 14:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://example.org/tags/practical/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Phylogenetic tree reconstruction</title>
+      <link>https://example.org/post/2017-11-01-practical-phylogenetics/</link>
+      <pubDate>Wed, 01 Nov 2017 14:00:00 +0000</pubDate>
+      
+      <guid>https://example.org/post/2017-11-01-practical-phylogenetics/</guid>
+      <description>This practical aims to illustrate the basics of phylogenetic reconstruction using R, with an emphasis on how the methods work, how their results can be interpreted, and the relative advantages and limitations of the methods. Three main classes of phylogenetic approaches are introduced, namely distance-based, maximum parsimony, and maximum likelihood methods. We also illustrate how to assess the reliability of individual nodes using bootstrap, and show how a simple linear model can be used to estimate a molecular clock in rooted phylogenies.</description>
+    </item>
+    
+  </channel>
+</rss>
