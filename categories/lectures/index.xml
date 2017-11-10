@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2017 Thibaut Jombart</copyright>
-    <lastBuildDate>Tue, 07 Nov 2017 14:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 10 Nov 2017 14:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://reconlearn.netlify.com/categories/lectures/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Reproducibility using R</title>
       <link>https://reconlearn.netlify.com/post/reproducibility/</link>
-      <pubDate>Tue, 07 Nov 2017 14:00:00 +0000</pubDate>
+      <pubDate>Fri, 10 Nov 2017 14:00:00 +0000</pubDate>
       
       <guid>https://reconlearn.netlify.com/post/reproducibility/</guid>
       <description>Beyond the availability of data and methods, reproducible science requires the traceability of analyses. Whether it is for yourself or for collaborators, as series of tools and good practices can facilitate your work flow, simplify analyses, and prevent the loss of data and results. This lecture provides an introduction to reproducibility using .
