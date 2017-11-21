@@ -45,20 +45,6 @@ Slides Click on the image below to access the slides:
     </item>
     
     <item>
-      <title>Introduction to rmarkdown</title>
-      <link>https://reconlearn.netlify.com/post/rmarkdown-intro/</link>
-      <pubDate>Thu, 02 Nov 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://reconlearn.netlify.com/post/rmarkdown-intro/</guid>
-      <description>
-Installing the packages To install the current stable, CRAN version of the package, type:
-install.packages(&amp;quot;rmarkdown&amp;quot;) To benefit from the latest features and bug fixes, install the development, github version of the package using:
-devtools::install_github(&amp;quot;rstudio/rmarkdown&amp;quot;) Note that this requires the package devtools installed.
-
- </description>
-    </item>
-    
-    <item>
       <title>Phylogenetic tree reconstruction</title>
       <link>https://reconlearn.netlify.com/post/2017-11-01-practical-phylogenetics/</link>
       <pubDate>Wed, 01 Nov 2017 14:00:00 +0000</pubDate>

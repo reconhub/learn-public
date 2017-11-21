@@ -18,11 +18,6 @@
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/post/rmarkdown-intro/</loc>
-    <lastmod>2017-11-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://reconlearn.netlify.com/post/2017-11-01-practical-phylogenetics/</loc>
     <lastmod>2017-11-01T14:00:00+00:00</lastmod>
   </url>
@@ -81,19 +76,13 @@
   
   <url>
     <loc>https://reconlearn.netlify.com/categories/practicals/</loc>
-    <lastmod>2017-11-02T00:00:00+00:00</lastmod>
+    <lastmod>2017-11-01T14:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://reconlearn.netlify.com/</loc>
     <lastmod>2017-11-21T14:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://reconlearn.netlify.com/tags/reproducibility/</loc>
-    <lastmod>2017-11-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
