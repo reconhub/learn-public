@@ -1,8 +1,13 @@
 ---
 title: Phylogenetic tree reconstruction
 author: Thibaut Jombart
+<<<<<<< HEAD
 categories: ["practicals"]
 tags: ["Rmarkdown", "phylogenetics", "genetics"]
+=======
+categories: ["R"]
+tags: ["Rmarkdown", "practical", "phylogenetics", "genetics"]
+>>>>>>> 4793b97afcb3d13456c52f10411a9b2ad77f84af
 date: 2017-11-01T14:00:00-00:00
 image: img/portfolio/logs1.jpg
 showonlyimage: true
