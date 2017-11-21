@@ -2,22 +2,34 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Genetics on RECON learn</title>
-    <link>/tags/genetics/</link>
+    <link>https://reconlearn.netlify.com/tags/genetics/</link>
     <description>Recent content in Genetics on RECON learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2017 Thibaut Jombart</copyright>
-    <lastBuildDate>Wed, 01 Nov 2017 14:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 21 Nov 2017 14:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/genetics/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://reconlearn.netlify.com/tags/genetics/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Reconstructing a simulated Ebola outbreak</title>
+      <link>https://reconlearn.netlify.com/post/simulated-evd-reconstruction/</link>
+      <pubDate>Tue, 21 Nov 2017 14:00:00 +0000</pubDate>
+      
+      <guid>https://reconlearn.netlify.com/post/simulated-evd-reconstruction/</guid>
+      <description>This case study simulates the early assessment and reconstruction of an Ebola Virus Disease (EVD) outbreak. It covers various aspects of analysis of the early stage of an outbreak, and provides an introduction to transmission chain reconstruction using outbreaker2.
+
+Installing required packages The following packages, available on CRAN, are needed for this case study:
+ xlsx to read .xlsx files incidence for epicurves epicontacts for contact data visualisation  To install these packages, use install.</description>
+    </item>
+    
+    <item>
       <title>Phylogenetic tree reconstruction</title>
-      <link>/post/2017-11-01-practical-phylogenetics/</link>
+      <link>https://reconlearn.netlify.com/post/2017-11-01-practical-phylogenetics/</link>
       <pubDate>Wed, 01 Nov 2017 14:00:00 +0000</pubDate>
       
-      <guid>/post/2017-11-01-practical-phylogenetics/</guid>
+      <guid>https://reconlearn.netlify.com/post/2017-11-01-practical-phylogenetics/</guid>
       <description>This practical aims to illustrate the basics of phylogenetic reconstruction using R, with an emphasis on how the methods work, how their results can be interpreted, and the relative advantages and limitations of the methods. Three main classes of phylogenetic approaches are introduced, namely distance-based, maximum parsimony, and maximum likelihood methods. We also illustrate how to assess the reliability of individual nodes using bootstrap, and show how a simple linear model can be used to estimate a molecular clock in rooted phylogenies.</description>
     </item>
     

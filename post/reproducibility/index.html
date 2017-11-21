@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+ <title>Reproducibility using R</title>
+
+
+
+<meta name="description" content="RECON&#39;s teaching platform">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+
+<link rel="stylesheet" href="https://reconlearn.netlify.com/css/bootstrap.min.css">
+<link rel="stylesheet" id="ct-tracks-google-fonts-css" href="//fonts.googleapis.com/css?family=Raleway%3A400%2C700&amp;subset=latin%2Clatin-ext&amp;ver=4.7.2" type="text/css" media="all">
+<link rel="stylesheet" href="https://reconlearn.netlify.com/css/font-awesome.min.css">
+
+<link href="https://reconlearn.netlify.com/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+<link href="https://reconlearn.netlify.com/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="https://reconlearn.netlify.com/img/favicon.png">
+
+
+</head>
+  <body>
+    <div id="root">
+      <div class="container-fluid">
+        <div class="row site-header">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12 top-navigation">
+                <div class="row">
+  <div class="col-sm-6">
+    <div class="categories-block">
+      <a href="" class="track-categories">//</a>
+      
+      <a href="/categories/lectures">lectures</a>
+      
+      <a href="/categories/practical">practical</a>
+      
+      <a href="/categories/practicals">practicals</a>
+      
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="social-media-block">
+
+      
+      
+      
+      <a href="https://twitter.com/teebzr" data-animate-hover="pulse" class="external twitter">
+        <i class="fa fa-twitter"></i>
+      </a>
+      
+      
+      
+      <a href="mailto:thibautjombart@gmail.com" data-animate-hover="pulse" class="email">
+        <i class="fa fa-envelope"></i>
+      </a>
+      
+      
+      
+      
+      <a href="https://github.com/reconhub/learn" data-animate-hover="pulse">
+        <i class="fa fa-github"></i>
+      </a>
+      
+
+    </div>
+  </div>
+</div>
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-10 header col-md-offset-1">
+                <div class="row">
+  <div class="col-md-6">
+    <div class="title-info">
+      
+      <a href=""> RECON learn </a>
+      
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="menu">
+      <a href="/">Home /</a>
+      
+      
+      <a href="/0">0 / </a>
+      
+      
+      
+      <a href="/1">1 / </a>
+      
+      
+      
+      <a href="/2">2 / </a>
+      
+      
+    </div>
+  </div>
+
+</div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10 main-content col-md-offset-1">
+            
+
+<div class="col-md-12 entry">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="entry-meta">
+        November 10
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="entry-header">
+       Reproducibility using R
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <div class="entry-sidebar">
+        <div class="entry-sidebar-title">CATEGORIES</div>
+        
+        <div class="entry-categories">
+          <a href="/categories/lectures">lectures</a>
+        </div>
+        
+        <div class="entry-categories">
+          <a href="/categories/practical">practical</a>
+        </div>
+        
+        <div class="entry-categories">
+          <a href="/categories/practicals">practicals</a>
+        </div>
+        
+
+        <div class="entry-sidebar-title">Tags</div>
+        
+        <div class="entry-tags">
+          <a href="/tags/genetics">genetics</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/outbreaker2">outbreaker2</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/reproducibility">reproducibility</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/response">response</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/rmarkdown">rmarkdown</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/simulation">simulation</a>
+        </div>
+        
+      </div>
+    </div>
+    <div class="col-md-10">
+      <div class="entry-content">
+        <p>Beyond the availability of data and methods, reproducible science requires the traceability of analyses. Whether it is for yourself or for collaborators, as series of tools and good practices can facilitate your work flow, simplify analyses, and prevent the loss of data and results. This lecture provides an introduction to reproducibility using <img src="../../img/slides/Rlogo.png"
+width="20px">.</p>
+<div id="slides" class="section level1">
+<h1>Slides</h1>
+<p><strong>Click on the image below to access the slides:</strong></p>
+<center>
+<a href="../../slides/intro_reproducibility_Rmd/intro_reproducibility.html"><img src="../../img/highres/printing-press.jpg" width="50%" alt="click there for slides" align="middle"></a>
+</center>
+</div>
+<div id="related-packages" class="section level1">
+<h1>Related packages</h1>
+<div id="knitr" class="section level2">
+<h2><code>knitr</code></h2>
+<p><code>knitr</code> provides excellent resources for literate programming mixing <img src="../../img/slides/Rlogo.png" width="20px"> with <a href="https://en.wikipedia.org/wiki/LaTeX"><em>LaTeX</em></a> or <a href="https://en.wikipedia.org/wiki/Markdown"><em>markdown</em></a>.</p>
+<p>It is extensively documented at: <a href="https://yihui.name/knitr/" class="uri">https://yihui.name/knitr/</a></p>
+<p>To install the current stable, CRAN version of the package, type:</p>
+<pre class="r"><code>install.packages(&quot;knitr&quot;)</code></pre>
+<p>To benefit from the latest features and bug fixes, install the development version of the package using:</p>
+<pre class="r"><code>update.packages(ask = FALSE, repos = &#39;https://cran.rstudio.org&#39;)
+install.packages(&#39;knitr&#39;, repos = c(&#39;https://xran.yihui.name&#39;, &#39;https://cran.rstudio.org&#39;))</code></pre>
+</div>
+<div id="rmarkdown" class="section level2">
+<h2><code>rmarkdown</code></h2>
+<p><code>rmarkdown</code> extends the capabilities of <code>knitr</code> with a more diverse set of outputs generated from <code>Rmd</code> files, including pdf documents, article templates, pdf or html slides, or even web applications.</p>
+<p>More information on <code>rmarkdown</code> is available from: <a href="http://rmarkdown.rstudio.com/" class="uri">http://rmarkdown.rstudio.com/</a>.</p>
+<p>To install this package, type:</p>
+<pre class="r"><code>install.packages(&quot;rmarkdown&quot;)</code></pre>
+<p>For the devel version, type (uses <code>devtools</code>):</p>
+<pre class="r"><code>devtools::install_github(&quot;rstudio/rmarkdown&quot;)</code></pre>
+</div>
+<div id="lintr" class="section level2">
+<h2><code>lintr</code></h2>
+<p><code>lintr</code> will analyse your code and point out deviations from current good coding practices. It can be ran on a <code>.R</code> file, but also can be used to analyse code typed in real-time for a number of coding platforms including Rstudio, emacs and others.</p>
+<p>For more information on this package, go to: <a href="https://github.com/jimhester/lintr" class="uri">https://github.com/jimhester/lintr</a>.</p>
+<p>To install this package, type:</p>
+<pre class="r"><code>install.packages(&quot;lintr&quot;)</code></pre>
+</div>
+</div>
+<div id="about-this-document" class="section level1">
+<h1>About this document</h1>
+<div id="contributors" class="section level2">
+<h2>Contributors</h2>
+<ul>
+<li>Thibaut Jombart: initial version</li>
+</ul>
+<p>Contributions are welcome via <a href="https://github.com/reconhub/learn/pulls">pull requests</a>. The source files include:</p>
+<ul>
+<li><p><a href="https://raw.githubusercontent.com/reconhub/learn/master/static/slides/intro_reproducibility_Rmd/intro_reproducibility.Rmd"><strong>the slides</strong></a></p></li>
+<li><p><a href="https://raw.githubusercontent.com/reconhub/learn/master/content/post/2017-11-02-rmarkdown-intro.Rmd"><strong>this document</strong></a></p></li>
+</ul>
+</div>
+<div id="legal-stuff" class="section level2">
+<h2>Legal stuff</h2>
+<p><strong>License</strong>: <a href="https://creativecommons.org/licenses/by/3.0/">CC-BY</a> <strong>Copyright</strong>: Thibaut Jombart, 2017</p>
+</div>
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+  
+
+</div>
+
+          </div>
+        </div>
+        <div class="row site-footer">
+          <div class="col-md-12">
+            <div class="row">
+  <div class="col-md-12 footer-title">
+    <h2>
+      
+      <a href=""> RECON learn </a>
+      
+    </h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 footer-menu">
+      <a href="/">Home /</a>
+      
+      
+      <a href="/0">0 / </a>
+      
+      
+      
+      <a href="/1">1 / </a>
+      
+      
+      
+      <a href="/2">2 / </a>
+      
+      
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="social-media-block-footer">
+      
+      
+      
+      <a href="https://twitter.com/teebzr" data-animate-hover="pulse" class="external twitter">
+        <i class="fa fa-twitter"></i>
+      </a>
+      
+      
+      
+      <a href="mailto:thibautjombart@gmail.com" data-animate-hover="pulse" class="email">
+        <i class="fa fa-envelope"></i>
+      </a>
+      
+      
+      
+      
+      <a href="https://github.com/reconhub/learn" data-animate-hover="pulse">
+        <i class="fa fa-github"></i>
+      </a>
+      
+
+    </div>
+  </div>
+</div>
+<script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://reconlearn.netlify.com/js/jquery.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/bootstrap.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/jquery.cookie.js"> </script>
+<script src="https://reconlearn.netlify.com/js/ekko-lightbox.js"></script>
+<script src="https://reconlearn.netlify.com/js/jquery.scrollTo.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/masonry.pkgd.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/imagesloaded.pkgd.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/owl.carousel.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/front.js"></script>
+
+  </body>
+</html>

@@ -3,93 +3,121 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/contact/</loc>
+    <loc>https://reconlearn.netlify.com/post/simulated-evd-reconstruction/</loc>
+    <lastmod>2017-11-21T14:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reconlearn.netlify.com/contact/</loc>
     <lastmod>2017-11-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2017-11-01-practical-phylogenetics/</loc>
+    <loc>https://reconlearn.netlify.com/post/reproducibility/</loc>
+    <lastmod>2017-11-10T14:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reconlearn.netlify.com/post/rmarkdown-intro/</loc>
+    <lastmod>2017-11-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reconlearn.netlify.com/post/2017-11-01-practical-phylogenetics/</loc>
     <lastmod>2017-11-01T14:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/about/</loc>
+    <loc>https://reconlearn.netlify.com/about/</loc>
     <lastmod>2017-11-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/analysing-epicurves/</loc>
-    <lastmod>2017-10-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/about/</loc>
+    <loc>https://reconlearn.netlify.com/about/</loc>
     <lastmod>2017-11-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/</loc>
+    <loc>https://reconlearn.netlify.com/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/contact/</loc>
+    <loc>https://reconlearn.netlify.com/contact/</loc>
     <lastmod>2017-11-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/epicurves/</loc>
-    <lastmod>2017-10-31T00:00:00+00:00</lastmod>
+    <loc>https://reconlearn.netlify.com/tags/genetics/</loc>
+    <lastmod>2017-11-21T14:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/genetics/</loc>
-    <lastmod>2017-11-01T14:00:00+00:00</lastmod>
+    <loc>https://reconlearn.netlify.com/categories/lectures/</loc>
+    <lastmod>2017-11-10T14:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/incidence/</loc>
-    <lastmod>2017-10-31T00:00:00+00:00</lastmod>
+    <loc>https://reconlearn.netlify.com/tags/outbreaker2/</loc>
+    <lastmod>2017-11-21T14:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/phylogenetics/</loc>
-    <lastmod>2017-11-01T14:00:00+00:00</lastmod>
+    <loc>https://reconlearn.netlify.com/post/</loc>
+    <lastmod>2017-11-21T14:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/post/</loc>
-    <lastmod>2017-11-01T14:00:00+00:00</lastmod>
+    <loc>https://reconlearn.netlify.com/categories/practical/</loc>
+    <lastmod>2017-11-21T14:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/practicals/</loc>
-    <lastmod>2017-11-01T14:00:00+00:00</lastmod>
+    <loc>https://reconlearn.netlify.com/categories/practicals/</loc>
+    <lastmod>2017-11-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2017-11-11T00:00:00+00:00</lastmod>
+    <loc>https://reconlearn.netlify.com/</loc>
+    <lastmod>2017-11-21T14:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/rmarkdown/</loc>
-    <lastmod>2017-11-01T14:00:00+00:00</lastmod>
+    <loc>https://reconlearn.netlify.com/tags/reproducibility/</loc>
+    <lastmod>2017-11-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/</loc>
-    <lastmod>2017-10-31T00:00:00+00:00</lastmod>
+    <loc>https://reconlearn.netlify.com/tags/response/</loc>
+    <lastmod>2017-11-21T14:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://reconlearn.netlify.com/tags/rmarkdown/</loc>
+    <lastmod>2017-11-10T14:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://reconlearn.netlify.com/tags/simulation/</loc>
+    <lastmod>2017-11-21T14:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://reconlearn.netlify.com/tags/</loc>
+    <lastmod>2017-11-21T14:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

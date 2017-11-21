@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Case Study on RECON learn</title>
+    <link>/categories/case-study/</link>
+    <description>Recent content in Case Study on RECON learn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy;2017 Thibaut Jombart</copyright>
+    <lastBuildDate>Tue, 21 Nov 2017 14:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/case-study/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Reconstructing a simulated Ebola outbreak</title>
+      <link>/post/simulated-evd-reconstruction/</link>
+      <pubDate>Tue, 21 Nov 2017 14:00:00 +0000</pubDate>
+      
+      <guid>/post/simulated-evd-reconstruction/</guid>
+      <description>This case study simulates the early assessment and reconstruction of an Ebola Virus Disease (EVD) outbreak. It covers various aspects of analysis of the early stage of an outbreak, and provides an introduction to transmission chain reconstruction using outbreaker2.
+
+Installing required packages The following packages, available on CRAN, are needed for this case study:
+ xlsx to read .xlsx files incidence for epicurves epicontacts for contact data visualisation  To install these packages, use install.</description>
+    </item>
+    
+  </channel>
+</rss>
