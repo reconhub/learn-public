@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://reconlearn.netlify.com/post/simulated-evd-reconstruction/</loc>
+    <loc>https://reconlearn.netlify.com/post/simulated-evd-early/</loc>
     <lastmod>2017-11-21T14:00:00+00:00</lastmod>
   </url>
   
@@ -45,8 +45,14 @@
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/tags/genetics/</loc>
+    <loc>https://reconlearn.netlify.com/tags/ebola/</loc>
     <lastmod>2017-11-21T14:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://reconlearn.netlify.com/tags/genetics/</loc>
+    <lastmod>2017-11-01T14:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -57,26 +63,14 @@
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/tags/outbreaker2/</loc>
-    <lastmod>2017-11-21T14:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://reconlearn.netlify.com/post/</loc>
     <lastmod>2017-11-21T14:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/categories/practical/</loc>
-    <lastmod>2017-11-21T14:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://reconlearn.netlify.com/categories/practicals/</loc>
-    <lastmod>2017-11-01T14:00:00+00:00</lastmod>
+    <lastmod>2017-11-21T14:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
