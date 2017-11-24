@@ -182,34 +182,34 @@
 
 <p>This practical simulates the early assessment and reconstruction of an Ebola Virus Disease (EVD) outbreak. It covers various aspects of analysis of the early stage of an outbreak, including contact tracing data, epicurves, growth rate estimation from log-linear models, and more refined estimates of transmissibility. A follow-up practical will provide an introduction to transmission chain reconstruction using <em>outbreaker2</em>.</p>
 <p><br></p>
-<div id="installing-required-packages" class="section level1">
-<h1>Installing required packages</h1>
+<div id="a-novel-evd-outbreak-in-ankh-republic-of-morporkia" class="section level1">
+<h1>A novel EVD outbreak in Ankh, Republic of Morporkia</h1>
+<p>A new EVD outbreak has been notified in the small city of Ankh, located in the Northern, rural district of the Republic of Morporkia. Public Health Morporkia (PHM) is in charge of coordinating the outbreak response, and have contracted you as a consultant in epidemics analysis to inform the response in real time.</p>
+<div id="required-packages" class="section level2">
+<h2>Required packages</h2>
 <p>The following packages, available on CRAN, are needed for this case study:</p>
 <ul>
 <li><a href="http://www.repidemicsconsortium.org/incidence/"><code>xlsx</code></a> to read <code>.xlsx</code> files</li>
 <li><a href="http://www.repidemicsconsortium.org/incidence/"><code>incidence</code></a> for epicurves</li>
 <li><a href="http://www.repidemicsconsortium.org/epicontacts/"><code>epicontacts</code></a> for contact data visualisation</li>
+<li><a href="http://www.repidemicsconsortium.org/distcrete"><code>distcrete</code></a> to obtain discrete time delay distributions</li>
 </ul>
 <p>To install these packages, use <code>install.packages</code>, e.g.:</p>
 <pre class="r"><code>install.packages(&quot;xlsx&quot;)
 install.packages(&quot;incidence&quot;)
-install.packages(&quot;epicontacts&quot;)</code></pre>
+install.packages(&quot;epicontacts&quot;)
+install.packages(&quot;distcrete&quot;)</code></pre>
 <p>We will also use several packages currently under development, hosted on <em>github</em>. These include:</p>
 <ul>
-<li><a href="http://www.repidemicsconsortium.org/distcrete"><code>distcrete</code></a> to obtain discrete time delay distributions</li>
 <li><a href="http://www.repidemicsconsortium.org/epitrix"><code>epitrix</code></a> for some practical tricks</li>
 <li><a href="http://www.repidemicsconsortium.org/earlyR"><code>earlyR</code></a> to estimate <span class="math inline">\(R_0\)</span></li>
 <li><a href="http://www.repidemicsconsortium.org/projections"><code>projections</code></a> to derive short term incidence predictions</li>
 </ul>
 <p>To install these, you will need a working version of <code>devtools</code>, and the toolchain for package building on your system. On windows, you will likely need to install <a href="https://cran.r-project.org/bin/windows/Rtools/"><em>Rtools</em></a>.</p>
-<pre class="r"><code>devtools::install_github(&quot;reconhub/distcrete&quot;)
-devtools::install_github(&quot;reconhub/epitrix&quot;)
+<pre class="r"><code>devtools::install_github(&quot;reconhub/epitrix&quot;)
 devtools::install_github(&quot;reconhub/earlyR&quot;)
 devtools::install_github(&quot;reconhub/projections&quot;)</code></pre>
 </div>
-<div id="a-novel-evd-outbreak-in-ankh-republic-of-morporkia" class="section level1">
-<h1>A novel EVD outbreak in Ankh, Republic of Morporkia</h1>
-<p>A new EVD outbreak has been notified in the small city of Ankh, located in the Northern, rural district of the Republic of Morporkia. Public Health Morporkia (PHM) is in charge of coordinating the outbreak response, and have contracted you as a consultant in epidemics analysis to inform the response in real time.</p>
 <div id="early-data" class="section level2">
 <h2>Early data</h2>
 <p>While a new data update is pending, you have been given the following linelist and contact data, from the early stages of the outbreak:</p>
@@ -252,6 +252,9 @@ contacts
 ## 10 39e9dc 664549
 ## 11 39e9dc 605322</code></pre>
 </div>
+</div>
+<div id="descriptive-analyses" class="section level1">
+<h1>Descriptive analyses</h1>
 <div id="a-first-look-at-contacts" class="section level2">
 <h2>A first look at contacts</h2>
 <p>Contact tracing is at the centre of an Ebola outbreak response. Using the function <code>make_epicontacts</code> in the <code>epicontacts</code> package, create a new <code>epicontacts</code> object called <code>x</code>. The result should look like:</p>
@@ -333,6 +336,12 @@ i
 ## $timespan: 18 days
 plot(i)</code></pre>
 <p><img src="/post/2017-11-21-sim-ebola-response-early_files/figure-html/incidence_rectif-1.png" width="672" /></p>
+</div>
+</div>
+<div id="simple-statistical-analyses" class="section level1">
+<h1>Simple statistical analyses</h1>
+<div id="log-linear-model" class="section level2">
+<h2>Log-linear model</h2>
 <p>The simplest model of incidence is probably the log-linear model, i.e. a linear regression on log-transformed incidences. In the <code>incidence</code> package, the function <code>fit</code> will estimate the parameters of this model from an incidence object (here, <code>i</code>). Apply it to the data and store the result in a new object called <code>f</code>. You can print <code>f</code> to derive estimates of the growth rate <span class="math inline">\(r\)</span> and the doubling time, and add the corresponding model to the incidence plot:</p>
 <pre class="r"><code>f &lt;- fit(i)
 ## Warning in fit(i): 10 dates with incidence of 0 ignored for fitting
@@ -362,8 +371,8 @@ plot(i, fit = f)</code></pre>
 <p><strong>How would you interpret this result? What criticism would you make on this model?</strong></p>
 <p>As an aid for interpretation, you are reminded of previous observations of the serial interval distribution, estimated during the West African EVD outbreak (WHO Ebola Response Team (2014) NEJM 371:1481–1495) with a mean of 15.3 days and a standard deviation 9.3 days.</p>
 </div>
-<div id="estimating-r" class="section level2">
-<h2>Estimating <span class="math inline">\(R\)</span></h2>
+<div id="estimation-of-transmissibility-r" class="section level2">
+<h2>Estimation of transmissibility (<span class="math inline">\(R\)</span>)</h2>
 <p>The transmissibility of the disease can be assessed through the estimation of the reproduction number <span class="math inline">\(R\)</span>, defined as the number of expected secondary cases per infected case. In the early stages of an outbreak, and assuming no immunity in the population, this quantity is also the basic reproduction number <span class="math inline">\(R_0\)</span>, i.e. <span class="math inline">\(R\)</span> in a fully susceptible population.</p>
 <p><br></p>
 <p>The package <code>earlyR</code> implements a simple maximum-likelihood estimation of <span class="math inline">\(R\)</span>, using dates of onset of symptoms and information on the serial interval distribution. It is a simpler but less flexible version of the model by Cori et al (2013, AJE 178: 1505–1512) implemented in <a href="https://cran.r-project.org/web/packages/EpiEstim/index.html"><code>EpiEstim</code></a>.</p>
