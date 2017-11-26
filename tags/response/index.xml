@@ -7,13 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2017 Thibaut Jombart</copyright>
-    <lastBuildDate>Wed, 22 Nov 2017 14:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 26 Nov 2017 14:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://reconlearn.netlify.com/tags/response/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Ebola simulation: outbreak reconstruction</title>
+      <title>A primer on statistical outbreak analysis</title>
+      <link>https://reconlearn.netlify.com/post/outbreakstatsprimer/</link>
+      <pubDate>Sun, 26 Nov 2017 14:00:00 +0000</pubDate>
+      
+      <guid>https://reconlearn.netlify.com/post/outbreakstatsprimer/</guid>
+      <description>This short lecture gives a primer on some methodological aspects of outbreak analysis. This is by no means a comprehensive presentation of available statistical approaches for epidemics analysis.
+Slides Click on the image below to access the slides:
+    About this document Contributors  Thibaut Jombart: initial version
+ Finlay Campbell: figure on outbreaker2’s contact model
+  Contributions are welcome via pull requests. The source file can be found here.</description>
+    </item>
+    
+    <item>
+      <title>Ebola simulation part 2: outbreak reconstruction</title>
       <link>https://reconlearn.netlify.com/post/simulated-evd-reconstruction/</link>
       <pubDate>Wed, 22 Nov 2017 14:00:00 +0000</pubDate>
       
@@ -24,12 +37,12 @@ An update on the EVD outbreak in Ankh, Republic of Morporkia After some rather c
     </item>
     
     <item>
-      <title>Ebola simulation: early outbreak assessment</title>
+      <title>Ebola simulation part 1: early outbreak assessment</title>
       <link>https://reconlearn.netlify.com/post/simulated-evd-early/</link>
       <pubDate>Tue, 21 Nov 2017 14:00:00 +0000</pubDate>
       
       <guid>https://reconlearn.netlify.com/post/simulated-evd-early/</guid>
-      <description>This practical simulates the early assessment and reconstruction of an Ebola Virus Disease (EVD) outbreak. It covers various aspects of analysis of the early stage of an outbreak, including contact tracing data, epicurves, growth rate estimation from log-linear models, and more refined estimates of transmissibility. A follow-up practical will provide an introduction to transmission chain reconstruction using outbreaker2.
+      <description>This practical simulates the early assessment and reconstruction of an Ebola Virus Disease (EVD) outbreak. It introduces various aspects of analysis of the early stage of an outbreak, including contact tracing data, epicurves, growth rate estimation from log-linear models, and more refined estimates of transmissibility. A follow-up practical will provide an introduction to transmission chain reconstruction using outbreaker2.
 
 A novel EVD outbreak in Ankh, Republic of Morporkia A new EVD outbreak has been notified in the small city of Ankh, located in the Northern, rural district of the Republic of Morporkia.</description>
     </item>

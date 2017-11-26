@@ -3,7 +3,7 @@
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
- <title>Ebola simulation: early outbreak assessment</title>
+ <title>Ebola simulation part 1: early outbreak assessment</title>
 
 
 
@@ -25,7 +25,8 @@
 
 
 
-<link rel="stylesheet" href="https://reconlearn.netlify.com/css/recon.css" rel="stylesheet" id="theme-stylesheet">
+
+<link rel="stylesheet" href="https://reconlearn.netlify.com/css/recon.css">
 <script src="https://reconlearn.netlify.com/js/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 </head>
@@ -39,7 +40,7 @@
                 <div class="row">
   <div class="col-sm-6">
     <div class="categories-block">
-      <a href="" class="track-categories">//</a>
+      <a href="/" class="track-categories">Home</a>
       
       <a href="/categories/lectures">lectures</a>
       
@@ -80,34 +81,41 @@
             </div>
             <div class="row">
               <div class="col-md-10 header col-md-offset-1">
-                <div class="row">
-  <div class="col-md-6">
-    <div class="title-info">
-      
-      <a href=""> RECON learn </a>
-      
-    </div>
-  </div>
-  <div class="col-md-6">
-    <div class="menu">
-      <a href="/">Home /</a>
-      
-      
-      <a href="/0">0 / </a>
-      
-      
-      
-      <a href="/1">1 / </a>
-      
-      
-      
-      <a href="/2">2 / </a>
-      
-      
-    </div>
-  </div>
+                
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
-</div>
+
 
 
               </div>
@@ -129,7 +137,7 @@
   <div class="row">
     <div class="col-md-12">
       <div class="entry-header">
-       Ebola simulation: early outbreak assessment
+       Ebola simulation part 1: early outbreak assessment
       </div>
     </div>
   </div>
@@ -154,11 +162,19 @@
         </div>
         
         <div class="entry-tags">
+          <a href="/tags/epicurve">epicurve</a>
+        </div>
+        
+        <div class="entry-tags">
           <a href="/tags/genetics">genetics</a>
         </div>
         
         <div class="entry-tags">
           <a href="/tags/outbreaker2">outbreaker2</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/reproduction-number">reproduction-number</a>
         </div>
         
         <div class="entry-tags">
@@ -184,7 +200,7 @@
 <link href="/rmarkdown-libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 
 
-<p>This practical simulates the early assessment and reconstruction of an Ebola Virus Disease (EVD) outbreak. It covers various aspects of analysis of the early stage of an outbreak, including contact tracing data, epicurves, growth rate estimation from log-linear models, and more refined estimates of transmissibility. A follow-up practical will provide an introduction to transmission chain reconstruction using <em>outbreaker2</em>.</p>
+<p>This practical simulates the early assessment and reconstruction of an Ebola Virus Disease (EVD) outbreak. It introduces various aspects of analysis of the early stage of an outbreak, including contact tracing data, epicurves, growth rate estimation from log-linear models, and more refined estimates of transmissibility. A follow-up practical will provide an introduction to transmission chain reconstruction using <em>outbreaker2</em>.</p>
 <p><br></p>
 <div id="a-novel-evd-outbreak-in-ankh-republic-of-morporkia" class="section level1">
 <h1>A novel EVD outbreak in Ankh, Republic of Morporkia</h1>
@@ -196,7 +212,7 @@
 <li><a href="http://www.repidemicsconsortium.org/incidence/"><code>xlsx</code></a> to read <code>.xlsx</code> files</li>
 <li><a href="http://www.repidemicsconsortium.org/incidence/"><code>incidence</code></a> for epicurves</li>
 <li><a href="http://www.repidemicsconsortium.org/epicontacts/"><code>epicontacts</code></a> for contact data visualisation</li>
-<li><a href="http://www.repidemicsconsortium.org/distcrete"><code>distcrete</code></a> to obtain discrete time delay distributions</li>
+<li><a href="http://www.repidemicsconsortium.org/distcrete"><code>distcrete</code></a> to obtain discretised delay distributions</li>
 </ul>
 <p>To install these packages, use <code>install.packages</code>, e.g.:</p>
 <pre class="r"><code>install.packages(&quot;xlsx&quot;)
@@ -218,8 +234,8 @@ devtools::install_github(&quot;reconhub/projections&quot;)</code></pre>
 <h2>Early data</h2>
 <p>While a new data update is pending, you have been given the following linelist and contact data, from the early stages of the outbreak:</p>
 <ul>
-<li><p><a href="../../data/PHM-EVD-linelist-2017-10-27.xlsx"><strong>PHM-EVD-linelist-2017-10-27.xlsx</strong></a>: a linelist containing case information up to the 27th October 2017</p></li>
-<li><p><a href="../../data/PHM-EVD-contacts-2017-10-27.xlsx"><strong>PHM-EVD-contacts-2017-10-27.xlsx</strong></a>: a list of contacts reported between cases up to the 27th October 2017, where <code>from</code> indicates a potential source of infection, and <code>to</code> the recipient of the contact.</p></li>
+<li><p><a href="../../data/PHM-EVD-linelist-2017-10-27.xlsx">PHM-EVD-linelist-2017-10-27.xlsx</a>: a linelist containing case information up to the 27th October 2017</p></li>
+<li><p><a href="../../data/PHM-EVD-contacts-2017-10-27.xlsx">PHM-EVD-contacts-2017-10-27.xlsx</a>: a list of contacts reported between cases up to the 27th October 2017, where <code>from</code> indicates a potential source of infection, and <code>to</code> the recipient of the contact.</p></li>
 </ul>
 <p>To read into R, download these files and use the function <code>read.xlsx()</code> from the <code>xlsx</code> package to import the data. Each import will create a <code>data.frame</code>. Call the first one <code>linelist</code>, and the second one <code>contacts</code>. For instance, you first command line could look like:</p>
 <pre class="r"><code>linelist &lt;- xlsx::read.xlsx(&quot;PHM-EVD-linelist-2017-10-27.xlsx&quot;, sheetIndex = 1)</code></pre>
@@ -307,7 +323,7 @@ contacts
 <pre class="r"><code>plot(x, node_shape = &quot;sex&quot;, shapes = c(male = &quot;male&quot;, female = &quot;female&quot;), selector = FALSE)</code></pre>
 <div id="htmlwidget-1" style="width:90%;height:700px;" class="visNetwork html-widget"></div>
 <script type="application/json" data-for="htmlwidget-1">{"x":{"nodes":{"id":["185911","39e9dc","51883d","601d2e","605322","664549","947e40","9aa197","af0ac0","b4d8aa","e399b1","e4b0a2"],"onset":["2017-10-21","2017-10-10","2017-10-18","2017-10-22","2017-10-22","2017-10-16","2017-10-20","2017-10-20","2017-10-21","2017-10-17","2017-10-23","2017-10-21"],"sex":["female","female","male","male","female","male","female","female","male","male","female","female"],"age":[34,62,57,11,23,28,23,66,10,54,23,13],"label":["185911","39e9dc","51883d","601d2e","605322","664549","947e40","9aa197","af0ac0","b4d8aa","e399b1","e4b0a2"],"title":["<p> id: 185911<br>onset: 2017-10-21<br>sex: female<br>age: 34 <\/p>","<p> id: 39e9dc<br>onset: 2017-10-10<br>sex: female<br>age: 62 <\/p>","<p> id: 51883d<br>onset: 2017-10-18<br>sex: male<br>age: 57 <\/p>","<p> id: 601d2e<br>onset: 2017-10-22<br>sex: male<br>age: 11 <\/p>","<p> id: 605322<br>onset: 2017-10-22<br>sex: female<br>age: 23 <\/p>","<p> id: 664549<br>onset: 2017-10-16<br>sex: male<br>age: 28 <\/p>","<p> id: 947e40<br>onset: 2017-10-20<br>sex: female<br>age: 23 <\/p>","<p> id: 9aa197<br>onset: 2017-10-20<br>sex: female<br>age: 66 <\/p>","<p> id: af0ac0<br>onset: 2017-10-21<br>sex: male<br>age: 10 <\/p>","<p> id: b4d8aa<br>onset: 2017-10-17<br>sex: male<br>age: 54 <\/p>","<p> id: e399b1<br>onset: 2017-10-23<br>sex: female<br>age: 23 <\/p>","<p> id: e4b0a2<br>onset: 2017-10-21<br>sex: female<br>age: 13 <\/p>"],"icon.color":["#CCDDFF","#88D3B6","#CEBEAE","#D5ACB9","#BCAE8C","#FFC70B","#FFA374","#D9E492","#D6CAAD","#EAAFB1","#F5CCA2","#CDCDCD"],"group.color":["#CCDDFF","#88D3B6","#CEBEAE","#D5ACB9","#BCAE8C","#FFC70B","#FFA374","#D9E492","#D6CAAD","#EAAFB1","#F5CCA2","#CDCDCD"],"shape":["icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon"],"icon.code":["f182","f182","f183","f183","f182","f183","f182","f182","f183","f183","f182","f182"]},"edges":{"from":["51883d","b4d8aa","39e9dc","39e9dc","51883d","39e9dc","39e9dc","b4d8aa","39e9dc","39e9dc","39e9dc"],"to":["185911","e4b0a2","b4d8aa","601d2e","9aa197","51883d","e399b1","af0ac0","947e40","664549","605322"],"width":[3,3,3,3,3,3,3,3,3,3,3],"arrows":["to","to","to","to","to","to","to","to","to","to","to"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"physics":{"stabilization":false}},"groups":["#CCDDFF","#88D3B6","#CEBEAE","#D5ACB9","#BCAE8C","#FFC70B","#FFA374","#D9E492","#D6CAAD","#EAAFB1","#F5CCA2","#CDCDCD"],"width":"90%","height":"700px","idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)"},"main":null,"submain":null,"footer":null,"legend":{"width":0.2,"useGroups":false,"position":"left","ncol":1,"stepX":100,"stepY":100},"highlight":{"enabled":true,"hoverNearest":false,"degree":1,"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null},"iconsRedraw":true},"evals":[],"jsHooks":[]}</script>
-<p><strong>What can you say about these contacts?</strong></p>
+<p><font class="question">What can you say about these contacts?</font></p>
 </div>
 <div id="looking-at-incidence-curves" class="section level2">
 <h2>Looking at incidence curves</h2>
@@ -372,7 +388,7 @@ f
 ##   $pred: data.frame of incidence predictions (8 rows, 5 columns)
 plot(i, fit = f)</code></pre>
 <p><img src="/post/2017-11-21-sim-ebola-response-early_files/figure-html/fit-1.png" width="672" /></p>
-<p><strong>How would you interpret this result? What criticism would you make on this model?</strong></p>
+<p><font class="question">How would you interpret this result?What criticism would you make on this model?</font></p>
 <p>As an aid for interpretation, you are reminded of previous observations of the serial interval distribution, estimated during the West African EVD outbreak (WHO Ebola Response Team (2014) NEJM 371:1481–1495) with a mean of 15.3 days and a standard deviation 9.3 days.</p>
 </div>
 <div id="estimation-of-transmissibility-r" class="section level2">
@@ -425,11 +441,25 @@ plot(R)</code></pre>
 abline(v = linelist$onset, lty = 2)</code></pre>
 <p><img src="/post/2017-11-21-sim-ebola-response-early_files/figure-html/plot-r-2.png" width="672" /></p>
 <p>The first figure shows the distribution of likely values of <em>R</em>, and the Maximum-Likelihood (ML) estimation. The second figure shows the global force of infection over time, with dashed bars indicating dates of onset of the cases.</p>
-<p><strong>Interpret these results: what do you make of the reproduction number? What does it reflect? Based on the last part of the epicurve, some colleagues suggest that incidence is going down and the outbreak may be under control. What is your opinion on this?</strong></p>
+<p><font class="question">Interpret these results: what do you make of the reproduction number?What does it reflect? Based on the last part of the epicurve, some colleagues suggest that incidence is going down and the outbreak may be under control. What is your opinion on this?</font></p>
 </div>
 <div id="follow-up" class="section level2">
 <h2>Follow-up…</h2>
-<p>For a follow-up on this outbreak, have a look at the <a href="../simulated-evd-reconstruction"><strong>second part</strong></a> of this simulated response, which includes a data update, genetic sequences, and the use of outbreak reconstruction tools.</p>
+<p>For a follow-up on this outbreak, have a look at the <a href="../simulated-evd-reconstruction">second part</a> of this simulated response, which includes a data update, genetic sequences, and the use of outbreak reconstruction tools.</p>
+</div>
+</div>
+<div id="about-this-document" class="section level1">
+<h1>About this document</h1>
+<div id="contributors" class="section level2">
+<h2>Contributors</h2>
+<ul>
+<li>Thibaut Jombart: initial version</li>
+</ul>
+<p>Contributions are welcome via <a href="https://github.com/reconhub/learn/pulls">pull requests</a>. The source file is hosted on <a href="https://github.com/reconhub/learn/blob/master/content/post/2017-11-21-sim-ebola-response-early.Rmd">github</a>.</p>
+</div>
+<div id="legal-stuff" class="section level2">
+<h2>Legal stuff</h2>
+<p><strong>License</strong>: <a href="https://creativecommons.org/licenses/by/3.0/">CC-BY</a> <strong>Copyright</strong>: Thibaut Jombart, 2017</p>
 </div>
 </div>
 
@@ -448,62 +478,67 @@ abline(v = linelist$onset, lty = 2)</code></pre>
           <div class="col-md-12">
             <div class="row">
   <div class="col-md-12 footer-title">
-    <h2>
+    <h3 style="color:black">Powered by</h3>
+    <a href="http://www.repidemicsconsortium.org/"><img src="/img/logo/recon.png" width="150px"></a>
       
-      <a href=""> RECON learn </a>
       
-    </h2>
+      
+      
+      
   </div>
 </div>
-<div class="row">
-  <div class="col-md-12 footer-menu">
-      <a href="/">Home /</a>
-      
-      
-      <a href="/0">0 / </a>
-      
-      
-      
-      <a href="/1">1 / </a>
-      
-      
-      
-      <a href="/2">2 / </a>
-      
-      
 
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-12">
-    <div class="social-media-block-footer">
-      
-      
-      
-      <a href="https://twitter.com/teebzr" data-animate-hover="pulse" class="external twitter">
-        <i class="fa fa-twitter"></i>
-      </a>
-      
-      
-      
-      <a href="mailto:thibautjombart@gmail.com" data-animate-hover="pulse" class="email">
-        <i class="fa fa-envelope"></i>
-      </a>
-      
-      
-      
-      
-      <a href="https://github.com/reconhub/learn" data-animate-hover="pulse">
-        <i class="fa fa-github"></i>
-      </a>
-      
 
-    </div>
-  </div>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script src="//yihui.name/js/math-code.js"></script>
 <script async
-src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+	src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 
           </div>
