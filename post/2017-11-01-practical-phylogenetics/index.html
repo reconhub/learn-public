@@ -220,23 +220,8 @@ library(phangorn)</code></pre>
 </div>
 <div id="the-data" class="section level2">
 <h2>The data</h2>
-<p>The data used in this practical are DNA sequences of seasonal influenza (H3N2) downloaded from Genbank <a href="http://www.ncbi.nlm.nih.gov/genbank/" class="uri">http://www.ncbi.nlm.nih.gov/genbank/</a>. Alignments have been realized beforehand using standard tools (Clustalw2 for basic alignment and Jalview for refining the results). We selected 80 isolates genotyped for the hemagglutinin (HA) segment sampled in the US from 1993 to 2008. The dataset consists of two files: i) <code>usflu.fasta</code>, a file containing aligned DNA sequences and ii) <code>usflu.annot.csv</code>, a comma-separated file containing useful annotations of the sequences. Both files are available online from the <a href="https://github.com/reconhub/phylo-practical"><em>github page</em></a>.</p>
-<p>We first download these files and store them in a <code>data</code> folder; note that <code>paste0</code> is only used here so that you can see the entire path name in the document:</p>
-<pre class="r"><code>if (!dir.exists(&quot;data&quot;)) dir.create(&quot;data&quot;)
-
-## get annotations
-annot.url &lt;- paste0(&quot;https://raw.githubusercontent.com/reconhub/&quot;,
-                   &quot;phylo-practical/master/data/usflu.annot.csv&quot;)
-
-download.file(annot.url, destfile = &quot;data/usflu.annot.csv&quot;, method = &quot;curl&quot;)
-
-## get DNA sequences
-dna.url &lt;- paste0(&quot;https://raw.githubusercontent.com/reconhub/&quot;,
-                   &quot;phylo-practical/master/data/usflu.fasta&quot;)
-
-download.file(dna.url, destfile = &quot;data/usflu.fasta&quot;, method = &quot;curl&quot;)
-</code></pre>
-<p>To read the DNA sequences into R, we use <code>fasta2DNAbin</code> from the <em>adegenet</em> package:</p>
+<p>The data used in this practical are DNA sequences of seasonal influenza (H3N2) downloaded from Genbank <a href="http://www.ncbi.nlm.nih.gov/genbank/" class="uri">http://www.ncbi.nlm.nih.gov/genbank/</a>. Alignments have been realized beforehand using standard tools (Clustalw2 for basic alignment and Jalview for refining the results). We selected 80 isolates genotyped for the hemagglutinin (HA) segment sampled in the US from 1993 to 2008. The dataset consists of two files: i) <a href="../../data/usflu.fasta"><code>usflu.fasta</code></a>, a file containing aligned DNA sequences and ii) <a href="../../data/usflu.annot.csv"><code>usflu.annot.csv</code></a>, a comma-separated file containing useful annotations of the sequences.</p>
+<p>First download these files (right-click <span class="math inline">\(\rightarrow\)</span> <em>Save Link As…</em>) and store them in a folder <code>data/</code> in your working directory. To read the DNA sequences into R, we use <code>fasta2DNAbin</code> from the <em>adegenet</em> package:</p>
 <pre class="r"><code>dna &lt;- fasta2DNAbin(file = &quot;data/usflu.fasta&quot;)
 dna
 class(dna)</code></pre>
