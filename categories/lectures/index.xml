@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2017 Thibaut Jombart</copyright>
-    <lastBuildDate>Wed, 13 Dec 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 15 Dec 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://reconlearn.netlify.com/categories/lectures/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Introduction to phylogenetics</title>
+      <link>https://reconlearn.netlify.com/post/lecture-phylogenetics/</link>
+      <pubDate>Fri, 15 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://reconlearn.netlify.com/post/lecture-phylogenetics/</guid>
+      <description>This lecture introduces general concepts pertaining to phylogenetic tree reconstruction, as well as the main approaches used for building trees, including distance-based, maximum parsimony, and maximum likelihood methods. It also discusses phylogenetic uncertainty, bootstrap, and some caveats and bad practices.
+Slides Click on the image below to access the slides:
+    About this document Contributors  Thibaut Jombart: initial version  Contributions are welcome via pull requests. The source files of this lecture can be found here.</description>
+    </item>
     
     <item>
       <title>Basic Concepts on Vector Borne Disease Modelling</title>
