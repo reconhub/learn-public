@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+ <title>Outbreak investigation using outbreaker2</title>
+
+
+
+<meta name="description" content="RECON&#39;s teaching platform">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+
+<link rel="stylesheet" href="https://reconlearn.netlify.com/css/bootstrap.min.css">
+<link rel="stylesheet" id="ct-tracks-google-fonts-css" href="//fonts.googleapis.com/css?family=Raleway%3A400%2C700&amp;subset=latin%2Clatin-ext&amp;ver=4.7.2" type="text/css" media="all">
+<link rel="stylesheet" href="https://reconlearn.netlify.com/css/font-awesome.min.css">
+
+<link href="https://reconlearn.netlify.com/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+<link href="https://reconlearn.netlify.com/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="https://reconlearn.netlify.com/img/favicon.png">
+
+
+
+
+<link rel="stylesheet" href="https://reconlearn.netlify.com/css/recon.css">
+<script src="https://reconlearn.netlify.com/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+  <body>
+    <div id="root">
+      <div class="container-fluid">
+        <div class="row site-header">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12 top-navigation">
+                <div class="row">
+  <div class="col-sm-6">
+    <div class="categories-block">
+      <a href="/" class="track-categories">Home</a>
+      
+      <a href="/categories/lectures">lectures</a>
+      
+      <a href="/categories/practicals">practicals</a>
+      
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="social-media-block">
+
+      
+      
+      
+      <a href="https://twitter.com/teebzr" data-animate-hover="pulse" class="external twitter">
+        <i class="fa fa-twitter"></i>
+      </a>
+      
+      
+      
+      <a href="mailto:thibautjombart@gmail.com" data-animate-hover="pulse" class="email">
+        <i class="fa fa-envelope"></i>
+      </a>
+      
+      
+      
+      
+      <a href="https://github.com/reconhub/learn" data-animate-hover="pulse">
+        <i class="fa fa-github"></i>
+      </a>
+      
+
+    </div>
+  </div>
+</div>
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-10 header col-md-offset-1">
+                
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10 main-content col-md-offset-1">
+            
+
+<div class="col-md-12 entry">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="entry-meta">
+        December 13
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="entry-header">
+       Outbreak investigation using outbreaker2
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <div class="entry-sidebar">
+        <div class="entry-sidebar-title">CATEGORIES</div>
+        
+        <div class="entry-categories">
+          <a href="/categories/lectures">lectures</a>
+        </div>
+        
+        <div class="entry-categories">
+          <a href="/categories/practicals">practicals</a>
+        </div>
+        
+
+        <div class="entry-sidebar-title">Tags</div>
+        
+        <div class="entry-tags">
+          <a href="/tags/chagas">chagas</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/compartmental-models">compartmental-models</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/delays">delays</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/ebola">ebola</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/epicurve">epicurve</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/forecasting">forecasting</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/genetics">genetics</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/malaria">malaria</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/modelling">modelling</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/outbreaker2">outbreaker2</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/public-health">public-health</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/reconstruction">reconstruction</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/reproduction-number">reproduction-number</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/response">response</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/rmarkdown">rmarkdown</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/simulation">simulation</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/vdb">vdb</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/zika">zika</a>
+        </div>
+        
+      </div>
+    </div>
+    <div class="col-md-10">
+      <div class="entry-content">
+        <p>This short lecture gives a primer on some methodological aspects of outbreak reconstruction using <a href="http://www.repidemicsconsortium.org/outbreaker2"><em>outbreaker2</em></a>.</p>
+<div id="slides" class="section level1">
+<h1>Slides</h1>
+<p><strong>Click on the image below to access the slides:</strong></p>
+<center>
+<a href="../../slides/outbreaker2/outbreaker2.html"><img class="gateway" src="../../img/highres/investigation.jpg" width="50%" alt="click there for slides" align="middle"></a>
+</center>
+</div>
+<div id="about-this-document" class="section level1">
+<h1>About this document</h1>
+<div id="contributors" class="section level2">
+<h2>Contributors</h2>
+<ul>
+<li><p>Thibaut Jombart: initial version</p></li>
+<li><p>Finlay Campbell: figure on <em>outbreaker2</em>’s contact model</p></li>
+</ul>
+<p>Contributions are welcome via <a href="https://github.com/reconhub/learn/pulls">pull requests</a>. The source file can be found <a href="https://github.com/reconhub/learn/blob/master/static/slides/outbreaker2/outbreaker2.Rmd">here</a>.</p>
+</div>
+<div id="legal-stuff" class="section level2">
+<h2>Legal stuff</h2>
+<p><strong>License</strong>: <a href="https://creativecommons.org/licenses/by/3.0/">CC-BY</a> <strong>Copyright</strong>: Thibaut Jombart, 2017</p>
+</div>
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+  
+
+</div>
+
+          </div>
+        </div>
+        <div class="row site-footer">
+          <div class="col-md-12">
+            <div class="row">
+  <div class="col-md-12 footer-title">
+    <h3 style="color:black">Powered by</h3>
+    <a href="http://www.repidemicsconsortium.org/"><img src="/img/logo/recon.png" width="150px"></a>
+      
+      
+      
+      
+      
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async
+	src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://reconlearn.netlify.com/js/jquery.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/bootstrap.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/jquery.cookie.js"> </script>
+<script src="https://reconlearn.netlify.com/js/ekko-lightbox.js"></script>
+<script src="https://reconlearn.netlify.com/js/jquery.scrollTo.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/masonry.pkgd.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/imagesloaded.pkgd.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/owl.carousel.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/front.js"></script>
+
+  </body>
+</html>
