@@ -6,7 +6,6 @@
     <description>Recent content in Tags on RECON learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy;2017 Thibaut Jombart</copyright>
     <lastBuildDate>Wed, 13 Dec 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://reconlearn.netlify.com/tags/index.xml" rel="self" type="application/rss+xml" />
@@ -33,7 +32,7 @@
     <item>
       <title>Delays</title>
       <link>https://reconlearn.netlify.com/tags/delays/</link>
-      <pubDate>Sat, 09 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
       
       <guid>https://reconlearn.netlify.com/tags/delays/</guid>
       <description></description>
@@ -51,7 +50,7 @@
     <item>
       <title>Epicurve</title>
       <link>https://reconlearn.netlify.com/tags/epicurve/</link>
-      <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
       
       <guid>https://reconlearn.netlify.com/tags/epicurve/</guid>
       <description></description>
@@ -60,7 +59,7 @@
     <item>
       <title>Forecasting</title>
       <link>https://reconlearn.netlify.com/tags/forecasting/</link>
-      <pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
       
       <guid>https://reconlearn.netlify.com/tags/forecasting/</guid>
       <description></description>
@@ -123,7 +122,7 @@
     <item>
       <title>Reproduction Number</title>
       <link>https://reconlearn.netlify.com/tags/reproduction-number/</link>
-      <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
       
       <guid>https://reconlearn.netlify.com/tags/reproduction-number/</guid>
       <description></description>
