@@ -6,7 +6,7 @@
     <description>Recent content in Delays on RECON learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 25 Feb 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://reconlearn.netlify.com/tags/delays/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>A primer on statistical outbreak analysis</title>
       <link>https://reconlearn.netlify.com/post/outbreakstatsprimer/</link>
-      <pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 25 Feb 2018 00:00:00 +0000</pubDate>
       
       <guid>https://reconlearn.netlify.com/post/outbreakstatsprimer/</guid>
       <description>This short lecture gives a primer on some methodological aspects of outbreak analysis. It includes content on the estimation of key delays (e.g. incubation period, serial interval) and the characterisation of the underlying distributions, the estimation of growth rates, doubling times, of the basic reproduction number and simple short-term forecasting.
