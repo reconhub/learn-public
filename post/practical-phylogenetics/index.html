@@ -278,12 +278,12 @@ class(dna)</code></pre>
 ## All sequences of same length: 1701 
 ## 
 ## Labels:
-##  CY013200
-##  CY013781
-##  CY012128
-##  CY013613
-##  CY012160
-##  CY012272
+## CY013200
+## CY013781
+## CY012128
+## CY013613
+## CY012160
+## CY012272
 ## ...
 ## 
 ## Base composition:
@@ -310,7 +310,7 @@ dim(annot)
 dim(annot)
 ## [1] 80  3
 all(annot$accession == rownames(dna))
-## [1] FALSE
+## [1] TRUE
 table(annot$year)
 ## 
 ## 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 
@@ -332,7 +332,7 @@ class(D)
 length(D)
 ## [1] 3160</code></pre>
 <p><code>D</code> is an object of class <code>dist</code> which contains the distances between every pairs of sequences.</p>
-<p>Now that genetic distances between isolates have been computed, we need to visualize this information. There are <em>n(n-1)/2</em> distances for <em>n</em> sequences; here, <em>n=80</em> so that the genetic relationships between the sampled isolates are described by <em>80 79 / 2 = 3160</em> pairwise distances. Most of the time, summarising such information is not entirely trivial. The simplest approach is plotting directly the matrix of pairwise distances:</p>
+<p>Now that genetic distances between isolates have been computed, we need to visualize this information. There are <em>n(n-1)/2</em> distances for <em>n</em> sequences; here, <em>n=80</em> so that the genetic relationships between the sampled isolates are described by <span class="math inline">\(80 \times 79 / 2 = 3160\)</span> pairwise distances. Most of the time, summarising such information is not entirely trivial. The simplest approach is plotting directly the matrix of pairwise distances:</p>
 <pre class="r"><code>temp &lt;- as.data.frame(as.matrix(D))
 table.paint(temp, cleg = 0, clabel.row = .5, clabel.col = .5)</code></pre>
 <p><img src="/post/practical-phylogenetics_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
@@ -367,7 +367,7 @@ tre
 ## Phylogenetic tree with 80 tips and 78 internal nodes.
 ## 
 ## Tip labels:
-##   CY013200,  CY013781,  CY012128,  CY013613,  CY012160,  CY012272, ...
+##  CY013200, CY013781, CY012128, CY013613, CY012160, CY012272, ...
 ## 
 ## Unrooted; includes branch lengths.
 plot(tre, cex = .6)
@@ -540,7 +540,7 @@ tre.ini
 ## Phylogenetic tree with 80 tips and 78 internal nodes.
 ## 
 ## Tip labels:
-##   CY013200,  CY013781,  CY012128,  CY013613,  CY012160,  CY012272, ...
+##  CY013200, CY013781, CY012128, CY013613, CY012160, CY012272, ...
 ## 
 ## Unrooted; includes branch lengths.</code></pre>
 <p>The parsimony of a given tree is given by:</p>
@@ -554,7 +554,7 @@ tre.pars
 ## Phylogenetic tree with 80 tips and 78 internal nodes.
 ## 
 ## Tip labels:
-##   CY013200,  CY013781,  CY012128,  CY013613,  CY012160,  CY012272, ...
+##  CY013200, CY013781, CY012128, CY013613, CY012160, CY012272, ...
 ## 
 ## Unrooted; no branch lengths.</code></pre>
 <p>Here, the final result is very close to the original tree. The obtained tree is unrooted and does not have branch lengths, but it can be plotted as previously:</p>
@@ -590,7 +590,7 @@ tre.ini
 ## Phylogenetic tree with 80 tips and 78 internal nodes.
 ## 
 ## Tip labels:
-##   CY013200,  CY013781,  CY012128,  CY013613,  CY012160,  CY012272, ...
+##  CY013200, CY013781, CY012128, CY013613, CY012160, CY012272, ...
 ## 
 ## Unrooted; includes branch lengths.</code></pre>
 <p>This tree is most likely not the ML tree, but we need it as a ‘reasonable’ starting point to initialize the optimization procedure. The likelihood of this initial tree is computed using <code>pml</code>:</p>
