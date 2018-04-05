@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Public Health on RECON learn</title>
-    <link>https://reconlearn.netlify.com/tags/public-health/</link>
+    <link>/tags/public-health/</link>
     <description>Recent content in Public Health on RECON learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2017 Thibaut Jombart</copyright>
     <lastBuildDate>Mon, 11 Dec 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://reconlearn.netlify.com/tags/public-health/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/public-health/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Modelling infectious diseases for public health</title>
-      <link>https://reconlearn.netlify.com/post/modellingforpublichealth/</link>
+      <link>/post/modellingforpublichealth/</link>
       <pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/post/modellingforpublichealth/</guid>
+      <guid>/post/modellingforpublichealth/</guid>
       <description>This short lecture gives a primer on how modelling can help inform public health response. It focuses on few examples where modelling has been used to integrate various types of information and help implement control or raise situational awarness.
 Slides Click on the image below to access the slides:
     About this document Contributors  Pierre Nouvellet: initial version  Contributions are welcome via pull requests. The source file can be found here.</description>

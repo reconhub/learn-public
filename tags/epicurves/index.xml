@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Epicurves on RECON learn</title>
+    <link>/tags/epicurves/</link>
+    <description>Recent content in Epicurves on RECON learn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy;2017 Thibaut Jombart</copyright>
+    <lastBuildDate>Tue, 31 Oct 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/epicurves/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Analysing epicurves</title>
+      <link>/post/analysing-epicurves/</link>
+      <pubDate>Tue, 31 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/analysing-epicurves/</guid>
+      <description>This practical shows how the package incidence can be used to build, plot, and analyse epidemic curves which track the evolution of case incidence (i.e. number of new cases per time unit) over time.
+
+Installing the package To install the current stable, CRAN version of the package, type:
+install.packages(&amp;quot;incidence&amp;quot;) To benefit from the latest features and bug fixes, install the development, github version of the package using:
+devtools::install_github(&amp;quot;reconhub/incidence&amp;quot;) Note that this requires the package devtools installed.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vdb on RECON learn</title>
-    <link>https://reconlearn.netlify.com/tags/vdb/</link>
+    <link>/tags/vdb/</link>
     <description>Recent content in Vdb on RECON learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2017 Thibaut Jombart</copyright>
     <lastBuildDate>Wed, 13 Dec 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://reconlearn.netlify.com/tags/vdb/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/vdb/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Basic Concepts on Vector Borne Disease Modelling</title>
-      <link>https://reconlearn.netlify.com/post/basicvbdmodelling/</link>
+      <link>/post/basicvbdmodelling/</link>
       <pubDate>Wed, 13 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/post/basicvbdmodelling/</guid>
+      <guid>/post/basicvbdmodelling/</guid>
       <description>This lecture is about Vector Borne Diseases (VBD) modelling. The aim is to gain a general understanding on the role of modelling on the main vector borne diseases, with special enphasis on Malaria, Chagas and Zika.
 Slides Click on the image below to access the slides:
     About this document Contributors  Zulma Cucunuba &amp;amp; Pierre Nouvellet: initial version  Contributions are welcome via pull requests.

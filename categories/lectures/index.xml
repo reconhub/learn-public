@@ -2,22 +2,33 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lectures on RECON learn</title>
-    <link>https://reconlearn.netlify.com/categories/lectures/</link>
+    <link>/categories/lectures/</link>
     <description>Recent content in Lectures on RECON learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2017 Thibaut Jombart</copyright>
-    <lastBuildDate>Fri, 15 Dec 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 25 Feb 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://reconlearn.netlify.com/categories/lectures/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/lectures/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>A primer on statistical outbreak analysis</title>
+      <link>/post/outbreakstatsprimer/</link>
+      <pubDate>Sun, 25 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/outbreakstatsprimer/</guid>
+      <description>This short lecture gives a primer on some methodological aspects of outbreak analysis. It includes content on the estimation of key delays (e.g. incubation period, serial interval) and the characterisation of the underlying distributions, the estimation of growth rates, doubling times, of the basic reproduction number and simple short-term forecasting.
+Slides Click on the image below to access the slides:
+    About this document Contributors  Thibaut Jombart: initial version  Contributions are welcome via pull requests.</description>
+    </item>
+    
+    <item>
       <title>Introduction to phylogenetics</title>
-      <link>https://reconlearn.netlify.com/post/lecture-phylogenetics/</link>
+      <link>/post/lecture-phylogenetics/</link>
       <pubDate>Fri, 15 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/post/lecture-phylogenetics/</guid>
+      <guid>/post/lecture-phylogenetics/</guid>
       <description>This lecture introduces general concepts pertaining to phylogenetic tree reconstruction, as well as the main approaches used for building trees, including distance-based, maximum parsimony, and maximum likelihood methods. It also discusses phylogenetic uncertainty, bootstrap, and some caveats and bad practices.
 Slides Click on the image below to access the slides:
     About this document Contributors  Thibaut Jombart: initial version  Contributions are welcome via pull requests. The source files of this lecture can be found here.</description>
@@ -25,10 +36,10 @@ Slides Click on the image below to access the slides:
     
     <item>
       <title>Basic Concepts on Vector Borne Disease Modelling</title>
-      <link>https://reconlearn.netlify.com/post/basicvbdmodelling/</link>
+      <link>/post/basicvbdmodelling/</link>
       <pubDate>Wed, 13 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/post/basicvbdmodelling/</guid>
+      <guid>/post/basicvbdmodelling/</guid>
       <description>This lecture is about Vector Borne Diseases (VBD) modelling. The aim is to gain a general understanding on the role of modelling on the main vector borne diseases, with special enphasis on Malaria, Chagas and Zika.
 Slides Click on the image below to access the slides:
     About this document Contributors  Zulma Cucunuba &amp;amp; Pierre Nouvellet: initial version  Contributions are welcome via pull requests.
@@ -37,10 +48,10 @@ Slides Click on the image below to access the slides:
     
     <item>
       <title>Outbreak investigation using outbreaker2</title>
-      <link>https://reconlearn.netlify.com/post/lectureoutbreaker2/</link>
+      <link>/post/lectureoutbreaker2/</link>
       <pubDate>Wed, 13 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/post/lectureoutbreaker2/</guid>
+      <guid>/post/lectureoutbreaker2/</guid>
       <description>This short lecture gives a primer on some methodological aspects of outbreak reconstruction using outbreaker2.
 Slides Click on the image below to access the slides:
     About this document Contributors  Thibaut Jombart: initial version
@@ -51,10 +62,10 @@ Slides Click on the image below to access the slides:
     
     <item>
       <title>Compartmental model, example for Ebola</title>
-      <link>https://reconlearn.netlify.com/post/compartmentalebola/</link>
+      <link>/post/compartmentalebola/</link>
       <pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/post/compartmentalebola/</guid>
+      <guid>/post/compartmentalebola/</guid>
       <description>This short lecture gives a primer in building compartmental models. It covers various aspects around epidemiological modelling such as flow diagrams, writing ordinary differential equations and reproduction number. The example of the dynamics of Ebola is used.
 Slides Click on the image below to access the slides:
     About this document Contributors  Pierre Nouvellet: initial version  Contributions are welcome via pull requests. The source file can be found here.</description>
@@ -62,32 +73,21 @@ Slides Click on the image below to access the slides:
     
     <item>
       <title>Modelling infectious diseases for public health</title>
-      <link>https://reconlearn.netlify.com/post/modellingforpublichealth/</link>
+      <link>/post/modellingforpublichealth/</link>
       <pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/post/modellingforpublichealth/</guid>
+      <guid>/post/modellingforpublichealth/</guid>
       <description>This short lecture gives a primer on how modelling can help inform public health response. It focuses on few examples where modelling has been used to integrate various types of information and help implement control or raise situational awarness.
 Slides Click on the image below to access the slides:
     About this document Contributors  Pierre Nouvellet: initial version  Contributions are welcome via pull requests. The source file can be found here.</description>
     </item>
     
     <item>
-      <title>A primer on statistical outbreak analysis</title>
-      <link>https://reconlearn.netlify.com/post/outbreakstatsprimer/</link>
-      <pubDate>Sat, 09 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://reconlearn.netlify.com/post/outbreakstatsprimer/</guid>
-      <description>This short lecture gives a primer on some methodological aspects of outbreak analysis. It includes content on the estimation of key delays (e.g. incubation period, serial interval) and the characterisation of the underlying distributions, the estimation of growth rates, doubling times, of the basic reproduction number and simple short-term forecasting.
-Slides Click on the image below to access the slides:
-    About this document Contributors  Thibaut Jombart: initial version  Contributions are welcome via pull requests.</description>
-    </item>
-    
-    <item>
       <title>Reproducibility using R</title>
-      <link>https://reconlearn.netlify.com/post/reproducibility/</link>
+      <link>/post/reproducibility/</link>
       <pubDate>Fri, 10 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/post/reproducibility/</guid>
+      <guid>/post/reproducibility/</guid>
       <description>Beyond the availability of data and methods, reproducible science requires the traceability of analyses. Whether it is for yourself or for collaborators, as series of tools and good practices can facilitate your work flow, simplify analyses, and prevent the loss of data and results. This lecture provides an introduction to reproducibility using .
 Slides Click on the image below to access the slides:
     Related packages knitr knitr provides excellent resources for literate programming mixing with LaTeX or markdown.</description>

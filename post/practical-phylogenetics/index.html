@@ -14,20 +14,20 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 
-<link rel="stylesheet" href="https://reconlearn.netlify.com/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" id="ct-tracks-google-fonts-css" href="//fonts.googleapis.com/css?family=Raleway%3A400%2C700&amp;subset=latin%2Clatin-ext&amp;ver=4.7.2" type="text/css" media="all">
-<link rel="stylesheet" href="https://reconlearn.netlify.com/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
 
-<link href="https://reconlearn.netlify.com/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+<link href="/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
 
-<link href="https://reconlearn.netlify.com/css/custom.css" rel="stylesheet">
-<link rel="shortcut icon" href="https://reconlearn.netlify.com/img/favicon.png">
-
-
+<link href="/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="/img/favicon.png">
 
 
-<link rel="stylesheet" href="https://reconlearn.netlify.com/css/recon.css">
-<script src="https://reconlearn.netlify.com/js/highlight.pack.js"></script>
+
+
+<link rel="stylesheet" href="/css/recon.css">
+<script src="/js/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 </head>
   <body>
@@ -286,12 +286,12 @@ class(dna)</code></pre>
 ## All sequences of same length: 1701 
 ## 
 ## Labels:
-##  CY013200
-##  CY013781
-##  CY012128
-##  CY013613
-##  CY012160
-##  CY012272
+## CY013200
+## CY013781
+## CY012128
+## CY013613
+## CY012160
+## CY012272
 ## ...
 ## 
 ## Base composition:
@@ -318,7 +318,7 @@ dim(annot)
 dim(annot)
 ## [1] 80  3
 all(annot$accession == rownames(dna))
-## [1] FALSE
+## [1] TRUE
 table(annot$year)
 ## 
 ## 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 
@@ -340,7 +340,7 @@ class(D)
 length(D)
 ## [1] 3160</code></pre>
 <p><code>D</code> is an object of class <code>dist</code> which contains the distances between every pairs of sequences.</p>
-<p>Now that genetic distances between isolates have been computed, we need to visualize this information. There are <em>n(n-1)/2</em> distances for <em>n</em> sequences; here, <em>n=80</em> so that the genetic relationships between the sampled isolates are described by <em>80 79 / 2 = 3160</em> pairwise distances. Most of the time, summarising such information is not entirely trivial. The simplest approach is plotting directly the matrix of pairwise distances:</p>
+<p>Now that genetic distances between isolates have been computed, we need to visualize this information. There are <em>n(n-1)/2</em> distances for <em>n</em> sequences; here, <em>n=80</em> so that the genetic relationships between the sampled isolates are described by <span class="math inline">\(80 \times 79 / 2 = 3160\)</span> pairwise distances. Most of the time, summarising such information is not entirely trivial. The simplest approach is plotting directly the matrix of pairwise distances:</p>
 <pre class="r"><code>temp &lt;- as.data.frame(as.matrix(D))
 table.paint(temp, cleg = 0, clabel.row = .5, clabel.col = .5)</code></pre>
 <p><img src="/post/practical-phylogenetics_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
@@ -375,7 +375,7 @@ tre
 ## Phylogenetic tree with 80 tips and 78 internal nodes.
 ## 
 ## Tip labels:
-##   CY013200,  CY013781,  CY012128,  CY013613,  CY012160,  CY012272, ...
+##  CY013200, CY013781, CY012128, CY013613, CY012160, CY012272, ...
 ## 
 ## Unrooted; includes branch lengths.
 plot(tre, cex = .6)
@@ -548,7 +548,7 @@ tre.ini
 ## Phylogenetic tree with 80 tips and 78 internal nodes.
 ## 
 ## Tip labels:
-##   CY013200,  CY013781,  CY012128,  CY013613,  CY012160,  CY012272, ...
+##  CY013200, CY013781, CY012128, CY013613, CY012160, CY012272, ...
 ## 
 ## Unrooted; includes branch lengths.</code></pre>
 <p>The parsimony of a given tree is given by:</p>
@@ -562,7 +562,7 @@ tre.pars
 ## Phylogenetic tree with 80 tips and 78 internal nodes.
 ## 
 ## Tip labels:
-##   CY013200,  CY013781,  CY012128,  CY013613,  CY012160,  CY012272, ...
+##  CY013200, CY013781, CY012128, CY013613, CY012160, CY012272, ...
 ## 
 ## Unrooted; no branch lengths.</code></pre>
 <p>Here, the final result is very close to the original tree. The obtained tree is unrooted and does not have branch lengths, but it can be plotted as previously:</p>
@@ -598,7 +598,7 @@ tre.ini
 ## Phylogenetic tree with 80 tips and 78 internal nodes.
 ## 
 ## Tip labels:
-##   CY013200,  CY013781,  CY012128,  CY013613,  CY012160,  CY012272, ...
+##  CY013200, CY013781, CY012128, CY013613, CY012160, CY012272, ...
 ## 
 ## Unrooted; includes branch lengths.</code></pre>
 <p>This tree is most likely not the ML tree, but we need it as a ‘reasonable’ starting point to initialize the optimization procedure. The likelihood of this initial tree is computed using <code>pml</code>:</p>
@@ -632,14 +632,14 @@ fit.ini
 ## unconstrained loglikelihood: -4736.539 
 ## Discrete gamma model
 ## Number of rate categories: 4 
-## Shape parameter: 0.2676679 
+## Shape parameter: 0.2676998 
 ## 
 ## Rate matrix:
 ##           a         c         g         t
-## a 0.0000000 1.9788777 6.6454508 0.6487418
-## c 1.9788777 0.0000000 0.1715952 8.2484864
-## g 6.6454508 0.1715952 0.0000000 1.0000000
-## t 0.6487418 8.2484864 1.0000000 0.0000000
+## a 0.0000000 1.9788788 6.6454555 0.6487415
+## c 1.9788788 0.0000000 0.1715952 8.2484828
+## g 6.6454555 0.1715952 0.0000000 1.0000000
+## t 0.6487415 8.2484828 1.0000000 0.0000000
 ## 
 ## Base frequencies:  
 ## 0.3368452 0.1978542 0.2244658 0.2408349
@@ -811,15 +811,15 @@ legend(&quot;topright&quot;, fill = transp(num2col(temp, col.pal = myPal), .7),
         </div>
       </div>
     </div>
-    <script src="https://reconlearn.netlify.com/js/jquery.min.js"></script>
-<script src="https://reconlearn.netlify.com/js/bootstrap.min.js"></script>
-<script src="https://reconlearn.netlify.com/js/jquery.cookie.js"> </script>
-<script src="https://reconlearn.netlify.com/js/ekko-lightbox.js"></script>
-<script src="https://reconlearn.netlify.com/js/jquery.scrollTo.min.js"></script>
-<script src="https://reconlearn.netlify.com/js/masonry.pkgd.min.js"></script>
-<script src="https://reconlearn.netlify.com/js/imagesloaded.pkgd.min.js"></script>
-<script src="https://reconlearn.netlify.com/js/owl.carousel.min.js"></script>
-<script src="https://reconlearn.netlify.com/js/front.js"></script>
+    <script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.cookie.js"> </script>
+<script src="/js/ekko-lightbox.js"></script>
+<script src="/js/jquery.scrollTo.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script src="/js/imagesloaded.pkgd.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/front.js"></script>
 
   </body>
 </html>

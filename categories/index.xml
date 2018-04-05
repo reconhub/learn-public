@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on RECON learn</title>
-    <link>https://reconlearn.netlify.com/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on RECON learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2017 Thibaut Jombart</copyright>
     
-	<atom:link href="https://reconlearn.netlify.com/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Lectures</title>
-      <link>https://reconlearn.netlify.com/categories/lectures/</link>
-      <pubDate>Fri, 15 Dec 2017 00:00:00 +0000</pubDate>
+      <link>/categories/lectures/</link>
+      <pubDate>Sun, 25 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/categories/lectures/</guid>
+      <guid>/categories/lectures/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Practicals</title>
-      <link>https://reconlearn.netlify.com/categories/practicals/</link>
-      <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
+      <link>/categories/practicals/</link>
+      <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/categories/practicals/</guid>
+      <guid>/categories/practicals/</guid>
       <description></description>
     </item>
     

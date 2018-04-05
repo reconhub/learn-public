@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Response on RECON learn</title>
-    <link>https://reconlearn.netlify.com/tags/response/</link>
+    <link>/tags/response/</link>
     <description>Recent content in Response on RECON learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2017 Thibaut Jombart</copyright>
-    <lastBuildDate>Thu, 14 Dec 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jan 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://reconlearn.netlify.com/tags/response/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/response/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Ebola simulation part 2: outbreak reconstruction</title>
-      <link>https://reconlearn.netlify.com/post/practical-ebola-reconstruction/</link>
-      <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
+      <link>/post/practical-ebola-reconstruction/</link>
+      <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/post/practical-ebola-reconstruction/</guid>
+      <guid>/post/practical-ebola-reconstruction/</guid>
       <description>This practical is the second part of the response to a simulated Ebola Virus Disease (EVD) outbreak taking place in the city of Ankh, Republic of Morporkia. While the first part focussed on early assessments of transmissibility, this part explores more methodological options for estimating transmissibility, and provides an introduction to outbreak reconstruction using outbreaker2.
 
 An update on the EVD outbreak in Ankh, Republic of Morporkia After some rather concerning preliminary results on the new EVD outbreak in the city of Ankh, Republic of Morporkia, Public Health Morporkia (PHM) has sent you updates of the linelists and contact data.</description>
@@ -25,10 +25,10 @@ An update on the EVD outbreak in Ankh, Republic of Morporkia After some rather c
     
     <item>
       <title>Ebola simulation part 1: early outbreak assessment</title>
-      <link>https://reconlearn.netlify.com/post/simulated-evd-early/</link>
+      <link>/post/simulated-evd-early/</link>
       <pubDate>Sat, 09 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/post/simulated-evd-early/</guid>
+      <guid>/post/simulated-evd-early/</guid>
       <description>This practical simulates the early assessment and reconstruction of an Ebola Virus Disease (EVD) outbreak. It introduces various aspects of analysis of the early stage of an outbreak, including contact tracing data, epicurves, growth rate estimation from log-linear models, and more refined estimates of transmissibility. A follow-up practical will provide an introduction to transmission chain reconstruction using outbreaker2.
 
 A novel EVD outbreak in Ankh, Republic of Morporkia A new EVD outbreak has been notified in the small city of Ankh, located in the Northern, rural district of the Republic of Morporkia.</description>

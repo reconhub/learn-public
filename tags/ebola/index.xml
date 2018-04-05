@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ebola on RECON learn</title>
-    <link>https://reconlearn.netlify.com/tags/ebola/</link>
+    <link>/tags/ebola/</link>
     <description>Recent content in Ebola on RECON learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2017 Thibaut Jombart</copyright>
     <lastBuildDate>Mon, 11 Dec 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://reconlearn.netlify.com/tags/ebola/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/ebola/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Compartmental model, example for Ebola</title>
-      <link>https://reconlearn.netlify.com/post/compartmentalebola/</link>
+      <link>/post/compartmentalebola/</link>
       <pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/post/compartmentalebola/</guid>
+      <guid>/post/compartmentalebola/</guid>
       <description>This short lecture gives a primer in building compartmental models. It covers various aspects around epidemiological modelling such as flow diagrams, writing ordinary differential equations and reproduction number. The example of the dynamics of Ebola is used.
 Slides Click on the image below to access the slides:
     About this document Contributors  Pierre Nouvellet: initial version  Contributions are welcome via pull requests. The source file can be found here.</description>
@@ -25,10 +25,10 @@ Slides Click on the image below to access the slides:
     
     <item>
       <title>Ebola simulation part 1: early outbreak assessment</title>
-      <link>https://reconlearn.netlify.com/post/simulated-evd-early/</link>
+      <link>/post/simulated-evd-early/</link>
       <pubDate>Sat, 09 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/post/simulated-evd-early/</guid>
+      <guid>/post/simulated-evd-early/</guid>
       <description>This practical simulates the early assessment and reconstruction of an Ebola Virus Disease (EVD) outbreak. It introduces various aspects of analysis of the early stage of an outbreak, including contact tracing data, epicurves, growth rate estimation from log-linear models, and more refined estimates of transmissibility. A follow-up practical will provide an introduction to transmission chain reconstruction using outbreaker2.
 
 A novel EVD outbreak in Ankh, Republic of Morporkia A new EVD outbreak has been notified in the small city of Ankh, located in the Northern, rural district of the Republic of Morporkia.</description>
@@ -36,10 +36,10 @@ A novel EVD outbreak in Ankh, Republic of Morporkia A new EVD outbreak has been 
     
     <item>
       <title>Ebola: building few models for Ebola</title>
-      <link>https://reconlearn.netlify.com/post/practical-compartmental-ebola/</link>
+      <link>/post/practical-compartmental-ebola/</link>
       <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/post/practical-compartmental-ebola/</guid>
+      <guid>/post/practical-compartmental-ebola/</guid>
       <description>This practical aims to illustrate the basics of Ebola modelling using R, with an emphasis on how the method works.
 We will start with a basic model for Ebola. We will then illustrate how to account for an evolving context, e.g. implementation of control measures. Finally, we will explore basic principle of model fitting.
 Core Concepts From the previous lecture, we will further develop these concepts:
