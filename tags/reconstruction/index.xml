@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Reconstruction on RECON learn</title>
-    <link>/tags/reconstruction/</link>
+    <link>https://reconlearn.netlify.com/tags/reconstruction/</link>
     <description>Recent content in Reconstruction on RECON learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2017 Thibaut Jombart</copyright>
     <lastBuildDate>Wed, 13 Dec 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/reconstruction/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://reconlearn.netlify.com/tags/reconstruction/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Outbreak investigation using outbreaker2</title>
-      <link>/post/lectureoutbreaker2/</link>
+      <link>https://reconlearn.netlify.com/post/lectureoutbreaker2/</link>
       <pubDate>Wed, 13 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>/post/lectureoutbreaker2/</guid>
+      <guid>https://reconlearn.netlify.com/post/lectureoutbreaker2/</guid>
       <description>This short lecture gives a primer on some methodological aspects of outbreak reconstruction using outbreaker2.
 Slides Click on the image below to access the slides:
     About this document Contributors  Thibaut Jombart: initial version

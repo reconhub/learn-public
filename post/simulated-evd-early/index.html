@@ -14,20 +14,20 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 
-<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://reconlearn.netlify.com/css/bootstrap.min.css">
 <link rel="stylesheet" id="ct-tracks-google-fonts-css" href="//fonts.googleapis.com/css?family=Raleway%3A400%2C700&amp;subset=latin%2Clatin-ext&amp;ver=4.7.2" type="text/css" media="all">
-<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://reconlearn.netlify.com/css/font-awesome.min.css">
 
-<link href="/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+<link href="https://reconlearn.netlify.com/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
 
-<link href="/css/custom.css" rel="stylesheet">
-<link rel="shortcut icon" href="/img/favicon.png">
-
-
+<link href="https://reconlearn.netlify.com/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="https://reconlearn.netlify.com/img/favicon.png">
 
 
-<link rel="stylesheet" href="/css/recon.css">
-<script src="/js/highlight.pack.js"></script>
+
+
+<link rel="stylesheet" href="https://reconlearn.netlify.com/css/recon.css">
+<script src="https://reconlearn.netlify.com/js/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 </head>
   <body>
@@ -600,10 +600,10 @@ project(i, R = R$R_ml, si = si, n_sim = 5, n_days = 10, R_fix_within = TRUE)
 ## 
 ##  // first rows/columns:
 ##            [,1] [,2] [,3] [,4] [,5]
-## 2017-10-28    1    3    3    1    0
-## 2017-10-29    0    1    1    0    0
-## 2017-10-30    0    2    1    3    0
-## 2017-10-31    1    1    2    1    1
+## 2017-10-28    1    1    0    1    2
+## 2017-10-29    1    0    0    1    2
+## 2017-10-30    1    1    1    1    1
+## 2017-10-31    1    0    1    0    3
 ##  .
 ##  .
 ##  .
@@ -617,33 +617,33 @@ project(i, R = R$R_ml, si = si, n_sim = 5, n_days = 10, R_fix_within = TRUE)
 <p>Interpret the following summary:</p>
 <pre class="r"><code>apply(proj, 1, summary)
 ##         2017-10-28 2017-10-29 2017-10-30 2017-10-31 2017-11-01 2017-11-02
-## Min.         0.000      0.000      0.000      0.000       0.00      0.000
-## 1st Qu.      1.000      1.000      0.000      0.750       0.00      1.000
-## Median       1.000      1.000      1.000      1.000       1.00      1.000
-## Mean         1.467      1.386      1.457      1.519       1.59      1.746
-## 3rd Qu.      2.000      2.000      2.000      2.000       2.00      3.000
-## Max.         8.000      7.000      7.000      9.000      13.00     10.000
+## Min.         0.000        0.0      0.000      0.000      0.000      0.000
+## 1st Qu.      0.000        0.0      0.000      1.000      0.000      1.000
+## Median       1.000        1.0      1.000      1.000      1.000      1.000
+## Mean         1.388        1.4      1.466      1.503      1.666      1.719
+## 3rd Qu.      2.000        2.0      2.000      2.000      3.000      2.000
+## Max.         7.000        8.0     10.000      7.000      8.000     10.000
 ##         2017-11-03 2017-11-04 2017-11-05 2017-11-06 2017-11-07 2017-11-08
 ## Min.         0.000      0.000      0.000      0.000      0.000      0.000
 ## 1st Qu.      1.000      1.000      1.000      1.000      1.000      1.000
-## Median       1.000      2.000      2.000      2.000      2.000      2.000
-## Mean         1.788      2.062      2.206      2.492      2.598      2.834
-## 3rd Qu.      3.000      3.000      3.000      4.000      4.000      4.000
-## Max.        11.000      9.000     12.000     18.000     19.000     20.000
+## Median       2.000      2.000      2.000      2.000      2.000      2.000
+## Mean         1.947      2.071      2.247      2.471      2.586      2.879
+## 3rd Qu.      3.000      3.000      3.000      3.000      4.000      4.000
+## Max.        10.000     13.000     12.000     17.000     17.000     21.000
 ##         2017-11-09 2017-11-10
 ## Min.         0.000      0.000
 ## 1st Qu.      1.000      1.000
 ## Median       2.000      2.000
-## Mean         3.265      3.421
-## 3rd Qu.      5.000      5.000
-## Max.        23.000     25.000
+## Mean         3.116      3.449
+## 3rd Qu.      4.000      5.000
+## Max.        20.000     22.000
 apply(proj, 1, function(x) mean(x&gt;0))
 ## 2017-10-28 2017-10-29 2017-10-30 2017-10-31 2017-11-01 2017-11-02 
-##      0.766      0.751      0.749      0.750      0.741      0.792 
+##      0.728      0.733      0.746      0.757      0.748      0.770 
 ## 2017-11-03 2017-11-04 2017-11-05 2017-11-06 2017-11-07 2017-11-08 
-##      0.772      0.801      0.803      0.837      0.819      0.838 
+##      0.793      0.806      0.826      0.837      0.831      0.847 
 ## 2017-11-09 2017-11-10 
-##      0.842      0.863</code></pre>
+##      0.846      0.865</code></pre>
 <p><font class="question">According to these results, what are the chances that more cases will appear in the near future?</font><font class="question">Is this outbreak being brought under control?</font> <font class="question">Would you recommend scaling up / down the response?</font></p>
 </div>
 <div id="follow-up" class="section level2">
@@ -754,15 +754,15 @@ apply(proj, 1, function(x) mean(x&gt;0))
         </div>
       </div>
     </div>
-    <script src="/js/jquery.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/jquery.cookie.js"> </script>
-<script src="/js/ekko-lightbox.js"></script>
-<script src="/js/jquery.scrollTo.min.js"></script>
-<script src="/js/masonry.pkgd.min.js"></script>
-<script src="/js/imagesloaded.pkgd.min.js"></script>
-<script src="/js/owl.carousel.min.js"></script>
-<script src="/js/front.js"></script>
+    <script src="https://reconlearn.netlify.com/js/jquery.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/bootstrap.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/jquery.cookie.js"> </script>
+<script src="https://reconlearn.netlify.com/js/ekko-lightbox.js"></script>
+<script src="https://reconlearn.netlify.com/js/jquery.scrollTo.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/masonry.pkgd.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/imagesloaded.pkgd.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/owl.carousel.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/front.js"></script>
 
   </body>
 </html>
