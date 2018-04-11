@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Zika on RECON learn</title>
-    <link>https://reconlearn.netlify.com/tags/zika/</link>
+    <link>/tags/zika/</link>
     <description>Recent content in Zika on RECON learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 Dec 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://reconlearn.netlify.com/tags/zika/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/zika/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Basic Concepts on Vector Borne Disease Modelling</title>
-      <link>https://reconlearn.netlify.com/post/basicvbdmodelling/</link>
+      <link>/post/basicvbdmodelling/</link>
       <pubDate>Wed, 13 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/post/basicvbdmodelling/</guid>
+      <guid>/post/basicvbdmodelling/</guid>
       <description>This lecture is about Vector Borne Diseases (VBD) modelling. The aim is to gain a general understanding on the role of modelling on the main vector borne diseases, with special enphasis on Malaria, Chagas and Zika.
 Slides Click on the image below to access the slides:
     About this document Contributors  Zulma Cucunuba &amp;amp; Pierre Nouvellet: initial version  Contributions are welcome via pull requests.
@@ -25,10 +25,10 @@ Slides Click on the image below to access the slides:
     
     <item>
       <title>VBD: building a simple model for Zika</title>
-      <link>https://reconlearn.netlify.com/post/practical-vbd/</link>
+      <link>/post/practical-vbd/</link>
       <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/post/practical-vbd/</guid>
+      <guid>/post/practical-vbd/</guid>
       <description>This practical aims to illustrate the basics of vector borne disease (VBD) modelling using R, with an emphasis on how the methods work. We will use a basic model for an arboviral infection as an example. In this practical we will begin by gaining some understanding of the components which contribute to R0 and how potential interventions influence transmission. Later in the practical you will construct a model of Zika transmission to look at the effects of several parameters.</description>
     </item>
     

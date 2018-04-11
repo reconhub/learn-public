@@ -14,20 +14,20 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 
-<link rel="stylesheet" href="https://reconlearn.netlify.com/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" id="ct-tracks-google-fonts-css" href="//fonts.googleapis.com/css?family=Raleway%3A400%2C700&amp;subset=latin%2Clatin-ext&amp;ver=4.7.2" type="text/css" media="all">
-<link rel="stylesheet" href="https://reconlearn.netlify.com/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
 
-<link href="https://reconlearn.netlify.com/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+<link href="/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
 
-<link href="https://reconlearn.netlify.com/css/custom.css" rel="stylesheet">
-<link rel="shortcut icon" href="https://reconlearn.netlify.com/img/favicon.png">
-
-
+<link href="/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="/img/favicon.png">
 
 
-<link rel="stylesheet" href="https://reconlearn.netlify.com/css/recon.css">
-<script src="https://reconlearn.netlify.com/js/highlight.pack.js"></script>
+
+
+<link rel="stylesheet" href="/css/recon.css">
+<script src="/js/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 </head>
   <body>
@@ -252,7 +252,7 @@
 <li><a href="http://www.repidemicsconsortium.org/outbreaker2"><code>outbreaker2</code></a> to reconstruct the outbreak</li>
 </ul>
 <p>To install these packages, use <code>install.packages</code>, e.g.:</p>
-<pre class="r"><code>install.packages(&quot;xlsx&quot;)
+<pre class="r"><code>install.packages(&quot;readxl&quot;)
 install.packages(&quot;ggplot2&quot;)
 install.packages(&quot;incidence&quot;)
 install.packages(&quot;epicontacts&quot;)
@@ -269,31 +269,44 @@ install.packages(&quot;outbreaker2&quot;)</code></pre>
 <li><p><a href="../../data/PHM-EVD-linelist-2017-11-25.xlsx">PHM-EVD-linelist-2017-11-25.xlsx</a>: a linelist containing case information up to the 25th November 2017</p></li>
 <li><p><a href="../../data/PHM-EVD-contacts-2017-11-25.xlsx">PHM-EVD-contacts-2017-11-25.xlsx</a>: a list of contacts reported between cases up to the 25th November, where <code>from</code> indicates a potential source of infection, and <code>to</code> the recipient of the contact.</p></li>
 </ul>
-<p>To read into R, download these files and use the function <code>read.xlsx()</code> from the <code>xlsx</code> package to import the data. Each import will create a <code>data.frame</code>. Call the first one <code>linelist</code>, and the second one <code>contacts</code>. For instance, your first command line could look like:</p>
-<pre class="r"><code>linelist &lt;- xlsx::read.xlsx(&quot;PHM-EVD-linelist-2017-11-25.xlsx&quot;,
-                            sheetIndex = 1, stringsAsFactors = FALSE)</code></pre>
+<p>To read into R, download these files and use the function <code>read_xlsx()</code> from the <code>readxl</code> package to import the data. Each import will create a data table stored as a <code>tibble</code> object. Call the first one <code>linelist</code>, and the second one <code>contacts</code>. For instance, your first command line could look like:</p>
+<pre class="r"><code>linelist &lt;- readxl::read_xlsx(&quot;PHM-EVD-linelist-2017-11-25.xlsx&quot;)</code></pre>
+<p>Note that for further analyses, you will need to make sure all dates are stored as <code>Date</code> objects. This can be done using <code>as.Date</code>:</p>
+<pre class="r"><code>linelist$onset &lt;- as.Date(linelist$onset)</code></pre>
 <p>Once imported, the data should look like:</p>
-<pre class="r"><code>
-## linelist: one line per case
-head(linelist)
-##   case_id      onset    sex age
-## 1  39e9dc 2017-10-10 female  62
-## 2  664549 2017-10-16   male  28
-## 3  b4d8aa 2017-10-17   male  54
-## 4  51883d 2017-10-18   male  57
-## 5  947e40 2017-10-20 female  23
-## 6  9aa197 2017-10-20 female  66
-
+<pre class="r"><code>## linelist: one line per case
+linelist
+## # A tibble: 50 x 4
+##    case_id onset      sex      age
+##    &lt;chr&gt;   &lt;date&gt;     &lt;chr&gt;  &lt;dbl&gt;
+##  1 39e9dc  2017-10-10 female  62.0
+##  2 664549  2017-10-16 male    28.0
+##  3 b4d8aa  2017-10-17 male    54.0
+##  4 51883d  2017-10-18 male    57.0
+##  5 947e40  2017-10-20 female  23.0
+##  6 9aa197  2017-10-20 female  66.0
+##  7 e4b0a2  2017-10-21 female  13.0
+##  8 af0ac0  2017-10-21 male    10.0
+##  9 185911  2017-10-21 female  34.0
+## 10 601d2e  2017-10-22 male    11.0
+## # ... with 40 more rows
 
 ## contacts: pairs of cases with reported contacts
-head(contacts)
-##     from     to
-## 1 9aa197 426b6d
-## 2 39e9dc a8e9d8
-## 3 c2a389 95fc1d
-## 4 51883d 778316
-## 5 51883d e37897
-## 6 933811 99abbe</code></pre>
+contacts
+## # A tibble: 36 x 2
+##    from   to    
+##    &lt;chr&gt;  &lt;chr&gt; 
+##  1 9aa197 426b6d
+##  2 39e9dc a8e9d8
+##  3 c2a389 95fc1d
+##  4 51883d 778316
+##  5 51883d e37897
+##  6 933811 99abbe
+##  7 51883d 185911
+##  8 b4d8aa e4b0a2
+##  9 605322 1875e2
+## 10 b4d8aa b5ad13
+## # ... with 26 more rows</code></pre>
 </div>
 </div>
 <div id="analysis-of-epidemiological-data" class="section level1">
@@ -948,15 +961,15 @@ cons_tree$linelist$age_class &lt;- cut(cons_tree$linelist$age,
         </div>
       </div>
     </div>
-    <script src="https://reconlearn.netlify.com/js/jquery.min.js"></script>
-<script src="https://reconlearn.netlify.com/js/bootstrap.min.js"></script>
-<script src="https://reconlearn.netlify.com/js/jquery.cookie.js"> </script>
-<script src="https://reconlearn.netlify.com/js/ekko-lightbox.js"></script>
-<script src="https://reconlearn.netlify.com/js/jquery.scrollTo.min.js"></script>
-<script src="https://reconlearn.netlify.com/js/masonry.pkgd.min.js"></script>
-<script src="https://reconlearn.netlify.com/js/imagesloaded.pkgd.min.js"></script>
-<script src="https://reconlearn.netlify.com/js/owl.carousel.min.js"></script>
-<script src="https://reconlearn.netlify.com/js/front.js"></script>
+    <script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.cookie.js"> </script>
+<script src="/js/ekko-lightbox.js"></script>
+<script src="/js/jquery.scrollTo.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script src="/js/imagesloaded.pkgd.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/front.js"></script>
 
   </body>
 </html>

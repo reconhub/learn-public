@@ -2,174 +2,174 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on RECON learn</title>
-    <link>https://reconlearn.netlify.com/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on RECON learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 Dec 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://reconlearn.netlify.com/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Chagas</title>
-      <link>https://reconlearn.netlify.com/tags/chagas/</link>
+      <link>/tags/chagas/</link>
       <pubDate>Wed, 13 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/tags/chagas/</guid>
+      <guid>/tags/chagas/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Compartmental Models</title>
-      <link>https://reconlearn.netlify.com/tags/compartmental-models/</link>
+      <link>/tags/compartmental-models/</link>
       <pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/tags/compartmental-models/</guid>
+      <guid>/tags/compartmental-models/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Delays</title>
-      <link>https://reconlearn.netlify.com/tags/delays/</link>
+      <link>/tags/delays/</link>
       <pubDate>Sun, 25 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/tags/delays/</guid>
+      <guid>/tags/delays/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ebola</title>
-      <link>https://reconlearn.netlify.com/tags/ebola/</link>
-      <pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
+      <link>/tags/ebola/</link>
+      <pubDate>Mon, 09 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/tags/ebola/</guid>
+      <guid>/tags/ebola/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Epicurve</title>
-      <link>https://reconlearn.netlify.com/tags/epicurve/</link>
-      <pubDate>Sun, 25 Feb 2018 00:00:00 +0000</pubDate>
+      <link>/tags/epicurve/</link>
+      <pubDate>Mon, 09 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/tags/epicurve/</guid>
+      <guid>/tags/epicurve/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Forecasting</title>
-      <link>https://reconlearn.netlify.com/tags/forecasting/</link>
+      <link>/tags/forecasting/</link>
       <pubDate>Sun, 25 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/tags/forecasting/</guid>
+      <guid>/tags/forecasting/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Genetics</title>
-      <link>https://reconlearn.netlify.com/tags/genetics/</link>
+      <link>/tags/genetics/</link>
       <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/tags/genetics/</guid>
+      <guid>/tags/genetics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Malaria</title>
-      <link>https://reconlearn.netlify.com/tags/malaria/</link>
+      <link>/tags/malaria/</link>
       <pubDate>Wed, 13 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/tags/malaria/</guid>
+      <guid>/tags/malaria/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Modelling</title>
-      <link>https://reconlearn.netlify.com/tags/modelling/</link>
+      <link>/tags/modelling/</link>
       <pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/tags/modelling/</guid>
+      <guid>/tags/modelling/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Outbreaker2</title>
-      <link>https://reconlearn.netlify.com/tags/outbreaker2/</link>
+      <link>/tags/outbreaker2/</link>
       <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/tags/outbreaker2/</guid>
+      <guid>/tags/outbreaker2/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Public Health</title>
-      <link>https://reconlearn.netlify.com/tags/public-health/</link>
+      <link>/tags/public-health/</link>
       <pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/tags/public-health/</guid>
+      <guid>/tags/public-health/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Reconstruction</title>
-      <link>https://reconlearn.netlify.com/tags/reconstruction/</link>
+      <link>/tags/reconstruction/</link>
       <pubDate>Wed, 13 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/tags/reconstruction/</guid>
+      <guid>/tags/reconstruction/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Reproduction Number</title>
-      <link>https://reconlearn.netlify.com/tags/reproduction-number/</link>
-      <pubDate>Sun, 25 Feb 2018 00:00:00 +0000</pubDate>
+      <link>/tags/reproduction-number/</link>
+      <pubDate>Mon, 09 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/tags/reproduction-number/</guid>
+      <guid>/tags/reproduction-number/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Response</title>
-      <link>https://reconlearn.netlify.com/tags/response/</link>
-      <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
+      <link>/tags/response/</link>
+      <pubDate>Mon, 09 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/tags/response/</guid>
+      <guid>/tags/response/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Rmarkdown</title>
-      <link>https://reconlearn.netlify.com/tags/rmarkdown/</link>
+      <link>/tags/rmarkdown/</link>
       <pubDate>Fri, 10 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/tags/rmarkdown/</guid>
+      <guid>/tags/rmarkdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Simulation</title>
-      <link>https://reconlearn.netlify.com/tags/simulation/</link>
-      <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
+      <link>/tags/simulation/</link>
+      <pubDate>Mon, 09 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/tags/simulation/</guid>
+      <guid>/tags/simulation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Vdb</title>
-      <link>https://reconlearn.netlify.com/tags/vdb/</link>
+      <link>/tags/vdb/</link>
       <pubDate>Wed, 13 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/tags/vdb/</guid>
+      <guid>/tags/vdb/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Zika</title>
-      <link>https://reconlearn.netlify.com/tags/zika/</link>
+      <link>/tags/zika/</link>
       <pubDate>Wed, 13 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/tags/zika/</guid>
+      <guid>/tags/zika/</guid>
       <description></description>
     </item>
     

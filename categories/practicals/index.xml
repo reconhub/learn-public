@@ -2,43 +2,43 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Practicals on RECON learn</title>
-    <link>https://reconlearn.netlify.com/categories/practicals/</link>
+    <link>/categories/practicals/</link>
     <description>Recent content in Practicals on RECON learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 24 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Apr 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://reconlearn.netlify.com/categories/practicals/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/practicals/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Ebola simulation part 2: outbreak reconstruction</title>
-      <link>https://reconlearn.netlify.com/post/practical-ebola-reconstruction/</link>
-      <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://reconlearn.netlify.com/post/practical-ebola-reconstruction/</guid>
-      <description>This practical is the second part of the response to a simulated Ebola Virus Disease (EVD) outbreak taking place in the city of Ankh, Republic of Morporkia. While the first part focussed on early assessments of transmissibility, this part explores more methodological options for estimating transmissibility, and provides an introduction to outbreak reconstruction using outbreaker2.
-
-An update on the EVD outbreak in Ankh, Republic of Morporkia After some rather concerning preliminary results on the new EVD outbreak in the city of Ankh, Republic of Morporkia, Public Health Morporkia (PHM) has sent you updates of the linelists and contact data.</description>
-    </item>
     
     <item>
       <title>Ebola simulation part 1: early outbreak assessment</title>
-      <link>https://reconlearn.netlify.com/post/simulated-evd-early/</link>
-      <pubDate>Sat, 09 Dec 2017 00:00:00 +0000</pubDate>
+      <link>/post/simulated-evd-early/</link>
+      <pubDate>Mon, 09 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/post/simulated-evd-early/</guid>
+      <guid>/post/simulated-evd-early/</guid>
       <description>This practical simulates the early assessment and reconstruction of an Ebola Virus Disease (EVD) outbreak. It introduces various aspects of analysis of the early stage of an outbreak, including contact tracing data, epicurves, growth rate estimation from log-linear models, and more refined estimates of transmissibility. A follow-up practical will provide an introduction to transmission chain reconstruction using outbreaker2.
 
 A novel EVD outbreak in Ankh, Republic of Morporkia A new EVD outbreak has been notified in the small city of Ankh, located in the Northern, rural district of the Republic of Morporkia.</description>
     </item>
     
     <item>
+      <title>Ebola simulation part 2: outbreak reconstruction</title>
+      <link>/post/practical-ebola-reconstruction/</link>
+      <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/practical-ebola-reconstruction/</guid>
+      <description>This practical is the second part of the response to a simulated Ebola Virus Disease (EVD) outbreak taking place in the city of Ankh, Republic of Morporkia. While the first part focussed on early assessments of transmissibility, this part explores more methodological options for estimating transmissibility, and provides an introduction to outbreak reconstruction using outbreaker2.
+
+An update on the EVD outbreak in Ankh, Republic of Morporkia After some rather concerning preliminary results on the new EVD outbreak in the city of Ankh, Republic of Morporkia, Public Health Morporkia (PHM) has sent you updates of the linelists and contact data.</description>
+    </item>
+    
+    <item>
       <title>Ebola: building few models for Ebola</title>
-      <link>https://reconlearn.netlify.com/post/practical-compartmental-ebola/</link>
+      <link>/post/practical-compartmental-ebola/</link>
       <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/post/practical-compartmental-ebola/</guid>
+      <guid>/post/practical-compartmental-ebola/</guid>
       <description>This practical aims to illustrate the basics of Ebola modelling using R, with an emphasis on how the method works.
 We will start with a basic model for Ebola. We will then illustrate how to account for an evolving context, e.g. implementation of control measures. Finally, we will explore basic principle of model fitting.
 Core Concepts From the previous lecture, we will further develop these concepts:
@@ -47,19 +47,19 @@ Core Concepts From the previous lecture, we will further develop these concepts:
     
     <item>
       <title>VBD: building a simple model for Zika</title>
-      <link>https://reconlearn.netlify.com/post/practical-vbd/</link>
+      <link>/post/practical-vbd/</link>
       <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/post/practical-vbd/</guid>
+      <guid>/post/practical-vbd/</guid>
       <description>This practical aims to illustrate the basics of vector borne disease (VBD) modelling using R, with an emphasis on how the methods work. We will use a basic model for an arboviral infection as an example. In this practical we will begin by gaining some understanding of the components which contribute to R0 and how potential interventions influence transmission. Later in the practical you will construct a model of Zika transmission to look at the effects of several parameters.</description>
     </item>
     
     <item>
       <title>Phylogenetic tree reconstruction</title>
-      <link>https://reconlearn.netlify.com/post/practical-phylogenetics/</link>
+      <link>/post/practical-phylogenetics/</link>
       <pubDate>Wed, 01 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://reconlearn.netlify.com/post/practical-phylogenetics/</guid>
+      <guid>/post/practical-phylogenetics/</guid>
       <description>This practical aims to illustrate the basics of phylogenetic reconstruction using R, with an emphasis on how the methods work, how their results can be interpreted, and the relative advantages and limitations of the methods. Three main classes of phylogenetic approaches are introduced, namely distance-based, maximum parsimony, and maximum likelihood methods. We also illustrate how to assess the reliability of individual nodes using bootstrap, and show how a simple linear model can be used to estimate a molecular clock in rooted phylogenies.</description>
     </item>
     

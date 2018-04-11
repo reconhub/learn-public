@@ -3,214 +3,214 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://reconlearn.netlify.com/post/outbreakstatsprimer/</loc>
+    <loc>/post/simulated-evd-early/</loc>
+    <lastmod>2018-04-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/outbreakstatsprimer/</loc>
     <lastmod>2018-02-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/post/practical-ebola-reconstruction/</loc>
+    <loc>/post/practical-ebola-reconstruction/</loc>
     <lastmod>2018-01-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/post/lecture-phylogenetics/</loc>
+    <loc>/post/lecture-phylogenetics/</loc>
     <lastmod>2017-12-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/post/basicvbdmodelling/</loc>
+    <loc>/post/basicvbdmodelling/</loc>
     <lastmod>2017-12-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/post/lectureoutbreaker2/</loc>
+    <loc>/post/lectureoutbreaker2/</loc>
     <lastmod>2017-12-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/post/compartmentalebola/</loc>
+    <loc>/post/compartmentalebola/</loc>
     <lastmod>2017-12-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/post/modellingforpublichealth/</loc>
+    <loc>/post/modellingforpublichealth/</loc>
     <lastmod>2017-12-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/post/simulated-evd-early/</loc>
-    <lastmod>2017-12-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://reconlearn.netlify.com/post/practical-compartmental-ebola/</loc>
+    <loc>/post/practical-compartmental-ebola/</loc>
     <lastmod>2017-12-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/post/practical-vbd/</loc>
+    <loc>/post/practical-vbd/</loc>
     <lastmod>2017-12-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/contact/</loc>
+    <loc>/contact/</loc>
     <lastmod>2017-11-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/post/reproducibility/</loc>
+    <loc>/post/reproducibility/</loc>
     <lastmod>2017-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/about/</loc>
+    <loc>/about/</loc>
     <lastmod>2017-11-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/post/practical-phylogenetics/</loc>
+    <loc>/post/practical-phylogenetics/</loc>
     <lastmod>2017-11-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/categories/</loc>
+    <loc>/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/tags/chagas/</loc>
+    <loc>/tags/chagas/</loc>
     <lastmod>2017-12-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/tags/compartmental-models/</loc>
+    <loc>/tags/compartmental-models/</loc>
     <lastmod>2017-12-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/tags/delays/</loc>
+    <loc>/tags/delays/</loc>
     <lastmod>2018-02-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/tags/ebola/</loc>
-    <lastmod>2017-12-11T00:00:00+00:00</lastmod>
+    <loc>/tags/ebola/</loc>
+    <lastmod>2018-04-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/tags/epicurve/</loc>
+    <loc>/tags/epicurve/</loc>
+    <lastmod>2018-04-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/forecasting/</loc>
     <lastmod>2018-02-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/tags/forecasting/</loc>
-    <lastmod>2018-02-25T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://reconlearn.netlify.com/tags/genetics/</loc>
+    <loc>/tags/genetics/</loc>
     <lastmod>2018-01-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/categories/lectures/</loc>
+    <loc>/categories/lectures/</loc>
     <lastmod>2018-02-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/tags/malaria/</loc>
+    <loc>/tags/malaria/</loc>
     <lastmod>2017-12-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/tags/modelling/</loc>
+    <loc>/tags/modelling/</loc>
     <lastmod>2017-12-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/tags/outbreaker2/</loc>
+    <loc>/tags/outbreaker2/</loc>
     <lastmod>2018-01-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/post/</loc>
-    <lastmod>2018-02-25T00:00:00+00:00</lastmod>
+    <loc>/post/</loc>
+    <lastmod>2018-04-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/categories/practicals/</loc>
-    <lastmod>2018-01-24T00:00:00+00:00</lastmod>
+    <loc>/categories/practicals/</loc>
+    <lastmod>2018-04-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/tags/public-health/</loc>
+    <loc>/tags/public-health/</loc>
     <lastmod>2017-12-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/</loc>
-    <lastmod>2018-02-25T00:00:00+00:00</lastmod>
+    <loc>/</loc>
+    <lastmod>2018-04-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/tags/reconstruction/</loc>
+    <loc>/tags/reconstruction/</loc>
     <lastmod>2017-12-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/tags/reproduction-number/</loc>
-    <lastmod>2018-02-25T00:00:00+00:00</lastmod>
+    <loc>/tags/reproduction-number/</loc>
+    <lastmod>2018-04-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/tags/response/</loc>
-    <lastmod>2018-01-24T00:00:00+00:00</lastmod>
+    <loc>/tags/response/</loc>
+    <lastmod>2018-04-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/tags/rmarkdown/</loc>
+    <loc>/tags/rmarkdown/</loc>
     <lastmod>2017-11-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/tags/simulation/</loc>
-    <lastmod>2018-01-24T00:00:00+00:00</lastmod>
+    <loc>/tags/simulation/</loc>
+    <lastmod>2018-04-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/tags/</loc>
+    <loc>/tags/</loc>
     <lastmod>2017-12-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/tags/vdb/</loc>
+    <loc>/tags/vdb/</loc>
     <lastmod>2017-12-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://reconlearn.netlify.com/tags/zika/</loc>
+    <loc>/tags/zika/</loc>
     <lastmod>2017-12-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
