@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+ <title>Ebola: building few models for Ebola</title>
+
+
+
+<meta name="description" content="RECON&#39;s teaching platform">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+
+<link rel="stylesheet" href="https://reconlearn.netlify.com/css/bootstrap.min.css">
+<link rel="stylesheet" id="ct-tracks-google-fonts-css" href="//fonts.googleapis.com/css?family=Raleway%3A400%2C700&amp;subset=latin%2Clatin-ext&amp;ver=4.7.2" type="text/css" media="all">
+<link rel="stylesheet" href="https://reconlearn.netlify.com/css/font-awesome.min.css">
+
+<link href="https://reconlearn.netlify.com/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+<link href="https://reconlearn.netlify.com/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="https://reconlearn.netlify.com/img/favicon.png">
+
+
+
+
+<link rel="stylesheet" href="https://reconlearn.netlify.com/css/recon.css">
+<script src="https://reconlearn.netlify.com/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+  <body>
+    <div id="root">
+      <div class="container-fluid">
+        <div class="row site-header">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12 top-navigation">
+                <div class="row">
+  <div class="col-sm-6">
+    <div class="categories-block">
+      <a href="/" class="track-categories">Home</a>
+      
+      <a href="/categories/lectures">lectures</a>
+      
+      <a href="/categories/practicals">practicals</a>
+      
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="social-media-block">
+
+      
+      
+      
+      <a href="https://twitter.com/teebzr" data-animate-hover="pulse" class="external twitter">
+        <i class="fa fa-twitter"></i>
+      </a>
+      
+      
+      
+      <a href="mailto:thibautjombart@gmail.com" data-animate-hover="pulse" class="email">
+        <i class="fa fa-envelope"></i>
+      </a>
+      
+      
+      
+      
+      <a href="https://github.com/reconhub/learn" data-animate-hover="pulse">
+        <i class="fa fa-github"></i>
+      </a>
+      
+
+    </div>
+  </div>
+</div>
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-10 header col-md-offset-1">
+                
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10 main-content col-md-offset-1">
+            
+
+<div class="col-md-12 entry">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="entry-meta">
+        December 04
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="entry-header">
+       Ebola: building few models for Ebola
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <div class="entry-sidebar">
+        <div class="entry-sidebar-title">CATEGORIES</div>
+        
+        <div class="entry-categories">
+          <a href="/categories/lectures">lectures</a>
+        </div>
+        
+        <div class="entry-categories">
+          <a href="/categories/practicals">practicals</a>
+        </div>
+        
+
+        <div class="entry-sidebar-title">Tags</div>
+        
+        <div class="entry-tags">
+          <a href="/tags/chagas">chagas</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/compartmental-models">compartmental-models</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/delays">delays</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/ebola">ebola</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/epicurve">epicurve</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/forecasting">forecasting</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/genetics">genetics</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/malaria">malaria</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/modelling">modelling</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/outbreak">outbreak</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/outbreak-end">outbreak-end</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/outbreaker2">outbreaker2</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/public-health">public-health</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/reconstruction">reconstruction</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/reproduction-number">reproduction-number</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/response">response</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/rmarkdown">rmarkdown</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/simulation">simulation</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/vdb">vdb</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/zika">zika</a>
+        </div>
+        
+      </div>
+    </div>
+    <div class="col-md-10">
+      <div class="entry-content">
+        <p>This practical aims to illustrate the basics of <strong>Ebola modelling</strong> using R, with an emphasis on how the method works.</p>
+<p>We will start with a basic model for Ebola. We will then illustrate how to account for an evolving context, e.g. implementation of control measures. Finally, we will explore basic principle of model fitting.</p>
+<div id="core-concepts" class="section level1">
+<h1>Core Concepts</h1>
+<p>From the previous lecture, we will further develop these concepts:</p>
+<ul>
+<li>Compartmental models</li>
+<li>Flow diagrams and writing down a model</li>
+<li>Natural history of Ebola</li>
+<li>Control strategies</li>
+<li>Introduction to model fitting</li>
+</ul>
+<div id="required-packages" class="section level2">
+<h2>Required packages</h2>
+<pre class="r"><code>install.packages(&quot;deSolve&quot;, dep=TRUE)
+install.packages(&quot;gridExtra&quot;, dep = TRUE)</code></pre>
+<p>Then load the packages using:</p>
+<pre class="r"><code>library(deSolve)</code></pre>
+</div>
+</div>
+<div id="the-basic-ebola-model" class="section level1">
+<h1>The basic Ebola model</h1>
+<ul>
+<li>S : Susceptible humans</li>
+<li>E : Exposed humans</li>
+<li>I : Infected/Infectious humans</li>
+<li>R : humans recovered from infection (with life lasting immunity)</li>
+</ul>
+<div id="the-model" class="section level2">
+<h2>The model</h2>
+<p>The code below will allow you to simulate an Ebola outbreak. But, can you understand it?</p>
+<p>First make a flow diagram to connect the different compartments of the model according to the equation below.</p>
+<p>On a line of code, anything after a ‘#’ is interpreted as a comment. At the moment the code below is not well commented on, try to comment the code appropriately.</p>
+<pre class="r"><code>rm(list=ls())
+
+Dyn.Ebola.Basic &lt;- function (t, state, parameters) {
+   
+  
+   with(as.list(c(state,parameters)),             # ??
+        {
+          N &lt;- S + E + I + R                      # ??
+          # ??
+          dS  &lt;-  - S/N * beta * I                # ??
+          dE &lt;- S/N * beta * I - gamma * E        # ??
+          dI &lt;- gamma * E - sigma * I             # ??
+          
+          dR &lt;- (1 - p.cfr) * sigma * I           # ??
+          
+          dDead &lt;- p.cfr * sigma * I              # ??
+          dOnset &lt;- gamma * E                     # ??
+          
+          # ??
+          dx &lt;- c(dS, dE, dI, dR, dDead, dOnset)
+          list(dx)
+        }
+   )
+}</code></pre>
+<p>Then write the down the equation that characterize this particular model:</p>
+<!-- $$\ \frac{dS}{dt}  = - \beta \frac {S_t I_t}{N_t} $$ -->
+<!-- $$\ \frac{dE}{dt}  =  \beta \frac {S_t I_t}{N_t} - \sigma E_t $$ -->
+<!-- $$\ \frac{dI}{dt}  =  \sigma E_t + \gamma I_t  $$ -->
+<!-- $$\ \frac{dR}{dt}  =  (1-\mu) \gamma I_t  $$ -->
+<div id="the-parameters" class="section level3">
+<h3>The parameters</h3>
+<pre class="r"><code># ??
+T.lat   &lt;- 10                   #   ??
+gamma &lt;- 1/T.lat            #   ??
+
+T.outcome &lt;- 12             # ??
+sigma &lt;- 1/T.outcome        # ??
+
+p.cfr   &lt;-  0.6                 #   ??
+
+R0 &lt;- 1.5                   #   ??
+R.int &lt;- 0.9                # ??
+
+t.intervention = 25*7       # ??
+
+# ??
+N &lt;- 5e+5                   # ??
+E0 &lt;- 10                    # ??</code></pre>
+<p>Knowing the rate of transmission is typically very difficult without detailed studies. However, measurig the reproduction number may be easier.</p>
+<p>From knowledge of the reproduction number, we can work out what is the rate of transmission (<span class="math inline">\(\beta\)</span>).</p>
+<p>In this simple model, we have <span class="math display">\[R_0 = \frac{\beta}{\gamma} \]</span>. So given the value for <span class="math inline">\(R_0\)</span> above, what is the transmission rate?</p>
+<!-- $\beta = R_0* \gamma$. -->
+</div>
+<div id="numerically-solve-the-system" class="section level3">
+<h3>Numerically solve the system</h3>
+<p>We then need to solve the system numerically, i.e. using parameters values and starting conditions, we can predict the trajectories of each compartment over time.</p>
+<p>The code below does that. Try to understand what is being done and comment the code appropriately.</p>
+<pre class="r"><code>
+params &lt;- c(gamma=gamma, sigma=sigma,
+            p.cfr=p.cfr, beta=R0/T.outcome )   # ??
+
+
+times  = seq(0, t.intervention, by=1)          # ??
+
+# ??
+xstart &lt;- c(S = N-E0,E = E0,  
+            I = 0, R = 0,
+            Dead = 0, Onset = 0)               # ??
+
+out &lt;- as.data.frame(ode(y = xstart, times = times, 
+                         func = Dyn.Ebola.Basic, parms = params))   # ??
+</code></pre>
+</div>
+<div id="plot-some-results" class="section level3">
+<h3>Plot some results</h3>
+<p>Can you interpret what is inside the dataframe ‘out’. you can view the dataframe by typing ‘View(out)’</p>
+<p>The code below allow to visualise some key results.</p>
+<p>Fill the axis and legend for the plots and comment the code. Interpret the results? <!-- Concept of exponential growth. --></p>
+<pre class="r"><code>
+# ??
+plot(out$time, out$E, col=&#39;blue&#39;,type=&#39;l&#39;,ylim = c(0,max(out$E)),
+     xlab =&#39;??&#39;, ylab = &#39;??&#39;)
+lines(out$time, out$I, col=&#39;red&#39;)
+lines(out$time, out$R, col=&#39;green&#39;)
+
+legend(&#39;topleft&#39;,c(&#39;??&#39;,&#39;??&#39;,&#39;??&#39;),lwd=2,col=c(&#39;blue&#39;,&#39;red&#39;,&#39;green&#39;))</code></pre>
+<p><img src="/post/practical-compartmental-ebola_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code>
+# ??
+f &lt;- seq(1,t.intervention,by=7)
+time &lt;- out$time[f]                # ??
+Weekly.onset &lt;- diff(out$Onset[f])  # ??
+Weekly.death &lt;- diff(out$Dead[f])   # ??
+
+plot(time[-1], Weekly.onset, col=&#39;blue&#39;,type=&#39;p&#39;, ylim = c(0,max(Weekly.onset)),
+     xlab =&#39;??&#39;, ylab = &#39;??&#39;)
+lines(time[-1], Weekly.death,type=&#39;p&#39;,col=&#39;red&#39;)
+
+legend(&#39;topleft&#39;,c(&#39;??&#39;,&#39;??&#39;),pch=1,col=c(&#39;blue&#39;,&#39;red&#39;))</code></pre>
+<p><img src="/post/practical-compartmental-ebola_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
+<p>Fill the axis and legend for the plot. Interpret the results? Concept of exponential growth.</p>
+</div>
+<div id="change-the-transmissibility" class="section level3">
+<h3>Change the transmissibility</h3>
+<p>Now we want to simulate a change in transmissibility linked to an intervention.</p>
+<p>Compare to the code above, what is changed in the code below?</p>
+<p>Try to understand what is being done and comment the code appropriately.</p>
+<pre class="r"><code># Simulation 2
+
+params2 &lt;- c(gamma=gamma, sigma=sigma,
+             p.cfr=p.cfr, beta=R.int/T.outcome) # ??
+
+
+times2  = seq(t.intervention, 2*t.intervention, by=1)
+# Starting conditions
+xstart2 &lt;- c(S = tail(out$S,1), E = tail(out$E,1),  
+             I = tail(out$I,1), R = tail(out$R,1),
+             Dead = tail(out$Dead,1), Onset = tail(out$Onset,1))  # ??
+
+
+out2 &lt;- as.data.frame(ode(y = xstart2, times = times2, 
+                         func = Dyn.Ebola.Basic, parms = params2))  # ??</code></pre>
+<p>What is being done in the code above?</p>
+<!-- 1- The reproduction number takes its second value, therefore the rate of transmission is decreased. -->
+<!-- 2- The new initial conditions are set to the previous final state of the system. -->
+<!-- 3- The model is then run. -->
+<p>Some results for the new output can be seen below. Try to comment the code and fill in relevant information in the graphs.</p>
+<pre class="r"><code># ??
+plot(out2$time, out2$E, col=&#39;blue&#39;,type=&#39;l&#39;,ylim = c(0,max(out$E)),
+     xlab =&#39;??&#39;, ylab = &#39;??&#39;)
+lines(out2$time, out2$I, col=&#39;red&#39;)
+lines(out2$time, out2$R, col=&#39;green&#39;)
+
+legend(&#39;topleft&#39;,c(&#39;??&#39;,&#39;??&#39;,&#39;??&#39;),lwd=2,col=c(&#39;blue&#39;,&#39;red&#39;,&#39;green&#39;))</code></pre>
+<p><img src="/post/practical-compartmental-ebola_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<pre class="r"><code>
+# ??
+f &lt;- seq(1,t.intervention,by=7)
+time &lt;- out2$time[f]
+Weekly.onset &lt;- diff(out2$Onset[f])
+Weekly.death &lt;- diff(out2$Dead[f])
+
+plot(time[-1], Weekly.onset, col=&#39;blue&#39;,type=&#39;p&#39;, ylim = c(0,max(Weekly.onset)),
+     xlab =&#39;??&#39;, ylab = &#39;??&#39;)
+lines(time[-1], Weekly.death,type=&#39;p&#39;,col=&#39;red&#39;)
+
+legend(&#39;topleft&#39;,c(&#39;?&#39;,&#39;??&#39;),pch=1,col=c(&#39;blue&#39;,&#39;red&#39;))</code></pre>
+<p><img src="/post/practical-compartmental-ebola_files/figure-html/unnamed-chunk-8-2.png" width="672" /></p>
+</div>
+<div id="merging-both-situations" class="section level3">
+<h3>Merging both situations</h3>
+<p>Can we plot both trajectory? Pre- and post-intervention? see below. Try to comment the code and fill in relevant information in the graphs.</p>
+<pre class="r"><code>
+## check full dynamics
+# Checking the simulations
+out3 &lt;- rbind(out,out2[-1,])
+
+plot(out3$time, out3$E, col=&#39;blue&#39;,type=&#39;l&#39;,ylim = c(0,max(out$E)),
+     xlab =&#39;??&#39;, ylab = &#39;??&#39;)
+lines(out3$time, out3$I, col=&#39;red&#39;)
+lines(out3$time, out3$R, col=&#39;green&#39;)
+
+legend(&#39;topleft&#39;,c(&#39;??&#39;,&#39;??&#39;,&#39;??&#39;),lwd=2,col=c(&#39;blue&#39;,&#39;red&#39;,&#39;green&#39;))</code></pre>
+<p><img src="/post/practical-compartmental-ebola_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<pre class="r"><code>
+# ??
+f &lt;- seq(1,2*t.intervention,by=7)
+time &lt;- out3$time[f]
+Weekly.onset &lt;- diff(out3$Onset[f])
+Weekly.death &lt;- diff(out3$Dead[f])
+
+plot(time[-1], Weekly.onset, col=&#39;blue&#39;,type=&#39;p&#39;, ylim = c(0,max(Weekly.onset)),
+     xlab =&#39;??&#39;, ylab = &#39;??&#39;)
+lines(time[-1], Weekly.death,type=&#39;p&#39;,col=&#39;red&#39;)
+
+legend(&#39;topleft&#39;,c(&#39;??&#39;,&#39;??&#39;),pch=c(1,1),col=c(&#39;blue&#39;,&#39;red&#39;))</code></pre>
+<p><img src="/post/practical-compartmental-ebola_files/figure-html/unnamed-chunk-9-2.png" width="672" /></p>
+</div>
+</div>
+</div>
+<div id="second-model" class="section level1">
+<h1>Second model</h1>
+<p>We aim to reproduce the results above by calling the numerical solver only once. We also would like to compare our results to data.</p>
+<p>Comment an interpret the code below:</p>
+<p>What changed compared to the code used above?</p>
+<p>First, we write a new model that will be able to account for changes in transmissibility.</p>
+<p>Try to understand what is being done and comment the code appropriately.</p>
+<pre class="r"><code>
+Dyn.Ebola.Basic2 &lt;- function (t, state, parameters) {
+  
+   with(as.list(c(state,parameters)), #??
+        {
+          N &lt;- S + E + I + R  # ??
+          
+          beta &lt;- ReproNb*sigma  # ??
+         
+          # ??
+          dS  &lt;-  - S/N * beta * I                # ??
+          dE &lt;- S/N * beta * I - gamma * E        # ??
+          dI &lt;- gamma * E - sigma * I             # ??
+          
+          dR &lt;- (1 - p.cfr) * sigma * I           # ??
+          
+          dDead &lt;- p.cfr * sigma * I              # ??
+          dOnset &lt;- gamma * E                     # ??
+          
+          dReproNb &lt;- 0                           # ??
+          
+          # ??
+          dx &lt;- c(dS, dE, dI, dR, dDead, dOnset, dReproNb )
+          list(dx)
+        }
+   )
+}</code></pre>
+<div id="initial-conditions" class="section level3">
+<h3>Initial conditions</h3>
+<p>Then we set initial conditions and time varying parameters.</p>
+<p>Try to understand what is being done and comment the code appropriately.</p>
+<pre class="r"><code>
+times  = seq(0, 2 * t.intervention, by=1)          # ??
+# ??
+xstart &lt;- c(S = N-E0,E = E0,  
+            I = 0, R = 0,
+            Dead = 0, Onset = 0, ReproNb = R0)               # ??
+
+# ??
+eventdat &lt;- data.frame(var = &quot;ReproNb&quot;, time = t.intervention,
+                       value = R.int, method = &quot;rep&quot;)         # ??
+
+
+out &lt;- as.data.frame(ode(y = xstart, times = times, 
+                         func = Dyn.Ebola.Basic2, parms = params,
+                         events = list(data = eventdat)))   # ??</code></pre>
+</div>
+<div id="plotting-results" class="section level3">
+<h3>Plotting results</h3>
+<p>Finally we check the results and compare with observed data.</p>
+<p>First dowload the dataset: <a href="../../data/compartmental-ebola-pratical.csv">compartmental-ebola-pratical.csv</a>.</p>
+<p>Try to comment the code and fill in relevant information in the graphs.</p>
+<pre class="r"><code># Checking the simulations
+plot(out$time, out$E, col=&#39;blue&#39;,type=&#39;l&#39;,ylim = c(0,max(out$E)),
+     xlab =&#39;??&#39;, ylab = &#39;??&#39;)
+lines(out$time, out$I, col=&#39;red&#39;)
+lines(out$time, out$R, col=&#39;green&#39;)
+
+legend(&#39;topleft&#39;,c(&#39;??&#39;,&#39;??&#39;,&#39;??&#39;),lwd=2,col=c(&#39;blue&#39;,&#39;red&#39;,&#39;green&#39;))</code></pre>
+<p><img src="/post/practical-compartmental-ebola_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<pre class="r"><code>
+# ??
+f &lt;- seq(1,2*t.intervention,by=7)  # ??
+time &lt;- out$time[f]                # ??
+Weekly.onset &lt;- diff(out$Onset[f])  # ??
+Weekly.death &lt;- diff(out$Dead[f])   # ??</code></pre>
+<pre class="r"><code>dat &lt;- read.csv(&#39;onset_data.csv&#39;)</code></pre>
+<p>Once imported, the data should look like:</p>
+<pre class="r"><code>
+
+plot(time[-1], Weekly.onset, col=&#39;blue&#39;,type=&#39;p&#39;, ylim = c(0,max(dat$incidence)),
+     xlab =&#39;??&#39;, ylab = &#39;??&#39;)
+lines(time[-1], Weekly.death,type=&#39;p&#39;,col=&#39;red&#39;)
+
+lines(dat$date, dat$incidence, type=&#39;p&#39;,pch=3, col=&#39;blue&#39;)
+
+legend(&#39;topleft&#39;,c(&#39;??&#39;,&#39;??&#39;,&#39;??&#39;),pch=c(1,3,1),col=c(&#39;blue&#39;,&#39;blue&#39;,&#39;red&#39;))</code></pre>
+<p><img src="/post/practical-compartmental-ebola_files/figure-html/read_files-1.png" width="672" /></p>
+<p>Now, try to modify:</p>
+<ul>
+<li><p>the initial number in the exposed class, and</p></li>
+<li><p>the reproduction post-intervention.</p></li>
+</ul>
+<p>Re-run the model and observe the fit.</p>
+<p>Try to obtain a better fit by changing paraemters.</p>
+</div>
+<div id="exploration-of-fitting" class="section level3">
+<h3>Exploration of fitting</h3>
+<p>Fitting manually to the data like above is tedious and not rigorous. We can explore a simple statistical method.</p>
+<p>Let’s assume that we want to fit the initial number in the exposed class and the reproduction post-intervention. Clearly, we must find the values for those parameters such that our predictions matched best the observations.</p>
+<p>Assuming that the incidence in a given week follows a Poisson distribution with mean given by our prediction: <span class="math display">\[P(I^{obs}_t|\theta) \propto  Poiss(I^{pred}_t) \]</span>.</p>
+<p>If each weekly incidences are assumed independent, the likelihood of the model could be written as: <span class="math display">\[ L=\Pi [P(I^{obs}_t|\theta)]  \]</span>.</p>
+<p>in a very simple way, maximizing this likelihood will give us our best parameters.</p>
+</div>
+<div id="in-practice" class="section level3">
+<h3>In practice</h3>
+<p>Interpret and comment the code below and add information on the plot.</p>
+<p>In particular, what lighter color on the heat-graph represents? You can view the matrix L by typing ‘View(L)’ in the console.</p>
+<pre class="r"><code>E_ini &lt;- seq(25,35,length=10)      # ??
+R2 &lt;- seq(.7,.9,length=10)         # ??
+L &lt;- matrix(NA,length(E_ini),length(R2))   # ??
+
+for (i in 1:length(E_ini)){   # ??
+  for (j in 1:length(R2)){    # ??
+    xstart &lt;- c(S = N-E_ini[i],E = E_ini[i],  
+                I = 0, R = 0,
+                Dead = 0, Onset = 0, ReproNb = R0)               # ??
+    
+    eventdat &lt;- data.frame(var = &quot;ReproNb&quot;, time = t.intervention,
+                           value = R2[j], method = &quot;rep&quot;)          # ??
+  
+    out &lt;- as.data.frame(ode(y = xstart, times = times, 
+                             func = Dyn.Ebola.Basic2, parms = params,
+                             events = list(data = eventdat)))   # ??
+    
+    Weekly.onset &lt;- diff(out$Onset[f]) # ??
+    
+    L[i,j] &lt;- sum(dpois(x = dat$incidence,lambda = Weekly.onset,log = TRUE))  # ??
+    
+  }
+}
+L[L &lt; (max(L)*1.2)] &lt;- NA          # ??
+image(E_ini,R2,L, col = heat.colors(30), xlab = &#39;??&#39;, ylab = &#39;??&#39;)  # ??</code></pre>
+<p><img src="/post/practical-compartmental-ebola_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>Now, from visual inspection of the graph, you can choose your best fit values for:</p>
+<ul>
+<li><p>the initial number in the exposed class, and</p></li>
+<li><p>the reproduction post-intervention,</p></li>
+</ul>
+</div>
+<div id="plot-the-final-fit" class="section level3">
+<h3>Plot the final fit</h3>
+<p>Then, we want to plot the observed versus the new predicted data.</p>
+<p>Fill in the missing bits to be able to run the code below.</p>
+<p>Try to understand and comment the code below:</p>
+<pre class="r"><code># final 
+xstart &lt;- c(S = N-E_ini[i],E = 10,  
+            I = 0, R = 0,
+            Dead = 0, Onset = 0, ReproNb = 1.5)               # ??
+
+eventdat &lt;- data.frame(var = &quot;ReproNb&quot;, time = t.intervention,
+                       value = .9, method = &quot;rep&quot;)               # ??
+
+out &lt;- as.data.frame(ode(y = xstart, times = times, 
+                         func = Dyn.Ebola.Basic2, parms = params,
+                         events = list(data = eventdat)))   # ??
+
+# ??
+f &lt;- seq(1,2*t.intervention,by=7)  # ??
+time &lt;- out$time[f]                # ??
+Weekly.onset &lt;- diff(out$Onset[f])  # ??
+Weekly.death &lt;- diff(out$Dead[f])   # ??
+
+
+# plot
+plot(time[-1], Weekly.onset, col=&#39;blue&#39;,type=&#39;p&#39;, ylim = c(0,max(dat$incidence)),
+     xlab =&#39;??&#39;, ylab = &#39;??&#39;)
+lines(time[-1], Weekly.death,type=&#39;p&#39;,col=&#39;red&#39;)
+
+lines(dat$date, dat$incidence, type=&#39;p&#39;,pch=3, col=&#39;blue&#39;)
+
+legend(&#39;topleft&#39;,c(&#39;??&#39;,&#39;??&#39;,&#39;??&#39;),pch=c(1,3,1),col=c(&#39;blue&#39;,&#39;blue&#39;,&#39;red&#39;))</code></pre>
+<p><img src="/post/practical-compartmental-ebola_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+</div>
+</div>
+<div id="final-model" class="section level1">
+<h1>Final model</h1>
+<p>In the previous model, the intervention was modelled as a change in the reproduction number. Often it is useful to know more specifically what changed, i.e. this is the main advantage in building a ‘mechanistic model’.</p>
+<p>For instance, if you know that isolated cases are not transmitting further, then an increase in ‘early’ isolation may help control the disease. A model can help quantify this and gain better intuition.</p>
+<p>Retrospectively, if we know that such an intervention was implemented, then we can better understand to which extent it decreased transmission.</p>
+<p>For instance we may know that the time to isolation decreased from <strong>11.5 days</strong> pre-intervention to a lower value, but we are unsure by how much.</p>
+<p>See the code below can you interpret it?</p>
+<p>First we write a new model:</p>
+<pre class="r"><code>
+Dyn.Ebola.Basic3 &lt;- function (t, state, parameters) {
+   
+   with(as.list(c(state,parameters)), # ??
+        {
+          N &lt;- S + E + I + R  # ??
+          # ??
+          sigma.h &lt;- 1/delay_hosp                       # ??
+          sigma &lt;- 1/(delay_onset_outcome-delay_hosp)   # ??
+          
+          
+          dS  &lt;-  - S/N * beta * I                # ??
+          dE &lt;- S/N * beta * I - gamma * E        # ??
+          dI &lt;- gamma * E - sigma.h * I           # ??
+          dIh &lt;- sigma.h * I - sigma * Ih         # ??
+          
+          dR &lt;- (1 - p.cfr) * sigma * Ih           # ??
+          
+          dDead &lt;- p.cfr * sigma * Ih              # ??
+          dOnset &lt;- gamma * E                     # ??
+          
+          ddelay_hosp &lt;- 0                           # ??
+          
+          # ??
+          dx &lt;- c(dS, dE, dI, dIh, dR, dDead, dOnset, ddelay_hosp )
+          list(dx)
+        }
+   )
+}</code></pre>
+<p>As before, try to:</p>
+<ul>
+<li><p>understand the code and comment it,</p></li>
+<li><p>draw a flow diagram,</p></li>
+</ul>
+<p>-write dow the new equations of the system.</p>
+<div id="new-parameters" class="section level3">
+<h3>New parameters</h3>
+<p>This should be very familiar, but comment on the code to make sure you understand everything.</p>
+<pre class="r"><code>#==================  Parameters 
+
+T.lat   &lt;- 10                   #   ??
+gamma &lt;- 1/T.lat            #   ??
+
+T.outcome &lt;- 12             # ??
+T.hosp.1 &lt;- 11.5            # ??
+T.hosp.2 &lt;- 5                # ??
+
+p.cfr   &lt;-  0.6                 #   ??
+
+R0 &lt;- 1.5                   #   ??
+
+# ??
+N &lt;- 5e+5                   # ??
+E0 &lt;- 10                     # ??
+
+# ??
+t.intervention = 25*7      # ??</code></pre>
+</div>
+<div id="numerically-solve-the-model" class="section level3">
+<h3>Numerically solve the model</h3>
+<p>Then as before we run the model.</p>
+<p>Again make sure you understand everything and comment the code.</p>
+<p>What is being change post-intervention?</p>
+<pre class="r"><code>#================== Simulation 1
+
+params &lt;- c(gamma=gamma, delay_hosp = T.hosp.1, delay_onset_outcome = T.outcome,
+            beta = R0/T.outcome,
+            p.cfr=p.cfr )   # ??
+
+
+times  = seq(0, 2 * t.intervention, by=1)          # ??
+# ??
+xstart &lt;- c(S = N-E0,E = E0,  
+            I = 0, Ih = 0, R = 0,
+            Dead = 0, Onset = 0, delay_hosp = T.hosp.1)               # ??
+
+# ??
+eventdat &lt;- data.frame(var = &quot;delay_hosp&quot;, time = t.intervention,
+                       value = T.hosp.2, method = &quot;rep&quot;)
+
+
+out &lt;- as.data.frame(ode(y = xstart, times = times, 
+                         func = Dyn.Ebola.Basic3, parms = params,
+                         events = list(data = eventdat)))   # ??</code></pre>
+</div>
+<div id="plotting-results-1" class="section level3">
+<h3>Plotting results</h3>
+<p>Check the results by running the code below.</p>
+<p>Fill in the comment and complete the graph information</p>
+<pre class="r"><code># Checking the simulations
+plot(out$time, out$E, col=&#39;blue&#39;,type=&#39;l&#39;,ylim = c(0,max(out$E)),
+     xlab =&#39;??&#39;, ylab = &#39;??&#39;)
+lines(out$time, out$I, col=&#39;red&#39;)
+lines(out$time, out$R, col=&#39;green&#39;)
+
+legend(&#39;topleft&#39;,c(&#39;??&#39;,&#39;??&#39;,&#39;??&#39;),lwd=2,col=c(&#39;blue&#39;,&#39;red&#39;,&#39;green&#39;))</code></pre>
+<p><img src="/post/practical-compartmental-ebola_files/figure-html/plotSim2-1.png" width="672" /></p>
+<pre class="r"><code>
+# ??
+f &lt;- seq(1,2*t.intervention,by=7)
+time &lt;- out$time[f]
+Weekly.onset &lt;- diff(out$Onset[f])
+Weekly.death &lt;- diff(out$Dead[f])
+
+
+plot(time[-1], Weekly.onset, col=&#39;blue&#39;,type=&#39;p&#39;, ylim = c(0,max(dat$incidence)),
+     xlab =&#39;??&#39;, ylab = &#39;??&#39;)
+lines(time[-1], Weekly.death,type=&#39;p&#39;,col=&#39;red&#39;)
+
+lines(dat$date, dat$incidence, type=&#39;p&#39;,pch=3, col=&#39;blue&#39;)
+
+legend(&#39;topleft&#39;,c(&#39;??&#39;,&#39;??&#39;,&#39;??&#39;),pch=c(1,3,1),col=c(&#39;blue&#39;,&#39;blue&#39;,&#39;red&#39;))</code></pre>
+<p><img src="/post/practical-compartmental-ebola_files/figure-html/plotSim2-2.png" width="672" /></p>
+<p>As before, try to modify:</p>
+<ul>
+<li><p>the initial number in the exposed class, and</p></li>
+<li><p>the time to hospitalisation post-intervention.</p></li>
+</ul>
+<p>Re-run the model and observe the fit.</p>
+<p>Your aim here is to fit the data better, and estimate by how much the time to isolation decreased after the intervention.</p>
+</div>
+<div id="fitting" class="section level3">
+<h3>Fitting</h3>
+<p>As before, fitting the model manually is not ideal.</p>
+<p>Try to run the code below. Again, fill in the missing bits and interpret the code:</p>
+<pre class="r"><code>###########################################################
+#### get likelihood  ######################################
+###########################################################
+
+E_ini &lt;- seq(20,40,length=10)  # ??
+T2 &lt;- seq(5.5,7.5,length=15) # ??
+L &lt;- matrix(NA,length(E_ini),length(T2)) # ??
+
+for (i in 1:length(E_ini)){
+  for (j in 1:length(T2)){
+    xstart &lt;- c(S = N-E_ini[i],E = E_ini[i],  
+                I = 0, Ih = 0, R = 0,
+                Dead = 0, Onset = 0, delay_hosp = T.hosp.1)               # ??
+    
+    eventdat &lt;- data.frame(var = &quot;delay_hosp&quot;, time = t.intervention,
+                          value = T2[j], method = &quot;rep&quot;)     # ??
+  
+    out &lt;- as.data.frame(ode(y = xstart, times = times, 
+                             func = Dyn.Ebola.Basic3, parms = params,
+                             events = list(data = eventdat)))   # ??
+    
+    Weekly.onset &lt;- diff(out$Onset[f]) # ??
+    
+    L[i,j] &lt;- sum(dpois(x = dat$incidence,lambda = Weekly.onset,log = TRUE))  # ??
+    
+  }
+}
+L[L &lt; (max(L)*1.5)] &lt;- NA
+image(E_ini,T2,L, col = heat.colors(30),xlab = &#39;??&#39;, ylab=&#39;??&#39;)</code></pre>
+<p><img src="/post/practical-compartmental-ebola_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p>We obtain best fit measure for the new time to hospitalisation.</p>
+</div>
+<div id="final-fit" class="section level3">
+<h3>Final fit</h3>
+<p>Now fill in the code below to be able to run it and observe your new fit.</p>
+<pre class="r"><code>
+# final 
+xstart &lt;- c(S = N-E_ini[i],E = 10,  
+            I = 0, Ih = 0, R = 0,
+            Dead = 0, Onset = 0, delay_hosp = T.hosp.1)               # ??
+
+eventdat &lt;- data.frame(var = &quot;delay_hosp&quot;, time = t.intervention,
+                       value = 5, method = &quot;rep&quot;)
+
+out &lt;- as.data.frame(ode(y = xstart, times = times, 
+                         func = Dyn.Ebola.Basic3, parms = params,
+                         events = list(data = eventdat)))   # ??
+
+# weekly incidence and weekly number of death
+f &lt;- seq(1,2*t.intervention,by=7)
+time &lt;- out$time[f]
+Weekly.onset &lt;- diff(out$Onset[f])
+Weekly.death &lt;- diff(out$Dead[f])
+
+# plot
+plot(time[-1], Weekly.onset, col=&#39;blue&#39;,type=&#39;p&#39;, ylim = c(0,max(dat$incidence)),
+     xlab =&#39;??&#39;, ylab = &#39;??&#39;)
+lines(time[-1], Weekly.death,type=&#39;p&#39;,col=&#39;red&#39;)
+
+lines(dat$date, dat$incidence, type=&#39;p&#39;,pch=3, col=&#39;blue&#39;)
+
+legend(&#39;topleft&#39;,c(&#39;??&#39;,&#39;??&#39;,&#39;??&#39;),pch=c(1,3,1),col=c(&#39;blue&#39;,&#39;blue&#39;,&#39;red&#39;))</code></pre>
+<p><img src="/post/practical-compartmental-ebola_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+</div>
+<div id="explore-further" class="section level3">
+<h3>Explore further</h3>
+<p>you can explore further:</p>
+<ul>
+<li><p>try compute the full outbreak size,</p></li>
+<li><p>how many live could you save by intervening earlier (perhaps draw graph)?</p></li>
+<li><p>what is the influence of T.Hosp.2 on final size?</p></li>
+</ul>
+</div>
+</div>
+<div id="about-this-document" class="section level1">
+<h1>About this document</h1>
+<div id="contributors" class="section level2">
+<h2>Contributors</h2>
+<ul>
+<li>Pierre Nouvellet &amp; Zulma Cucunuba: initial version</li>
+</ul>
+</div>
+<div id="legal-stuff" class="section level2">
+<h2>Legal stuff</h2>
+<p><strong>License</strong>: <a href="https://creativecommons.org/licenses/by/3.0/">CC-BY</a> <strong>Copyright</strong>: Pierre Nouvellet &amp; Zulma Cucunuba, 2017</p>
+</div>
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+  
+
+</div>
+
+          </div>
+        </div>
+        <div class="row site-footer">
+          <div class="col-md-12">
+            <div class="row">
+  <div class="col-md-12 footer-title">
+    <h3 style="color:black">Powered by</h3>
+    <a href="http://www.repidemicsconsortium.org/"><img src="/img/logo/recon.png" width="150px"></a>
+      
+      
+      
+      
+      
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async
+	src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://reconlearn.netlify.com/js/jquery.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/bootstrap.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/jquery.cookie.js"> </script>
+<script src="https://reconlearn.netlify.com/js/ekko-lightbox.js"></script>
+<script src="https://reconlearn.netlify.com/js/jquery.scrollTo.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/masonry.pkgd.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/imagesloaded.pkgd.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/owl.carousel.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/front.js"></script>
+
+  </body>
+</html>

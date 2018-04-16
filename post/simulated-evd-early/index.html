@@ -130,7 +130,7 @@
   <div class="row">
     <div class="col-md-12">
       <div class="entry-meta">
-        November 21
+        April 09
       </div>
     </div>
   </div>
@@ -158,6 +158,18 @@
         <div class="entry-sidebar-title">Tags</div>
         
         <div class="entry-tags">
+          <a href="/tags/chagas">chagas</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/compartmental-models">compartmental-models</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/delays">delays</a>
+        </div>
+        
+        <div class="entry-tags">
           <a href="/tags/ebola">ebola</a>
         </div>
         
@@ -166,11 +178,39 @@
         </div>
         
         <div class="entry-tags">
+          <a href="/tags/forecasting">forecasting</a>
+        </div>
+        
+        <div class="entry-tags">
           <a href="/tags/genetics">genetics</a>
         </div>
         
         <div class="entry-tags">
+          <a href="/tags/malaria">malaria</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/modelling">modelling</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/outbreak">outbreak</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/outbreak-end">outbreak-end</a>
+        </div>
+        
+        <div class="entry-tags">
           <a href="/tags/outbreaker2">outbreaker2</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/public-health">public-health</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/reconstruction">reconstruction</a>
         </div>
         
         <div class="entry-tags">
@@ -187,6 +227,14 @@
         
         <div class="entry-tags">
           <a href="/tags/simulation">simulation</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/vdb">vdb</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/zika">zika</a>
         </div>
         
       </div>
@@ -209,26 +257,24 @@
 <h2>Required packages</h2>
 <p>The following packages, available on CRAN, are needed for this case study:</p>
 <ul>
-<li><a href="http://www.repidemicsconsortium.org/incidence/"><code>xlsx</code></a> to read <code>.xlsx</code> files</li>
+<li><a href="https://cran.r-project.org/web/packages/readxl/index.html"><code>readxl</code></a> to read <code>.xlsx</code> files</li>
+<li><a href="http://www.repidemicsconsortium.org/outbreaks/"><code>outbreaks</code></a> for some other outbreak data</li>
 <li><a href="http://www.repidemicsconsortium.org/incidence/"><code>incidence</code></a> for epicurves</li>
 <li><a href="http://www.repidemicsconsortium.org/epicontacts/"><code>epicontacts</code></a> for contact data visualisation</li>
 <li><a href="http://www.repidemicsconsortium.org/distcrete"><code>distcrete</code></a> to obtain discretised delay distributions</li>
+<li><a href="http://www.repidemicsconsortium.org/epitrix"><code>epitrix</code></a> to fit discretised Gamma distributions</li>
+<li><a href="http://www.repidemicsconsortium.org/earlyR"><code>earlyR</code></a> to estimate <span class="math inline">\(R_0\)</span></li>
+<li><a href="http://www.repidemicsconsortium.org/projections"><code>projections</code></a> for short term forecasting</li>
 </ul>
 <p>To install these packages, use <code>install.packages</code>, e.g.:</p>
-<pre class="r"><code>install.packages(&quot;xlsx&quot;)
+<pre class="r"><code>install.packages(&quot;readxl&quot;)
+install.packages(&quot;outbreaks&quot;)
 install.packages(&quot;incidence&quot;)
 install.packages(&quot;epicontacts&quot;)
-install.packages(&quot;distcrete&quot;)</code></pre>
-<p>We will also use several packages currently under development, hosted on <em>github</em>. These include:</p>
-<ul>
-<li><a href="http://www.repidemicsconsortium.org/epitrix"><code>epitrix</code></a> for some practical tricks</li>
-<li><a href="http://www.repidemicsconsortium.org/earlyR"><code>earlyR</code></a> to estimate <span class="math inline">\(R_0\)</span></li>
-<li><a href="http://www.repidemicsconsortium.org/projections"><code>projections</code></a> to derive short term incidence predictions</li>
-</ul>
-<p>To install these, you will need a working version of <code>devtools</code>, and the toolchain for package building on your system. On windows, you will likely need to install <a href="https://cran.r-project.org/bin/windows/Rtools/"><em>Rtools</em></a>.</p>
-<pre class="r"><code>devtools::install_github(&quot;reconhub/epitrix&quot;)
-devtools::install_github(&quot;reconhub/earlyR&quot;)
-devtools::install_github(&quot;reconhub/projections&quot;)</code></pre>
+install.packages(&quot;distcrete&quot;)
+install.packages(&quot;epitrix&quot;)
+install.packages(&quot;earlyR&quot;)
+install.packages(&quot;projections&quot;)</code></pre>
 </div>
 <div id="early-data" class="section level2">
 <h2>Early data</h2>
@@ -237,38 +283,43 @@ devtools::install_github(&quot;reconhub/projections&quot;)</code></pre>
 <li><p><a href="../../data/PHM-EVD-linelist-2017-10-27.xlsx">PHM-EVD-linelist-2017-10-27.xlsx</a>: a linelist containing case information up to the 27th October 2017</p></li>
 <li><p><a href="../../data/PHM-EVD-contacts-2017-10-27.xlsx">PHM-EVD-contacts-2017-10-27.xlsx</a>: a list of contacts reported between cases up to the 27th October 2017, where <code>from</code> indicates a potential source of infection, and <code>to</code> the recipient of the contact.</p></li>
 </ul>
-<p>To read into R, download these files and use the function <code>read.xlsx()</code> from the <code>xlsx</code> package to import the data. Each import will create a <code>data.frame</code>. Call the first one <code>linelist</code>, and the second one <code>contacts</code>. For instance, you first command line could look like:</p>
-<pre class="r"><code>linelist &lt;- xlsx::read.xlsx(&quot;PHM-EVD-linelist-2017-10-27.xlsx&quot;, sheetIndex = 1)</code></pre>
+<p>To read into R, download these files and use the function <code>read_xlsx()</code> from the <code>readxl</code> package to import the data. Each import will create a data table stored as a <code>tibble</code> object. Call the first one <code>linelist</code>, and the second one <code>contacts</code>. For instance, you first command line could look like:</p>
+<pre class="r"><code>linelist &lt;- readxl::read_xlsx(&quot;PHM-EVD-linelist-2017-10-27.xlsx&quot;)</code></pre>
+<p>Note that for further analyses, you will need to make sure all dates are stored as <code>Date</code> objects. This can be done using <code>as.Date</code>:</p>
+<pre class="r"><code>linelist$onset &lt;- as.Date(linelist$onset)</code></pre>
 <p>Once imported, the data should look like:</p>
-<pre class="r"><code>
-## linelist: one line per case
+<pre class="r"><code>## linelist: one line per case
 linelist
-##        id      onset    sex age
-## 1  39e9dc 2017-10-10 female  62
-## 2  664549 2017-10-16   male  28
-## 3  b4d8aa 2017-10-17   male  54
-## 4  51883d 2017-10-18   male  57
-## 5  947e40 2017-10-20 female  23
-## 6  9aa197 2017-10-20 female  66
-## 7  e4b0a2 2017-10-21 female  13
-## 8  af0ac0 2017-10-21   male  10
-## 9  185911 2017-10-21 female  34
-## 10 601d2e 2017-10-22   male  11
-## 11 605322 2017-10-22 female  23
-## 12 e399b1 2017-10-23 female  23
+## # A tibble: 12 x 4
+##    id     onset      sex      age
+##    &lt;chr&gt;  &lt;date&gt;     &lt;chr&gt;  &lt;dbl&gt;
+##  1 39e9dc 2017-10-10 female   62.
+##  2 664549 2017-10-16 male     28.
+##  3 b4d8aa 2017-10-17 male     54.
+##  4 51883d 2017-10-18 male     57.
+##  5 947e40 2017-10-20 female   23.
+##  6 9aa197 2017-10-20 female   66.
+##  7 e4b0a2 2017-10-21 female   13.
+##  8 af0ac0 2017-10-21 male     10.
+##  9 185911 2017-10-21 female   34.
+## 10 601d2e 2017-10-22 male     11.
+## 11 605322 2017-10-22 female   23.
+## 12 e399b1 2017-10-23 female   23.
 
 ## contacts: pairs of cases with reported contacts
 contacts
-##      from     to
-## 1  51883d 185911
-## 2  b4d8aa e4b0a2
-## 3  39e9dc b4d8aa
-## 4  39e9dc 601d2e
-## 5  51883d 9aa197
-## 6  39e9dc 51883d
-## 7  39e9dc e399b1
-## 8  b4d8aa af0ac0
-## 9  39e9dc 947e40
+## # A tibble: 11 x 2
+##    from   to    
+##    &lt;chr&gt;  &lt;chr&gt; 
+##  1 51883d 185911
+##  2 b4d8aa e4b0a2
+##  3 39e9dc b4d8aa
+##  4 39e9dc 601d2e
+##  5 51883d 9aa197
+##  6 39e9dc 51883d
+##  7 39e9dc e399b1
+##  8 b4d8aa af0ac0
+##  9 39e9dc 947e40
 ## 10 39e9dc 664549
 ## 11 39e9dc 605322</code></pre>
 </div>
@@ -288,26 +339,26 @@ contacts
 ##   // linelist
 ## 
 ## # A tibble: 12 x 4
-##        id      onset    sex   age
-##  *  &lt;chr&gt;     &lt;date&gt; &lt;fctr&gt; &lt;dbl&gt;
-##  1 39e9dc 2017-10-10 female    62
-##  2 664549 2017-10-16   male    28
-##  3 b4d8aa 2017-10-17   male    54
-##  4 51883d 2017-10-18   male    57
-##  5 947e40 2017-10-20 female    23
-##  6 9aa197 2017-10-20 female    66
-##  7 e4b0a2 2017-10-21 female    13
-##  8 af0ac0 2017-10-21   male    10
-##  9 185911 2017-10-21 female    34
-## 10 601d2e 2017-10-22   male    11
-## 11 605322 2017-10-22 female    23
-## 12 e399b1 2017-10-23 female    23
+##    id     onset      sex      age
+##  * &lt;chr&gt;  &lt;date&gt;     &lt;chr&gt;  &lt;dbl&gt;
+##  1 39e9dc 2017-10-10 female   62.
+##  2 664549 2017-10-16 male     28.
+##  3 b4d8aa 2017-10-17 male     54.
+##  4 51883d 2017-10-18 male     57.
+##  5 947e40 2017-10-20 female   23.
+##  6 9aa197 2017-10-20 female   66.
+##  7 e4b0a2 2017-10-21 female   13.
+##  8 af0ac0 2017-10-21 male     10.
+##  9 185911 2017-10-21 female   34.
+## 10 601d2e 2017-10-22 male     11.
+## 11 605322 2017-10-22 female   23.
+## 12 e399b1 2017-10-23 female   23.
 ## 
 ##   // contacts
 ## 
 ## # A tibble: 11 x 2
-##      from     to
-##     &lt;chr&gt;  &lt;chr&gt;
+##    from   to    
+##    &lt;chr&gt;  &lt;chr&gt; 
 ##  1 51883d 185911
 ##  2 b4d8aa e4b0a2
 ##  3 39e9dc b4d8aa
@@ -322,7 +373,7 @@ contacts
 <p>You can easily plot these contacts, but with a little bit of tweaking (see <code>?vis_epicontacts</code>) you can customise shapes by gender:</p>
 <pre class="r"><code>plot(x, node_shape = &quot;sex&quot;, shapes = c(male = &quot;male&quot;, female = &quot;female&quot;), selector = FALSE)</code></pre>
 <div id="htmlwidget-1" style="width:90%;height:700px;" class="visNetwork html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1">{"x":{"nodes":{"id":["185911","39e9dc","51883d","601d2e","605322","664549","947e40","9aa197","af0ac0","b4d8aa","e399b1","e4b0a2"],"onset":["2017-10-21","2017-10-10","2017-10-18","2017-10-22","2017-10-22","2017-10-16","2017-10-20","2017-10-20","2017-10-21","2017-10-17","2017-10-23","2017-10-21"],"sex":["female","female","male","male","female","male","female","female","male","male","female","female"],"age":[34,62,57,11,23,28,23,66,10,54,23,13],"label":["185911","39e9dc","51883d","601d2e","605322","664549","947e40","9aa197","af0ac0","b4d8aa","e399b1","e4b0a2"],"title":["<p> id: 185911<br>onset: 2017-10-21<br>sex: female<br>age: 34 <\/p>","<p> id: 39e9dc<br>onset: 2017-10-10<br>sex: female<br>age: 62 <\/p>","<p> id: 51883d<br>onset: 2017-10-18<br>sex: male<br>age: 57 <\/p>","<p> id: 601d2e<br>onset: 2017-10-22<br>sex: male<br>age: 11 <\/p>","<p> id: 605322<br>onset: 2017-10-22<br>sex: female<br>age: 23 <\/p>","<p> id: 664549<br>onset: 2017-10-16<br>sex: male<br>age: 28 <\/p>","<p> id: 947e40<br>onset: 2017-10-20<br>sex: female<br>age: 23 <\/p>","<p> id: 9aa197<br>onset: 2017-10-20<br>sex: female<br>age: 66 <\/p>","<p> id: af0ac0<br>onset: 2017-10-21<br>sex: male<br>age: 10 <\/p>","<p> id: b4d8aa<br>onset: 2017-10-17<br>sex: male<br>age: 54 <\/p>","<p> id: e399b1<br>onset: 2017-10-23<br>sex: female<br>age: 23 <\/p>","<p> id: e4b0a2<br>onset: 2017-10-21<br>sex: female<br>age: 13 <\/p>"],"icon.color":["#CCDDFF","#88D3B6","#CEBEAE","#D5ACB9","#BCAE8C","#FFC70B","#FFA374","#D9E492","#D6CAAD","#EAAFB1","#F5CCA2","#CDCDCD"],"group.color":["#CCDDFF","#88D3B6","#CEBEAE","#D5ACB9","#BCAE8C","#FFC70B","#FFA374","#D9E492","#D6CAAD","#EAAFB1","#F5CCA2","#CDCDCD"],"shape":["icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon"],"icon.code":["f182","f182","f183","f183","f182","f183","f182","f182","f183","f183","f182","f182"]},"edges":{"from":["51883d","b4d8aa","39e9dc","39e9dc","51883d","39e9dc","39e9dc","b4d8aa","39e9dc","39e9dc","39e9dc"],"to":["185911","e4b0a2","b4d8aa","601d2e","9aa197","51883d","e399b1","af0ac0","947e40","664549","605322"],"width":[3,3,3,3,3,3,3,3,3,3,3],"arrows":["to","to","to","to","to","to","to","to","to","to","to"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"physics":{"stabilization":false}},"groups":["#CCDDFF","#88D3B6","#CEBEAE","#D5ACB9","#BCAE8C","#FFC70B","#FFA374","#D9E492","#D6CAAD","#EAAFB1","#F5CCA2","#CDCDCD"],"width":"90%","height":"700px","idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)"},"main":null,"submain":null,"footer":null,"legend":{"width":0.2,"useGroups":false,"position":"left","ncol":1,"stepX":100,"stepY":100},"highlight":{"enabled":true,"hoverNearest":false,"degree":1,"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null},"iconsRedraw":true},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"nodes":{"id":["185911","39e9dc","51883d","601d2e","605322","664549","947e40","9aa197","af0ac0","b4d8aa","e399b1","e4b0a2"],"onset":["2017-10-21","2017-10-10","2017-10-18","2017-10-22","2017-10-22","2017-10-16","2017-10-20","2017-10-20","2017-10-21","2017-10-17","2017-10-23","2017-10-21"],"sex":["female","female","male","male","female","male","female","female","male","male","female","female"],"age":[34,62,57,11,23,28,23,66,10,54,23,13],"label":["185911","39e9dc","51883d","601d2e","605322","664549","947e40","9aa197","af0ac0","b4d8aa","e399b1","e4b0a2"],"title":["<p> id: 185911<br>onset: 2017-10-21<br>sex: female<br>age: 34 <\/p>","<p> id: 39e9dc<br>onset: 2017-10-10<br>sex: female<br>age: 62 <\/p>","<p> id: 51883d<br>onset: 2017-10-18<br>sex: male<br>age: 57 <\/p>","<p> id: 601d2e<br>onset: 2017-10-22<br>sex: male<br>age: 11 <\/p>","<p> id: 605322<br>onset: 2017-10-22<br>sex: female<br>age: 23 <\/p>","<p> id: 664549<br>onset: 2017-10-16<br>sex: male<br>age: 28 <\/p>","<p> id: 947e40<br>onset: 2017-10-20<br>sex: female<br>age: 23 <\/p>","<p> id: 9aa197<br>onset: 2017-10-20<br>sex: female<br>age: 66 <\/p>","<p> id: af0ac0<br>onset: 2017-10-21<br>sex: male<br>age: 10 <\/p>","<p> id: b4d8aa<br>onset: 2017-10-17<br>sex: male<br>age: 54 <\/p>","<p> id: e399b1<br>onset: 2017-10-23<br>sex: female<br>age: 23 <\/p>","<p> id: e4b0a2<br>onset: 2017-10-21<br>sex: female<br>age: 13 <\/p>"],"icon.color":["#CCDDFF","#88D3B6","#CEBEAE","#D5ACB9","#BCAE8C","#FFC70B","#FFA374","#D9E492","#D6CAAD","#EAAFB1","#F5CCA2","#CDCDCD"],"group.color":["#CCDDFF","#88D3B6","#CEBEAE","#D5ACB9","#BCAE8C","#FFC70B","#FFA374","#D9E492","#D6CAAD","#EAAFB1","#F5CCA2","#CDCDCD"],"shape":["icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon"],"icon.code":["f182","f182","f183","f183","f182","f183","f182","f182","f183","f183","f182","f182"]},"edges":{"from":["51883d","b4d8aa","39e9dc","39e9dc","51883d","39e9dc","39e9dc","b4d8aa","39e9dc","39e9dc","39e9dc"],"to":["185911","e4b0a2","b4d8aa","601d2e","9aa197","51883d","e399b1","af0ac0","947e40","664549","605322"],"width":[3,3,3,3,3,3,3,3,3,3,3],"arrows":["to","to","to","to","to","to","to","to","to","to","to"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"physics":{"stabilization":false}},"groups":["#CCDDFF","#88D3B6","#CEBEAE","#D5ACB9","#BCAE8C","#FFC70B","#FFA374","#D9E492","#D6CAAD","#EAAFB1","#F5CCA2","#CDCDCD"],"width":"90%","height":"700px","idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)"},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","legend":{"width":0.2,"useGroups":false,"position":"left","ncol":1,"stepX":100,"stepY":100,"zoom":true},"highlight":{"enabled":true,"hoverNearest":false,"degree":1,"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null},"iconsRedraw":true},"evals":[],"jsHooks":[]}</script>
 <p><font class="question">What can you say about these contacts?</font></p>
 </div>
 <div id="looking-at-incidence-curves" class="section level2">
@@ -339,10 +390,8 @@ contacts
 ## $dates: 14 dates marking the left-side of bins
 ## $interval: 1 day
 ## $timespan: 14 days
-plot(i)
-## Warning in plyr::split_indices(scale_id, n): &#39;.Random.seed&#39; is not an
-## integer vector but of type &#39;NULL&#39;, so ignored</code></pre>
-<p><img src="/post/2017-11-21-sim-ebola-response-early_files/figure-html/incidence-1.png" width="672" /></p>
+plot(i)</code></pre>
+<p><img src="/post/practical-ebola-response_files/figure-html/incidence-1.png" width="672" /></p>
 <p>If you pay close attention to the dates on the x-axis, you may notice that something is missing. Indeed, the graph stops right after the last case, while the data should be complete until the 27th October 2017. You can remedy this using the argument <code>last_date</code> in the <code>incidence</code> function:</p>
 <pre class="r"><code>i &lt;- incidence(linelist$onset, last_date = as.Date(&quot;2017-10-27&quot;))
 i
@@ -355,11 +404,11 @@ i
 ## $interval: 1 day
 ## $timespan: 18 days
 plot(i)</code></pre>
-<p><img src="/post/2017-11-21-sim-ebola-response-early_files/figure-html/incidence_rectif-1.png" width="672" /></p>
+<p><img src="/post/practical-ebola-response_files/figure-html/incidence_rectif-1.png" width="672" /></p>
 </div>
 </div>
-<div id="simple-statistical-analyses" class="section level1">
-<h1>Simple statistical analyses</h1>
+<div id="statistical-analyses" class="section level1">
+<h1>Statistical analyses</h1>
 <div id="log-linear-model" class="section level2">
 <h2>Log-linear model</h2>
 <p>The simplest model of incidence is probably the log-linear model, i.e. a linear regression on log-transformed incidences. In the <code>incidence</code> package, the function <code>fit</code> will estimate the parameters of this model from an incidence object (here, <code>i</code>). Apply it to the data and store the result in a new object called <code>f</code>. You can print <code>f</code> to derive estimates of the growth rate <span class="math inline">\(r\)</span> and the doubling time, and add the corresponding model to the incidence plot:</p>
@@ -387,12 +436,17 @@ f
 ## 
 ##   $pred: data.frame of incidence predictions (8 rows, 5 columns)
 plot(i, fit = f)</code></pre>
-<p><img src="/post/2017-11-21-sim-ebola-response-early_files/figure-html/fit-1.png" width="672" /></p>
+<p><img src="/post/practical-ebola-response_files/figure-html/fit-1.png" width="672" /></p>
 <p><font class="question">How would you interpret this result?What criticism would you make on this model?</font></p>
-<p>As an aid for interpretation, you are reminded of previous observations of the serial interval distribution, estimated during the West African EVD outbreak (WHO Ebola Response Team (2014) NEJM 371:1481–1495) with a mean of 15.3 days and a standard deviation 9.3 days.</p>
+<!-- As an aid for interpretation, you are reminded of previous observations of the -->
+<!-- serial interval distribution, estimated during the West African EVD outbreak -->
+<!-- (WHO Ebola Response Team (2014) NEJM 371:1481–1495) with a mean of 15.3 days and -->
+<!-- a standard deviation 9.3 days. -->
 </div>
 <div id="estimation-of-transmissibility-r" class="section level2">
 <h2>Estimation of transmissibility (<span class="math inline">\(R\)</span>)</h2>
+<div id="branching-process-model" class="section level3">
+<h3>Branching process model</h3>
 <p>The transmissibility of the disease can be assessed through the estimation of the reproduction number <span class="math inline">\(R\)</span>, defined as the number of expected secondary cases per infected case. In the early stages of an outbreak, and assuming no immunity in the population, this quantity is also the basic reproduction number <span class="math inline">\(R_0\)</span>, i.e. <span class="math inline">\(R\)</span> in a fully susceptible population.</p>
 <p><br></p>
 <p>The package <code>earlyR</code> implements a simple maximum-likelihood estimation of <span class="math inline">\(R\)</span>, using dates of onset of symptoms and information on the serial interval distribution. It is a simpler but less flexible version of the model by Cori et al (2013, AJE 178: 1505–1512) implemented in <a href="https://cran.r-project.org/web/packages/EpiEstim/index.html"><code>EpiEstim</code></a>.</p>
@@ -409,8 +463,110 @@ x_t \sim \mathcal{P} (\lambda_t)
 \mathcal{L}(x)  = p(x | R) = \prod_{t=1}^T F_{\mathcal{P}}(x_t, \lambda_t)
 \]</span></p>
 <p>where <span class="math inline">\(F_{\mathcal{P}}\)</span> is the Poisson probability mass function.</p>
-<p><br></p>
-<p>Using the estimates of the mean and standard deviation of the serial interval provided in the previous section, use the function <code>get_R</code> to estimate the reproduction number, specifying a maximum R of 10 (see ?<code>get_R</code>) and store the result in a new object <code>R</code>:</p>
+</div>
+<div id="looking-into-the-past-estimating-the-serial-interval-from-older-data" class="section level3">
+<h3>Looking into the past: estimating the serial interval from older data</h3>
+<p>As current data are insufficient to estimate the <strong>serial interval</strong> distribution, some colleague recommends using data from a <strong>past outbreak</strong> stored in the <code>outbreaks</code> package, as the dataset <code>ebola_sim_clean</code>. Load this dataset, and create a new <code>epicontacts</code> object as before, without plotting it (it is a much larger dataset). Store the new object as <code>old_evd</code>; the output should look like:</p>
+<pre class="r"><code>old_evd
+## 
+## /// Epidemiological Contacts //
+## 
+##   // class: epicontacts
+##   // 5,829 cases in linelist; 3,800 contacts;  directed 
+## 
+##   // linelist
+## 
+## # A tibble: 5,829 x 9
+##    id     generation date_of_infection date_of_onset date_of_hospitalisat…
+##  * &lt;chr&gt;       &lt;int&gt; &lt;date&gt;            &lt;date&gt;        &lt;date&gt;               
+##  1 d1fafd          0 NA                2014-04-07    2014-04-17           
+##  2 53371b          1 2014-04-09        2014-04-15    2014-04-20           
+##  3 f5c3d8          1 2014-04-18        2014-04-21    2014-04-25           
+##  4 6c286a          2 NA                2014-04-27    2014-04-27           
+##  5 0f58c4          2 2014-04-22        2014-04-26    2014-04-29           
+##  6 49731d          0 2014-03-19        2014-04-25    2014-05-02           
+##  7 f9149b          3 NA                2014-05-03    2014-05-04           
+##  8 881bd4          3 2014-04-26        2014-05-01    2014-05-05           
+##  9 e66fa4          2 NA                2014-04-21    2014-05-06           
+## 10 20b688          3 NA                2014-05-05    2014-05-06           
+## # ... with 5,819 more rows, and 4 more variables: date_of_outcome &lt;date&gt;,
+## #   outcome &lt;fct&gt;, gender &lt;fct&gt;, hospital &lt;fct&gt;
+## 
+##   // contacts
+## 
+## # A tibble: 3,800 x 3
+##    from   to     source 
+##  * &lt;chr&gt;  &lt;chr&gt;  &lt;fct&gt;  
+##  1 d1fafd 53371b other  
+##  2 cac51e f5c3d8 funeral
+##  3 f5c3d8 0f58c4 other  
+##  4 0f58c4 881bd4 other  
+##  5 8508df 40ae5f other  
+##  6 127d83 f547d6 funeral
+##  7 f5c3d8 d58402 other  
+##  8 20b688 d8a13d other  
+##  9 2ae019 a3c8b8 other  
+## 10 20b688 974bc1 other  
+## # ... with 3,790 more rows</code></pre>
+<p>The function <code>get_pairwise</code> can be used to extract pairwise features of contacts based on attributes of the linelist. For instance, it could be used to test for assortativity, but also to compute delays between connected cases. Here, we use it to extract the serial interval:</p>
+<pre class="r"><code>old_si &lt;- get_pairwise(old_evd, &quot;date_of_onset&quot;)
+summary(old_si)
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+##    1.00    5.00    9.00   11.06   15.00   99.00    1684
+old_si &lt;- na.omit(old_si)
+summary(old_si)
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    1.00    5.00    9.00   11.06   15.00   99.00
+hist(old_si, xlab = &quot;Days after symptom onset&quot;, ylab = &quot;Frequency&quot;,
+     main = &quot;Serial interval (empirical distribution)&quot;,
+     col = &quot;grey&quot;, border = &quot;white&quot;)</code></pre>
+<p><img src="/post/practical-ebola-response_files/figure-html/old_si-1.png" width="672" /></p>
+<p><font class="question">What do you think of this distribution?</font> Make the adjustments you deem necessary, and then use the function <code>fit_disc_gamma</code> from the package <code>epitrix</code> to fit a discretised Gamma distribution to these data. Your results should approximately look like:</p>
+<pre class="r"><code>si_fit &lt;- fit_disc_gamma(old_si)
+si_fit
+## $mu
+## [1] 11.48373
+## 
+## $cv
+## [1] 0.6429561
+## 
+## $sd
+## [1] 7.383534
+## 
+## $ll
+## [1] -6905.588
+## 
+## $converged
+## [1] TRUE
+## 
+## $distribution
+## A discrete distribution
+##   name: gamma
+##   parameters:
+##     shape: 2.41900859135364
+##     scale: 4.74728799288241</code></pre>
+<p><code>si_fit</code> contains various information about the fitted delays, including the estimated distribution in the <code>$distribution</code> slot. You can compare this distribution to the empirical data in the following plot:</p>
+<pre class="r"><code>si &lt;- si_fit$distribution
+si
+## A discrete distribution
+##   name: gamma
+##   parameters:
+##     shape: 2.41900859135364
+##     scale: 4.74728799288241
+
+## compare fitted distribution to data
+hist(old_si, xlab = &quot;Days after symptom onset&quot;, ylab = &quot;Frequency&quot;,
+     main = &quot;Serial interval: fit to data&quot;, col = &quot;salmon&quot;, border = &quot;white&quot;,
+     nclass = 50, ylim = c(0, 0.07), prob = TRUE)
+points(0:60, si$d(0:60), col = &quot;#9933ff&quot;, pch = 20)
+points(0:60, si$d(0:60), col = &quot;#9933ff&quot;, type = &quot;l&quot;, lty = 2)</code></pre>
+<p><img src="/post/practical-ebola-response_files/figure-html/si-1.png" width="672" /></p>
+<p><font class="question">Would you trust this estimation of the generation time?</font> <font class="question">How would you compare it to actual estimates from the West African EVD outbreak (WHO Ebola Response Team (2014) NEJM 371:1481–1495) with a mean of 15.3 days and a standard deviation 9.3 days?</font></p>
+</div>
+<div id="back-to-the-future-estimation-of-r_0-in-the-current-outbreak" class="section level3">
+<h3>Back to the future: estimation of <span class="math inline">\(R_0\)</span> in the current outbreak</h3>
+<p>Now that we have estimates of the serial interval based on a previous outbreak, we can use this information to estimate transmissibility of the disease (as measured by <span class="math inline">\(R_0\)</span>) in the current outbreak.</p>
+<p>Using the estimates of the mean and standard deviation of the serial interval you just obtained, use the function <code>get_R</code> to estimate the reproduction number, specifying a maximum R of 10 (see <code>?get_R</code>) and store the result in a new object <code>R</code>:</p>
 <p>You can visualise the results as follows:</p>
 <pre class="r"><code>R
 ## 
@@ -418,11 +574,11 @@ x_t \sim \mathcal{P} (\lambda_t)
 ##  // class: earlyR, list
 ## 
 ##  // Maximum-Likelihood estimate of R ($R_ml):
-## [1] 2.612613
+## [1] 1.811812
 ## 
 ## 
 ##  // $lambda:
-##   0.01838179 0.0273192 0.03514719 0.0414835 0.04623398 0.04946402...
+##   0.04088711 0.05343783 0.06188455 0.06668495 0.06850099 0.0680082...
 ## 
 ##  // $dates:
 ## [1] &quot;2017-10-11&quot; &quot;2017-10-12&quot; &quot;2017-10-13&quot; &quot;2017-10-14&quot; &quot;2017-10-15&quot;
@@ -433,19 +589,80 @@ x_t \sim \mathcal{P} (\lambda_t)
 ## A discrete distribution
 ##   name: gamma
 ##   parameters:
-##     shape: 2.70655567117586
-##     scale: 5.65294117647059
+##     shape: 2.41900859135364
+##     scale: 4.74728799288241
 plot(R)</code></pre>
-<p><img src="/post/2017-11-21-sim-ebola-response-early_files/figure-html/plot-r-1.png" width="672" /></p>
+<p><img src="/post/practical-ebola-response_files/figure-html/plot-r-1.png" width="672" /></p>
 <pre class="r"><code>plot(R, &quot;lambdas&quot;)
 abline(v = linelist$onset, lty = 2)</code></pre>
-<p><img src="/post/2017-11-21-sim-ebola-response-early_files/figure-html/plot-r-2.png" width="672" /></p>
+<p><img src="/post/practical-ebola-response_files/figure-html/plot-r-2.png" width="672" /></p>
 <p>The first figure shows the distribution of likely values of <em>R</em>, and the Maximum-Likelihood (ML) estimation. The second figure shows the global force of infection over time, with dashed bars indicating dates of onset of the cases.</p>
 <p><font class="question">Interpret these results: what do you make of the reproduction number?What does it reflect? Based on the last part of the epicurve, some colleagues suggest that incidence is going down and the outbreak may be under control. What is your opinion on this?</font></p>
 </div>
+</div>
+<div id="short-term-forecasting" class="section level2">
+<h2>Short-term forecasting</h2>
+<p>The function <code>project</code> from the package <code>projections</code> can be used to simulate plausible epidemic trajectories by simulating daily incidence using the same branching process as the one used to estimate <span class="math inline">\(R_0\)</span> in <code>earlyR</code>. All that is needed is one or several values of <span class="math inline">\(R_0\)</span> and a serial interval distribution, stored as a <code>distcrete</code> object.</p>
+<p>Here, we illustrate how we can simulate 5 random trajectories using a fixed value of <span class="math inline">\(R_0\)</span> = 1.81, the ML estimate of <span class="math inline">\(R_0\)</span>:</p>
+<pre class="r"><code>library(projections)
+project(i, R = R$R_ml, si = si, n_sim = 5, n_days = 10, R_fix_within = TRUE)
+## 
+## /// Incidence projections //
+## 
+##   // class: projections, matrix
+##   // 10 dates (rows); 5 simulations (columns)
+## 
+##  // first rows/columns:
+##            [,1] [,2] [,3] [,4] [,5]
+## 2017-10-28    2    2    0    2    1
+## 2017-10-29    0    1    0    0    0
+## 2017-10-30    0    1    2    2    0
+## 2017-10-31    0    4    0    1    1
+##  .
+##  .
+##  .
+## 
+##  // dates:
+##  [1] &quot;2017-10-28&quot; &quot;2017-10-29&quot; &quot;2017-10-30&quot; &quot;2017-10-31&quot; &quot;2017-11-01&quot;
+##  [6] &quot;2017-11-02&quot; &quot;2017-11-03&quot; &quot;2017-11-04&quot; &quot;2017-11-05&quot; &quot;2017-11-06&quot;</code></pre>
+<p>Using the same principle, generate 1,000 trajectories for the next 2 weeks, using a range of plausible values of <span class="math inline">\(R_0\)</span>. Note that you can use <code>sample_R</code> to obtain these values from your <code>earlyR</code> object. Store your results in an object called <code>proj</code>. Plotting the results should give something akin to:</p>
+<pre class="r"><code>plot(proj, c(.1,.9))</code></pre>
+<p><img src="/post/practical-ebola-response_files/figure-html/project-1.png" width="672" /></p>
+<p>Interpret the following summary:</p>
+<pre class="r"><code>apply(proj, 1, summary)
+##         2017-10-28 2017-10-29 2017-10-30 2017-10-31 2017-11-01 2017-11-02
+## Min.         0.000      0.000      0.000      0.000      0.000       0.00
+## 1st Qu.      0.000      0.000      1.000      0.000      1.000       1.00
+## Median       1.000      1.000      1.000      1.000      1.000       1.00
+## Mean         1.339      1.376      1.447      1.584      1.604       1.72
+## 3rd Qu.      2.000      2.000      2.000      2.000      2.000       3.00
+## Max.         7.000      7.000      9.000      9.000      8.000       9.00
+##         2017-11-03 2017-11-04 2017-11-05 2017-11-06 2017-11-07 2017-11-08
+## Min.         0.000      0.000      0.000       0.00      0.000      0.000
+## 1st Qu.      1.000      1.000      1.000       1.00      1.000      1.000
+## Median       2.000      2.000      2.000       2.00      2.000      2.000
+## Mean         1.864      1.928      2.156       2.38      2.652      2.807
+## 3rd Qu.      3.000      3.000      3.000       3.00      4.000      4.000
+## Max.        10.000     14.000     13.000      16.00     19.000     22.000
+##         2017-11-09 2017-11-10
+## Min.         0.000      0.000
+## 1st Qu.      1.000      1.000
+## Median       2.000      2.000
+## Mean         3.098      3.358
+## 3rd Qu.      4.000      4.000
+## Max.        22.000     22.000
+apply(proj, 1, function(x) mean(x&gt;0))
+## 2017-10-28 2017-10-29 2017-10-30 2017-10-31 2017-11-01 2017-11-02 
+##      0.709      0.724      0.754      0.749      0.762      0.780 
+## 2017-11-03 2017-11-04 2017-11-05 2017-11-06 2017-11-07 2017-11-08 
+##      0.774      0.792      0.808      0.827      0.844      0.826 
+## 2017-11-09 2017-11-10 
+##      0.851      0.879</code></pre>
+<p><font class="question">According to these results, what are the chances that more cases will appear in the near future?</font><font class="question">Is this outbreak being brought under control?</font> <font class="question">Would you recommend scaling up / down the response?</font></p>
+</div>
 <div id="follow-up" class="section level2">
 <h2>Follow-up…</h2>
-<p>For a follow-up on this outbreak, have a look at the <a href="../simulated-evd-reconstruction">second part</a> of this simulated response, which includes a data update, genetic sequences, and the use of outbreak reconstruction tools.</p>
+<p>For a follow-up on this outbreak, have a look at the <a href="../practical-ebola-reconstruction">second part</a> of this simulated response, which includes a data update, genetic sequences, and the use of outbreak reconstruction tools.</p>
 </div>
 </div>
 <div id="about-this-document" class="section level1">
@@ -536,10 +753,16 @@ abline(v = linelist$onset, lty = 2)</code></pre>
 
 
 
+
 <script src="//yihui.name/js/math-code.js"></script>
 <script async
 	src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
+
+
+
+
+
 
           </div>
         </div>

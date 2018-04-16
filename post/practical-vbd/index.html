@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+ <title>VBD: building a simple model for Zika</title>
+
+
+
+<meta name="description" content="RECON&#39;s teaching platform">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+
+<link rel="stylesheet" href="https://reconlearn.netlify.com/css/bootstrap.min.css">
+<link rel="stylesheet" id="ct-tracks-google-fonts-css" href="//fonts.googleapis.com/css?family=Raleway%3A400%2C700&amp;subset=latin%2Clatin-ext&amp;ver=4.7.2" type="text/css" media="all">
+<link rel="stylesheet" href="https://reconlearn.netlify.com/css/font-awesome.min.css">
+
+<link href="https://reconlearn.netlify.com/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+<link href="https://reconlearn.netlify.com/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="https://reconlearn.netlify.com/img/favicon.png">
+
+
+
+
+<link rel="stylesheet" href="https://reconlearn.netlify.com/css/recon.css">
+<script src="https://reconlearn.netlify.com/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+  <body>
+    <div id="root">
+      <div class="container-fluid">
+        <div class="row site-header">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12 top-navigation">
+                <div class="row">
+  <div class="col-sm-6">
+    <div class="categories-block">
+      <a href="/" class="track-categories">Home</a>
+      
+      <a href="/categories/lectures">lectures</a>
+      
+      <a href="/categories/practicals">practicals</a>
+      
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="social-media-block">
+
+      
+      
+      
+      <a href="https://twitter.com/teebzr" data-animate-hover="pulse" class="external twitter">
+        <i class="fa fa-twitter"></i>
+      </a>
+      
+      
+      
+      <a href="mailto:thibautjombart@gmail.com" data-animate-hover="pulse" class="email">
+        <i class="fa fa-envelope"></i>
+      </a>
+      
+      
+      
+      
+      <a href="https://github.com/reconhub/learn" data-animate-hover="pulse">
+        <i class="fa fa-github"></i>
+      </a>
+      
+
+    </div>
+  </div>
+</div>
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-10 header col-md-offset-1">
+                
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10 main-content col-md-offset-1">
+            
+
+<div class="col-md-12 entry">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="entry-meta">
+        December 04
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="entry-header">
+       VBD: building a simple model for Zika
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <div class="entry-sidebar">
+        <div class="entry-sidebar-title">CATEGORIES</div>
+        
+        <div class="entry-categories">
+          <a href="/categories/lectures">lectures</a>
+        </div>
+        
+        <div class="entry-categories">
+          <a href="/categories/practicals">practicals</a>
+        </div>
+        
+
+        <div class="entry-sidebar-title">Tags</div>
+        
+        <div class="entry-tags">
+          <a href="/tags/chagas">chagas</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/compartmental-models">compartmental-models</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/delays">delays</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/ebola">ebola</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/epicurve">epicurve</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/forecasting">forecasting</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/genetics">genetics</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/malaria">malaria</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/modelling">modelling</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/outbreak">outbreak</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/outbreak-end">outbreak-end</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/outbreaker2">outbreaker2</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/public-health">public-health</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/reconstruction">reconstruction</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/reproduction-number">reproduction-number</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/response">response</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/rmarkdown">rmarkdown</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/simulation">simulation</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/vdb">vdb</a>
+        </div>
+        
+        <div class="entry-tags">
+          <a href="/tags/zika">zika</a>
+        </div>
+        
+      </div>
+    </div>
+    <div class="col-md-10">
+      <div class="entry-content">
+        <p>This practical aims to illustrate the basics of <strong>vector borne disease (VBD) modelling</strong> using R, with an emphasis on how the methods work. We will use a basic model for an arboviral infection as an example. In this practical we will begin by gaining some understanding of the components which contribute to R0 and how potential interventions influence transmission. Later in the practical you will construct a model of Zika transmission to look at the effects of several parameters.</p>
+<div id="core-concepts" class="section level2">
+<h2>Core Concepts</h2>
+<p>From the previous lecture, we will futher develop these concepts:</p>
+<ul>
+<li>Herd effect</li>
+<li>Biology of the mosquito</li>
+<li>Natural history of the infection in humans</li>
+<li>Contact rate</li>
+<li>Density dependence</li>
+<li>Immigration-death and age-structured models</li>
+<li>Infection and morbidity control / elimination of infection</li>
+<li>Control strategies (on vectors and on humans)</li>
+</ul>
+</div>
+<div id="required-packages" class="section level2">
+<h2>Required packages</h2>
+<pre class="r"><code>#install.packages(&quot;deSolve&quot;, dep=TRUE)
+#install.packages(&quot;gridExtra&quot;, dep = TRUE)</code></pre>
+<p>Then load the packages using:</p>
+<pre class="r"><code>library(deSolve)
+library(ggplot2)
+library(gridExtra)</code></pre>
+</div>
+<div id="the-basic-zika-model" class="section level2">
+<h2>The basic Zika model</h2>
+<ul>
+<li>Sh : Susceptible Humans</li>
+<li>Ih : Ingected/Infectious humans</li>
+<li>Rh : humans recovered from infection (with lifelasting immunity)</li>
+<li>Sv : Susceptible vectors</li>
+<li>Ev : Exposed vectors</li>
+<li>Iv : Infected vectors</li>
+</ul>
+</div>
+<div id="the-flow-diagram-part-i" class="section level2">
+<h2>The flow diagram (part I)</h2>
+<p>In this section, please make a diagram to connect the different compartments of the model</p>
+</div>
+<div id="the-parameters" class="section level2">
+<h2>The parameters</h2>
+<p>We will need several parameters to connect the different compartments of our model.</p>
+<p>Please, look at the suplementary material of the paper <a href="http://science.sciencemag.org/content/early/2016/07/13/science.aag0219" class="uri">http://science.sciencemag.org/content/early/2016/07/13/science.aag0219</a> and look at the parameter table of this model.</p>
+<p>Lets’ find the parameter values for the model. Note that we are using all the parameters in the same time unit (days)</p>
+<pre class="r"><code>Lv       &lt;-        # life span of mosquitos (in days)
+Lh       &lt;-        # life span of humans (in days)
+Iph      &lt;-        # Infectious period in humans (in days)
+IP       &lt;-        # Infectious period in vectors (in days)
+EIP      &lt;-        # Extrinsic incubation period in adult mosquitos
+muv      &lt;-        # mortality of mosquitos
+muh      &lt;-        # mortality of humans
+gamma    &lt;-        # recovery rate in humans
+delta    &lt;-        # extrinsic incubation rate
+b        &lt;-        # Bitting Rate
+betah    &lt;-        # Probability of transmission from vector to host
+betav    &lt;-        # Probability of transmission from host to vector
+Nh       &lt;-        # Number of humans (Population of Cali 2.4 million)
+m        &lt;-        # Vector to human ratio
+Nv       &lt;-        # Number of vectors
+R0       &lt;-        # Reproductive number
+b        &lt;-        sqrt((R0 ^2 * muv*(muv+delta) * (muh+gamma)) /
+                   (m * betah * betav * delta)) # bitting rate
+
+TIME     &lt;-        # Number of years to run the simulation for </code></pre>
+</div>
+<div id="the-model-equations" class="section level2">
+<h2>The model (Equations)</h2>
+<div id="humans" class="section level3">
+<h3>Humans</h3>
+<p><span class="math display">\[\ \frac{dSh}{dt}  = \mu_h N_h - \frac {\beta_h b}{N_h} S_h  I_v - \mu_h  S_h \]</span> <span class="math display">\[\ \frac{dIh}{dt}  = \frac {\beta_h b}{N_h}S_h I_v - (\gamma_h + \mu_h) I_h \]</span> <span class="math display">\[\ \frac{dRh}{dt}  = \gamma_h + I_h  - \mu_v I_v\]</span></p>
+</div>
+<div id="vectors" class="section level3">
+<h3>Vectors</h3>
+<p><span class="math display">\[\ \frac{dSv}{dt}  = \mu_v N_v  - \frac{\beta_v b} {N_h} I_h S_v - \mu_v Sv\]</span> <span class="math display">\[\ \frac{dE_v}{dt}  = \frac{\beta_v b} {N_h} I_h S_v - (\delta + \mu_v) Ev\]</span> <span class="math display">\[\ \frac{dI_v}{dt}  = \delta Ev - \mu_v I_v\]</span></p>
+</div>
+</div>
+<div id="estimating-r0-reproductive-number" class="section level2">
+<h2>Estimating R0 (Reproductive number)</h2>
+<p>We need a formula to estimate R0: <span class="math display">\[ R_0^2 = \frac{mb^2 \beta_h \beta_v \delta}{\mu_v (\mu_v+\delta)(\mu_h+\gamma_h)} \]</span></p>
+</div>
+<div id="the-flow-diagram-part-ii" class="section level2">
+<h2>The flow diagram (part II)</h2>
+<p>Now that you know the equations, complete the flow diagram with the parameters and the correct connection between the different compartments.</p>
+</div>
+<div id="finally-the-model-in-r" class="section level2">
+<h2>Finally, the model in R</h2>
+<p>After having your flow diagram and equations, now please complete the model below witth the right parameters (PAR)</p>
+<pre class="r"><code>arbovmodel &lt;- function (t, x, params) {
+  
+  Sh &lt;- x[1]    #Susceptible humans
+  Ih &lt;- x[2]    #Infected humans
+  Rh &lt;- x[3]    #Recovered humans
+  Sv &lt;- x[4]    #Susceptible vectors
+  Ev &lt;- x[5]    #Susceptible vectors
+  Iv &lt;- x[6]    #Infected vectors
+  
+  with(as.list(params), #local environment to evaluate derivatives
+       {
+         # Humans
+         dSh   &lt;-  PAR * Nh - (PAR * PAR/Nh) * Sh * Iv - PAR * Sh   
+         dIh   &lt;-  (PAR * PAR/Nh) * Sh * Iv  - (PAR + PAR) * Ih
+         dRh   &lt;-  PAR * Ih  - PAR * Rh
+         
+         # Vectors
+         dSv  &lt;-  muv * Nv - (PAR* PAR/Nh) * Ih * Sv - PAR * Sv 
+         dEv  &lt;-   (PAR * PAR/Nh) * Ih * Sv - (PAR + PAR)* Ev
+         dIv  &lt;-   PAR * Ev - PAR * Iv
+         
+         dx   &lt;- c(dSh, dIh, dRh, dSv, dEv, dIv)
+         list(dx)
+       }
+  )
+}</code></pre>
+</div>
+<div id="solve-the-system" class="section level2">
+<h2>Solve the system</h2>
+<p>In this section, complete and comment that code for:</p>
+<ul>
+<li><p>The VALUES for the initial conditions of the system</p></li>
+<li><p>The ARGUMENTS of the <strong>ode</strong> function in the <strong>deSolve</strong> package.</p></li>
+</ul>
+<pre class="r"><code># Time 
+times  &lt;- seq(1,365 * TIME , by = 1)
+
+# Specifying parameters
+params &lt;- c(
+  muv      &lt;- muv,     
+  muh      &lt;- muh,     
+  gamma    &lt;- gamma,   
+  delta    &lt;- delta,   
+  b        &lt;- b,       
+  betah    &lt;- betah,   
+  betav    &lt;- betav,   
+  Nh       &lt;- Nh,      
+  Nv       &lt;- Nv
+  
+)
+
+
+# Initial conditions of the system
+xstart&lt;- c(Sh = VALUE? ,       # meaning?? 
+           Ih = VALUE?,        # meaning?? 
+           Rh = VALUE?,        # meaning?? 
+           Sv = VALUE?,        # meaning?? 
+           Ev = VALUE?,        # meaning?? 
+           Iv = VALUE?)        # meaning?? 
+
+# Solving the equations
+out &lt;- as.data.frame(ode(y      = ARGUMENT?,   # meaning??  
+                         times  = ARGUMENT?,   # meaning??     
+                         fun    = ARGUMENT?,   # meaning??  
+                         parms  = ARGUMENT?,   # meaning??   
+</code></pre>
+</div>
+<div id="the-results" class="section level2">
+<h2>The results</h2>
+<p>In order to have more meaningful display of the results, convert time units <em>days</em> into <em>years</em> and into <em>weeks</em></p>
+<pre class="r"><code># Creating time options to display
+out$years &lt;- 
+out$weeks &lt;- 
+  </code></pre>
+<div id="general-behavior-human-population" class="section level3">
+<h3>General Behavior (Human Population)</h3>
+<pre class="r"><code># Check the general behavior of the model for the whole 100 years
+
+p1h &lt;- ggplot(data = out, aes(y = (Rh + Ih + Sh)/10000, x = years)) +
+  geom_line(color=&#39;grey68&#39;, size=1) +
+  ggtitle (&#39;Total human population&#39;) +
+  theme_bw() + ylab(&#39;number per 10,000&#39;)
+
+p2h &lt;- ggplot(data = out, aes(y = Sh/10000, x = years)) +
+  geom_line(color=&#39;royalblue&#39;, size=1) +
+  ggtitle (&#39;Susceptible human population&#39;) +
+  theme_bw() + ylab(&#39;number per 10,000&#39;)
+
+p3h &lt;- ggplot(data = out, aes(y = Ih/10000, x = years)) +
+  geom_line(color=&#39;firebrick&#39;, size=1) +
+  ggtitle (&#39;Infected human population&#39;) +
+ theme_bw() + ylab(&#39;number per 10,000&#39;)
+
+p4h &lt;- ggplot(data = out, aes(y = Rh/10000, x = years)) +
+  geom_line(color=&#39;olivedrab&#39;, size=1) +
+  ggtitle (&#39;Recovered human population&#39;) +
+   theme_bw() + ylab(&#39;number per 10,000&#39;)
+
+
+grid.arrange(p1h, p2h, p3h, p4h, ncol=2)</code></pre>
+<p><img src="/post/practical-vbd_files/figure-html/p1-1.png" width="672" /></p>
+</div>
+<div id="general-behavior-vector-population" class="section level3">
+<h3>General Behavior (Vector Population)</h3>
+<pre class="r"><code># Check the general behavior of the model 
+
+p1v &lt;- ggplot(data = out, aes(y = (Sv + Ev + Iv), x = years)) +
+  geom_line(color=&#39;grey68&#39;, size=1) +
+  ggtitle (&#39;Total mosquitio population&#39;) +
+  theme_bw() + ylab(&#39;number&#39;)
+
+p2v &lt;- ggplot(data = out, aes(y = Sv, x = years)) +
+  geom_line(color=&#39;royalblue&#39;, size=1) +
+  ggtitle (&#39;Susceptible mosquito population&#39;) +
+  theme_bw() + ylab(&#39;number&#39;)
+
+p3v &lt;- ggplot(data = out, aes(y = Ev, x = years)) +
+  geom_line(color=&#39;orchid&#39;, size=1) +
+  ggtitle (&#39;Exposed mosquito population&#39;) +
+ theme_bw() + ylab(&#39;number&#39;)
+
+p4v &lt;- ggplot(data = out, aes(y = Iv, x = years)) +
+  geom_line(color=&#39;firebrick&#39;, size=1) +
+  ggtitle (&#39;Infected mosquito population&#39;) +
+   theme_bw() + ylab(&#39;number&#39;)
+
+grid.arrange(p1v, p2v, p3v, p4v, ncol=2)</code></pre>
+<p><img src="/post/practical-vbd_files/figure-html/p2-1.png" width="672" /></p>
+</div>
+<div id="proportion" class="section level3">
+<h3>Proportion</h3>
+<p>Let’s take a more careful look at the propotions and discuss them</p>
+<pre class="r"><code>
+p1 &lt;- ggplot(data = out, aes(y = Sh/(Sh+Ih+Rh), x = years)) +
+  geom_line(color=&#39;royalblue&#39;, size=1) +
+  ggtitle (&#39;Susceptible human population&#39;) +
+  theme_bw() + ylab(&#39;proportion&#39;)
+
+p2 &lt;- ggplot(data = out, aes(y = Ih/(Sh+Ih+Rh), x = years)) +
+  geom_line(color=&#39;firebrick&#39;, size=1) +
+  ggtitle (&#39;Infected human population&#39;) +
+ theme_bw() + ylab(&#39;proportion&#39;)
+
+p3 &lt;- ggplot(data = out, aes(y = Rh/(Sh+Ih+Rh), x = years)) +
+  geom_line(color=&#39;olivedrab&#39;, size=1) +
+  ggtitle (&#39;Recovered human population&#39;) +
+   theme_bw() + ylab(&#39;proportion&#39;)
+
+grid.arrange(p1, p2, p3, ncol=2)</code></pre>
+<p><img src="/post/practical-vbd_files/figure-html/p3-1.png" width="672" /></p>
+</div>
+<div id="the-first-epidemic" class="section level3">
+<h3>The First Epidemic</h3>
+<pre class="r"><code># Check the fists epidemic
+
+dat &lt;- out[out$weeks &lt; 54,]
+
+p1e &lt;- ggplot(dat, aes(y=Ih/10000, x=weeks)) +
+  geom_line(color=&#39;firebrick&#39;, size=1) +
+  ggtitle (&#39;Infected human population&#39;) +
+ theme_bw() + ylab(&#39;number per 10,000&#39;)
+
+
+p2e&lt;- ggplot(dat, aes(y=Rh/10000, x=weeks)) +
+  geom_line(color=&#39;olivedrab&#39;, size=1) +
+  ggtitle (&#39;Recovered human population&#39;) +
+ theme_bw() + ylab(&#39;number per 10,000&#39;)
+
+
+grid.arrange(p1e, p2e)</code></pre>
+<p><img src="/post/practical-vbd_files/figure-html/p4-1.png" width="672" /></p>
+</div>
+<div id="lets-discuss-some-aspects" class="section level3">
+<h3>Lets’ discuss some aspects</h3>
+<ul>
+<li>Sensitivity of the model to change of the R0</li>
+<li>Sensititity of the model to change of bitting rate</li>
+<li>What are the reasons of the time lag between epidemics?</li>
+<li>How we calculate the attack rate</li>
+<li>What happen if we vaccinate 80% of the population?</li>
+<li>What is the impact of a vector control programme?</li>
+</ul>
+</div>
+<div id="modelling-control-interventions" class="section level3">
+<h3>Modelling control interventions</h3>
+<p>Now, using this basic model we are going to model the impact of three different types of interventions, all of them related to vector control.</p>
+<ul>
+<li><ol style="list-style-type: decimal">
+<li>An intervention than reduces the life span of the mosquito</li>
+</ol></li>
+<li><ol start="2" style="list-style-type: decimal">
+<li>An intervention that reduces the carrying capacity</li>
+</ol></li>
+<li><ol start="3" style="list-style-type: decimal">
+<li>An intervention that reduces the probability of transmission</li>
+</ol></li>
+</ul>
+<p>For these three inteventions, try to find literature that explain which specific interventions can do that and in that way you will parameterise the model.</p>
+</div>
+</div>
+<div id="about-this-document" class="section level1">
+<h1>About this document</h1>
+<div id="contributors" class="section level2">
+<h2>Contributors</h2>
+<ul>
+<li>Zulma Cucunuba &amp; Pierre Nouvellet: initial version</li>
+</ul>
+<p>Contributions are welcome via <a href="https://github.com/reconhub/learn/pulls">pull requests</a>. The source file if this document can be found <a href="https://raw.githubusercontent.com/reconhub/learn/master/content/post/2017-12-04-practical-vbd.Rmd"><strong>here</strong></a>.</p>
+</div>
+<div id="legal-stuff" class="section level2">
+<h2>Legal stuff</h2>
+<p><strong>License</strong>: <a href="https://creativecommons.org/licenses/by/3.0/">CC-BY</a> <strong>Copyright</strong>: Zulma Cucunuba &amp; Pierre Nouvellet, 2017</p>
+</div>
+</div>
+<div id="references" class="section level1">
+<h1>References</h1>
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+  
+
+</div>
+
+          </div>
+        </div>
+        <div class="row site-footer">
+          <div class="col-md-12">
+            <div class="row">
+  <div class="col-md-12 footer-title">
+    <h3 style="color:black">Powered by</h3>
+    <a href="http://www.repidemicsconsortium.org/"><img src="/img/logo/recon.png" width="150px"></a>
+      
+      
+      
+      
+      
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async
+	src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://reconlearn.netlify.com/js/jquery.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/bootstrap.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/jquery.cookie.js"> </script>
+<script src="https://reconlearn.netlify.com/js/ekko-lightbox.js"></script>
+<script src="https://reconlearn.netlify.com/js/jquery.scrollTo.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/masonry.pkgd.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/imagesloaded.pkgd.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/owl.carousel.min.js"></script>
+<script src="https://reconlearn.netlify.com/js/front.js"></script>
+
+  </body>
+</html>
