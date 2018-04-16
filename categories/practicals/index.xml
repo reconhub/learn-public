@@ -6,10 +6,19 @@
     <description>Recent content in Practicals on RECON learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Apr 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Apr 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://reconlearn.netlify.com/categories/practicals/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Is this outbreak over?</title>
+      <link>https://reconlearn.netlify.com/post/practical-outbreakend/</link>
+      <pubDate>Sun, 15 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://reconlearn.netlify.com/post/practical-outbreakend/</guid>
+      <description>Motivation At which time point during an outbreak of a person-to-person transmitted disease can one declare the outbreak as having ended? Answering this question can be important in order to calm the population, re-attract tourists, stop export bans or reduce alertness status. The current WHO method for answering the above question is as follows: a period of two times the longest possible incubation time needs to pass without observing additional cases, before the outbreak can be declared as being over.</description>
+    </item>
     
     <item>
       <title>Ebola simulation part 1: early outbreak assessment</title>
@@ -20,15 +29,6 @@
       <description>This practical simulates the early assessment and reconstruction of an Ebola Virus Disease (EVD) outbreak. It introduces various aspects of analysis of the early stage of an outbreak, including contact tracing data, epicurves, growth rate estimation from log-linear models, and more refined estimates of transmissibility. A follow-up practical will provide an introduction to transmission chain reconstruction using outbreaker2.
 
 A novel EVD outbreak in Ankh, Republic of Morporkia A new EVD outbreak has been notified in the small city of Ankh, located in the Northern, rural district of the Republic of Morporkia.</description>
-    </item>
-    
-    <item>
-      <title>Is this outbreak over?</title>
-      <link>https://reconlearn.netlify.com/post/practical-outbreakend/</link>
-      <pubDate>Thu, 22 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://reconlearn.netlify.com/post/practical-outbreakend/</guid>
-      <description>Motivation At which time point during an outbreak of a person-to-person transmitted disease can one declare the outbreak as having ended? Answering this question can be important in order to calm the population, re-attract tourists, stop export bans or reduce alertness status. The current WHO method for answering the above question is as follows: a period of two times the longest possible incubation time needs to pass without observing additional cases, before the outbreak can be declared as being over.</description>
     </item>
     
     <item>
