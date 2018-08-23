@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="en-us" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Ebola simulation part 2: outbreak reconstruction &middot; </title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://reconlearn-ld.netlify.com/favicon.ico" />
+    <link rel="canonical" href="https://reconlearn-ld.netlify.com/post/practical-ebola-reconstruction.html" />
+
+     <meta name="description" content="This practical is the second part of the response to a simulated Ebola Virus Disease (EVD) outbreak taking place in the city of Ankh, Republic of Morporkia. Whi" /> 
+
+     
+    
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image" content="https://reconlearn-ld.netlify.com/img/highres/ebola-blue.jpg"/>
+    
+ 
+    <meta name="twitter:title" content="Ebola simulation part 2: outbreak reconstruction"/>
+    <meta name="twitter:description" content="This practical is the second part of the response to a simulated Ebola Virus Disease (EVD) outbreak taking place in the city of Ankh, Republic of Morporkia. Whi"/>
+    <meta name="twitter:url" content="https://reconlearn-ld.netlify.com/post/practical-ebola-reconstruction.html" />
+    <meta name="twitter:site" content="@teebzr"/>
+
+    <meta property="og:site_name" content="" />
+    <meta property="og:title" content="Ebola simulation part 2: outbreak reconstruction &middot; RECON learn" />
+    <meta property="og:url" content="https://reconlearn-ld.netlify.com/post/practical-ebola-reconstruction.html" />
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="This practical is the second part of the response to a simulated Ebola Virus Disease (EVD) outbreak taking place in the city of Ankh, Republic of Morporkia. Whi" />
+
+    <meta property="article:published_time" content="2018-01-24T00:00:00Z" />
+    
+
+    <meta property="og:image" content="https://reconlearn-ld.netlify.com/img/highres/ebola-blue.jpg"/>
+
+
+    <meta name="generator" content="Hugo 0.41" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-oi8o31xSQq8S0RpBcb4FaLB8LJi9AT8oIdmS1QldR8Ui7KUQjNAnDlJjp55Ba8FG" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://reconlearn-ld.netlify.com/built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="https://reconlearn-ld.netlify.com/css/casper-two.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+     <link rel="stylesheet" href="https://reconlearn-ld.netlify.com/css/custom.css" /> 
+
+     
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+</head>
+
+
+<body class="post-template">
+  <div class="site-wrapper"> 
+
+<header class="site-header outer">
+  <div class="inner">
+    <nav class="site-nav">
+      <div class="site-nav-left">
+        <a class="site-nav-logo" href="/"><img src="https://reconlearn-ld.netlify.com/img/logo/learnBlueAndWhite.png" alt="RECON learn" /></a>
+
+        <ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="/"> Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/categories/lectures.html"><i class='far fa-align-justify'></i> Lectures</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/categories/practicals.html"><i class='far fa-align-justify'></i> Practicals</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/authors.html"><i class='far fa-align-justify'></i> Authors</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/topics.html"><i class='far fa-align-justify'></i> Topics</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/licenses.html"><i class='far fa-align-justify'></i> Licenses</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/about.html"> About</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/contact.html"> Contact</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/sample.html"> Sample</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    <a class="social-link social-link-tw" href="https://twitter.com/teebzr" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg></a>
+
+                    <a class="social-link" href="https://github.com/reconhub/learn" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    
+
+                    
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+    
+      <article class="post-full post"> 
+        <header class="post-full-header">
+            <h1 class="post-full-title">Ebola simulation part 2: outbreak reconstruction</h1>
+            <section class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2018-01-24">24 January 2018</time>
+                <span class="date-divider">/</span>
+                
+    <a href="/categories/.html">[practicals]</a> &nbsp;
+  
+            
+                
+                <span class="date-divider">/</span> <a href="https://reconlearn-ld.netlify.com/topics/genetics.html">#genetics</a>&nbsp;<a href="https://reconlearn-ld.netlify.com/topics/simulation.html">#simulation</a>&nbsp;<a href="https://reconlearn-ld.netlify.com/topics/response.html">#response</a>&nbsp;<a href="https://reconlearn-ld.netlify.com/topics/outbreaker2.html">#outbreaker2</a>&nbsp;<a href="https://reconlearn-ld.netlify.com/topics/epicurve.html">#epicurve</a>&nbsp;<a href="https://reconlearn-ld.netlify.com/topics/reproduction-number.html">#reproduction number</a>&nbsp;
+            </section>
+        </header>
+        
+         
+        <section class="post-full-content">
+                <div class="kg-card-markdown">
+                
+
+<p>This practical is the second part of the response to a simulated Ebola
+Virus Disease (EVD) outbreak taking place in the city of Ankh, Republic
+of Morporkia. While the <a href="../simulated-evd-early">first part</a> focussed on
+early assessments of transmissibility, this part explores more
+methodological options for estimating transmissibility, and provides an
+introduction to outbreak reconstruction using <em>outbreaker2</em>.</p>
+
+<p><br></p>
+
+<h1 id="an-update-on-the-evd-outbreak-in-ankh-republic-of-morporkia">An update on the EVD outbreak in Ankh, Republic of Morporkia</h1>
+
+<p>After some rather concerning <a href="../simulated-evd-early">preliminary
+results</a> on the new EVD outbreak in the city of
+Ankh, Republic of Morporkia, Public Health Morporkia (PHM) has sent you
+updates of the linelists and contact data. This time, PHM has also
+obtained Whole Genome Sequences (WGS) of the Ebola virus isolated in
+patients. As before, you are asked to assess the situation and produce
+evidence-based recommendations for informing the response.</p>
+
+<h2 id="required-packages">Required packages</h2>
+
+<p>The following packages, available on CRAN, are needed for this
+practical:</p>
+
+<ul>
+<li><a href="http://www.repidemicsconsortium.org/incidence/"><code>xlsx</code></a> to read
+<code>.xlsx</code> files</li>
+<li><a href="http://ggplot2.org/"><code>ggplot2</code></a> for graphics</li>
+<li><a href="http://www.repidemicsconsortium.org/incidence/"><code>incidence</code></a> for
+epicurves</li>
+<li><a href="http://www.repidemicsconsortium.org/epicontacts/"><code>epicontacts</code></a>
+for contact data visualisation</li>
+<li><a href="https://cran.r-project.org/web/packages/EpiEstim/index.html"><code>EpiEstim</code></a>
+for time-varying reproduction number estimation</li>
+<li><a href="http://www.repidemicsconsortium.org/distcrete"><code>distcrete</code></a> to
+obtain discrete time delay distributions</li>
+<li><a href="http://www.repidemicsconsortium.org/epitrix"><code>epitrix</code></a> for some
+practical tricks for epidemics analysis</li>
+<li><a href="http://ape-package.ird.fr/"><code>ape</code></a> for DNA sequence analysis</li>
+<li><a href="http://www.repidemicsconsortium.org/outbreaker2"><code>outbreaker2</code></a> to
+reconstruct the outbreak</li>
+</ul>
+
+<p>To install these packages, use <code>install.packages</code>, e.g.:</p>
+
+<pre><code class="language-r">install.packages(&quot;xlsx&quot;)
+install.packages(&quot;ggplot2&quot;)
+install.packages(&quot;incidence&quot;)
+install.packages(&quot;epicontacts&quot;)
+install.packages(&quot;EpiEstim&quot;)
+install.packages(&quot;distcrete&quot;)
+install.packages(&quot;epitrix&quot;)
+install.packages(&quot;ape&quot;)
+install.packages(&quot;outbreaker2&quot;)
+</code></pre>
+
+<h2 id="the-new-data">The new data</h2>
+
+<p>The data update includes new linelists and contact lists:</p>
+
+<ul>
+<li><p><a href="../../data/PHM-EVD-linelist-2017-11-25.xlsx">PHM-EVD-linelist-2017-11-25.xlsx</a>:
+a linelist containing case information up to the 25th November 2017</p></li>
+
+<li><p><a href="../../data/PHM-EVD-contacts-2017-11-25.xlsx">PHM-EVD-contacts-2017-11-25.xlsx</a>:
+a list of contacts reported between cases up to the 25th November,
+where <code>from</code> indicates a potential source of infection, and <code>to</code> the
+recipient of the contact.</p></li>
+</ul>
+
+<p>To read into R, download these files and use the function <code>read.xlsx()</code>
+from the <code>xlsx</code> package to import the data. Each import will create a
+<code>data.frame</code>. Call the first one <code>linelist</code>, and the second one
+<code>contacts</code>. For instance, your first command line could look like:</p>
+
+<pre><code class="language-r">linelist &lt;- xlsx::read.xlsx(&quot;PHM-EVD-linelist-2017-11-25.xlsx&quot;,
+                            sheetIndex = 1, stringsAsFactors = FALSE)
+</code></pre>
+
+<p>Once imported, the data should look like:</p>
+
+<pre><code class="language-r">
+## linelist: one line per case
+head(linelist)
+##   case_id      onset    sex age
+## 1  39e9dc 2017-10-10 female  62
+## 2  664549 2017-10-16   male  28
+## 3  b4d8aa 2017-10-17   male  54
+## 4  51883d 2017-10-18   male  57
+## 5  947e40 2017-10-20 female  23
+## 6  9aa197 2017-10-20 female  66
+
+
+## contacts: pairs of cases with reported contacts
+head(contacts)
+##     from     to
+## 1 9aa197 426b6d
+## 2 39e9dc a8e9d8
+## 3 c2a389 95fc1d
+## 4 51883d 778316
+## 5 51883d e37897
+## 6 933811 99abbe
+</code></pre>
+
+<h1 id="analysis-of-epidemiological-data">Analysis of epidemiological data</h1>
+
+<h2 id="visualising-contact-data">Visualising contact data</h2>
+
+<p>After the initial stage of the outbreak, contact tracing has been
+maintained but started being sparser, and exposures haven’t been
+reported for all cases. Despite these limitations, contacts are still a
+valuable source of information. Using the function <code>make_epicontacts</code> in
+the <code>epicontacts</code> package, create a new <code>epicontacts</code> object called <code>x</code>,
+specifying that contacts are directed. When plotting the data, use the
+arguments <code>node_shape</code> and <code>shapes</code> (see <code>?vis_epicontacts</code>) to
+distinguish males and females. For a list of available symbols and
+corresponding shape code, you can type <code>epicontacts::codeawesome</code>.</p>
+
+<p>The results should look like:</p>
+
+<pre><code>## 
+## /// Epidemiological Contacts //
+## 
+##   // class: epicontacts
+##   // 50 cases in linelist; 36 contacts;  directed 
+## 
+##   // linelist
+## 
+## # A tibble: 50 x 4
+##    id     onset      sex      age
+##  * &lt;chr&gt;  &lt;date&gt;     &lt;chr&gt;  &lt;dbl&gt;
+##  1 39e9dc 2017-10-10 female   62.
+##  2 664549 2017-10-16 male     28.
+##  3 b4d8aa 2017-10-17 male     54.
+##  4 51883d 2017-10-18 male     57.
+##  5 947e40 2017-10-20 female   23.
+##  6 9aa197 2017-10-20 female   66.
+##  7 e4b0a2 2017-10-21 female   13.
+##  8 af0ac0 2017-10-21 male     10.
+##  9 185911 2017-10-21 female   34.
+## 10 601d2e 2017-10-22 male     11.
+## # ... with 40 more rows
+## 
+##   // contacts
+## 
+## # A tibble: 36 x 2
+##    from   to    
+##    &lt;chr&gt;  &lt;chr&gt; 
+##  1 9aa197 426b6d
+##  2 39e9dc a8e9d8
+##  3 c2a389 95fc1d
+##  4 51883d 778316
+##  5 51883d e37897
+##  6 933811 99abbe
+##  7 51883d 185911
+##  8 b4d8aa e4b0a2
+##  9 605322 1875e2
+## 10 b4d8aa b5ad13
+## # ... with 26 more rows
+</code></pre>
+
+<p><img src="practical-ebola-reconstruction_files/figure-markdown_github/epicontacts-1.png" alt="" /></p>
+
+<p><font class="question">What can you say about these contacts? How would
+you interpret the different clusters?</font></p>
+
+<h2 id="building-epicurves">Building epicurves</h2>
+
+<p>Using the same approach as in the <a href="../simulated-evd-early">first part</a>
+of the practical, use <code>incidence</code> (from the <code>incidence</code> package) to
+compute and plot epicurves using dates of symptom onset. As the time
+series is now longer, compare daily incidence to weekly incidence.</p>
+
+<p>You should obtain something like:</p>
+
+<p><img src="practical-ebola-reconstruction_files/figure-markdown_github/incidence-1.png" alt="" /><img src="practical-ebola-reconstruction_files/figure-markdown_github/incidence-2.png" alt="" /></p>
+
+<p>As there are no longer time intervals with ‘zero’ incidence on the
+weekly epicurve, which are problematic for log-linear regression, we can
+try fitting a model to these data; we do so here, with <code>i</code> being the
+weekly incidence:</p>
+
+<pre><code class="language-r">f &lt;- fit(i)
+f
+## &lt;incidence_fit object&gt;
+## 
+## $lm: regression of log-incidence over time
+## 
+## $info: list containing the following items:
+##   $r (daily growth rate):
+## [1] 0.02689489
+## 
+##   $r.conf (confidence interval):
+##            2.5 %     97.5 %
+## [1,] -0.03115559 0.08494537
+## 
+##   $doubling (doubling time in days):
+## [1] 25.77245
+## 
+##   $doubling.conf (confidence interval):
+##         2.5 %    97.5 %
+## [1,] 8.159917 -22.24792
+## 
+##   $pred: data.frame of incidence predictions (7 rows, 5 columns)
+plot(i, color = &quot;#c65353&quot;, fit = f)
+</code></pre>
+
+<p><img src="practical-ebola-reconstruction_files/figure-markdown_github/fit-1.png" alt="" /></p>
+
+<p>How would you interpret this result? What are the limitations of this
+analysis?</p>
+
+<h2 id="estimating-transmissibility">Estimating transmissibility</h2>
+
+<p>Repeating the same analysis as in the <a href="../simulated-evd-early">early
+stage</a> of the outbreak, we can use <code>get_R</code> from
+the <code>earlyR</code> package to estimate the reproduction number:</p>
+
+<pre><code class="language-r">library(earlyR)
+## Warning: package 'earlyR' was built under R version 3.4.4
+
+## parameters of the serial interval from practical part1, on the dataset
+## ebola_sim_clean (outbreaks package)
+
+mu &lt;- 11.48 # mean serial interval
+sd &lt;- 7.38 # standard deviation
+
+daily_i &lt;- incidence(linelist$onset)
+simple_R &lt;- get_R(daily_i, si_mean = mu, si_sd =  sd, max_R = 5)
+simple_R
+## 
+## /// Early estimate of reproduction number (R) //
+##  // class: earlyR, list
+## 
+##  // Maximum-Likelihood estimate of R ($R_ml):
+## [1] 1.286286
+## 
+## 
+##  // $lambda:
+##   0.04089622 0.05345593 0.06190884 0.06671221 0.06852841 0.06803361...
+## 
+##  // $dates:
+## [1] &quot;2017-10-11&quot; &quot;2017-10-12&quot; &quot;2017-10-13&quot; &quot;2017-10-14&quot; &quot;2017-10-15&quot;
+## [6] &quot;2017-10-16&quot;
+## ...
+## 
+##  // $si (serial interval):
+## A discrete distribution
+##   name: gamma
+##   parameters:
+##     shape: 2.41975308641975
+##     scale: 4.74428571428571
+
+## R: likelihood function
+plot(simple_R)
+</code></pre>
+
+<p><img src="practical-ebola-reconstruction_files/figure-markdown_github/basic_R-1.png" alt="" /></p>
+
+<pre><code class="language-r">
+## force of infection
+plot(simple_R, &quot;lambdas&quot;)
+abline(v = as.Date(&quot;2017-11-25&quot;))
+</code></pre>
+
+<p><img src="practical-ebola-reconstruction_files/figure-markdown_github/basic_R-2.png" alt="" /></p>
+
+<p><font class="question">What do you make of these results?</font><font
+class="question">What is the main limitation of the estimation of the
+reproduction number (<em>R</em>) in this
+analysis?</font><font class="question"> What assumption does it make
+about the outbreak?</font></p>
+
+<h2 id="estimating-time-varying-transmissibility">Estimating time-varying transmissibility</h2>
+
+<p>When the assumption that <em>R</em> is constant over time becomes untenable, an
+alternative is the estimationg of time-varying transmissibility using
+the instantaneous reproduction number <em>R</em><sub><em>t</em></sub>. This approach,
+introduced by Cori et al. (2013), is implemented in the package
+<code>EpiEstim</code> (function <code>EstimateR</code>). It esimates <em>R</em><sub><em>t</em></sub> for a
+succession of sliding time windows, using the same Poisson likelihood
+described in the <a href="../simulated-evd-early">first part</a>. In the following,
+we use <code>EstimateR</code> to estimate transmissibility for 1-week sliding time
+windows:</p>
+
+<pre><code class="language-r">library(EpiEstim)
+library(ggplot2)
+
+days &lt;- seq_along(daily_i$dates)
+Rt &lt;- EstimateR(as.vector(daily_i$counts), days, days + 7, method = &quot;ParametricSI&quot;,
+                   Mean.SI = mu, Std.SI = sd)
+## Warning in EstimateR(as.vector(daily_i$counts), days, days + 7, method =
+## &quot;ParametricSI&quot;, : You're estimating R too early in the epidemic to get the
+## desired posterior CV.
+Rt &lt;- Rt$R[days,]
+head(Rt, 10)
+##    T.Start T.End  Mean(R)    Std(R) Quantile.0.025(R) Quantile.0.05(R)
+## 1        1     8       NA        NA                NA               NA
+## 2        2     9       NA        NA                NA               NA
+## 3        3    10       NA        NA                NA               NA
+## 4        4    11       NA        NA                NA               NA
+## 5        5    12 7.760690 2.5868968          3.548682         4.048690
+## 6        6    13 7.747323 2.3359057          3.867436         4.344845
+## 7        7    14 6.674902 1.9268782          3.449019         3.851537
+## 8        8    15 4.773032 1.4391233          2.382680         2.676806
+## 9        9    16 3.437773 1.0871193          1.648546         1.865131
+## 10      10    17 2.541335 0.8471116          1.162060         1.325794
+##    Quantile.0.25(R) Median(R) Quantile.0.75(R) Quantile.0.95(R)
+## 1                NA        NA               NA               NA
+## 2                NA        NA               NA               NA
+## 3                NA        NA               NA               NA
+## 4                NA        NA               NA               NA
+## 5          5.896094  7.475227         9.314937        12.446983
+## 6          6.070950  7.513862         9.169754        11.946526
+## 7          5.294658  6.490432         7.854455        10.127781
+## 8          3.740239  4.629200         5.649375         7.360110
+## 9          2.655985  3.323885         4.095710         5.399097
+## 10         1.930749  2.447856         3.050292         4.075920
+##    Quantile.0.975(R)
+## 1                 NA
+## 2                 NA
+## 3                 NA
+## 4                 NA
+## 5          13.592581
+## 6          12.952366
+## 7          10.947973
+## 8           7.979796
+## 9           5.873368
+## 10          4.451060
+</code></pre>
+
+<p><code>EpiEstim</code> is not yet integrated with other RECON packages, so adding
+the results to existing <code>incidence</code> plots takes some customisation using
+<code>ggplot2</code>. Uses the following commands to add estimates of
+<em>R</em><sub><em>r</em></sub> to the daily incidence:</p>
+
+<pre><code class="language-r">
+names(Rt) &lt;- gsub(&quot;[(]R[)]&quot;, &quot;&quot;, names(Rt))
+Rt &lt;- cbind.data.frame(as.data.frame(daily_i),
+                       Rt)
+plot(daily_i) +
+    geom_ribbon(data = Rt, fill = &quot;#c65353&quot;, alpha = .3,
+                aes(ymin = Quantile.0.025, ymax = Quantile.0.975)) +
+    geom_line(data = Rt, aes(y = Median), col = &quot;#c65353&quot;, alpha = .8) +
+    geom_hline(yintercept = 1, linetype = 2) +
+    labs(title = &quot;Weekly Rt: median, and 95% CI&quot;)
+## Warning: Removed 11 rows containing missing values (geom_path).
+</code></pre>
+
+<p><img src="practical-ebola-reconstruction_files/figure-markdown_github/epiestimplot-1.png" alt="" /></p>
+
+<p><font class="question">How would you interpret this result? What is the
+caveat of this representation?</font></p>
+
+<h1 id="finding-who-infected-whom">Finding who infected whom</h1>
+
+<p>To gain a better understanding of the transmission process, we can
+attempt to reconstruct plausible transmission trees using the dates of
+symptom onsets and limited contact data. This can be achieved using
+<code>outbreaker2</code>, which provides a modular platform for outbreak
+reconstruction. This package extends and replaces <code>outbreaker</code>, which in
+contrast was a static implementation of a specific transmission model
+(Jombart et al. 2014).</p>
+
+<h2 id="looking-at-whole-genome-sequences-wgs">Looking at Whole Genome Sequences (WGS)</h2>
+
+<p>WGS have been obtained for all cases in this outbreak. They are stored
+as a <code>fasta</code> <a href="../../data/PHM-EVD-WGS.fa">PHM-EVD-WGS.fa</a>. Download this
+file, save it in your working directory, and then import these data
+using the function <code>read.FASTA</code> from the <code>ape</code> package.</p>
+
+<pre><code class="language-r">library(ape)
+## dna &lt;- read.FASTA(&quot;PHM-EVD-WGS.fa&quot;)
+dna
+## 50 DNA sequences in binary format stored in a list.
+## 
+## All sequences of same length: 18958 
+## 
+## Labels:
+## 39e9dc
+## 664549
+## b4d8aa
+## 51883d
+## 947e40
+## 9aa197
+## ...
+## 
+## Base composition:
+##     a     c     g     t 
+## 0.250 0.248 0.248 0.254
+identical(labels(dna), linelist$case_id) # check sequences match linelist data
+## [1] TRUE
+</code></pre>
+
+<p>As a first exploration of the data, we derive a Neighbour-Joining tree
+rooted at the first case of the outbreak:</p>
+
+<pre><code class="language-r">nj &lt;- nj(dist.dna(dna, model = &quot;N&quot;)) # NJ on nucleotide distances (model = &quot;N&quot;)
+nj
+## 
+## Phylogenetic tree with 50 tips and 48 internal nodes.
+## 
+## Tip labels:
+##  39e9dc, 664549, b4d8aa, 51883d, 947e40, 9aa197, ...
+## 
+## Unrooted; includes branch lengths.
+nj &lt;- root(nj, 1)
+plot(nj, main = &quot;Neighbour Joining tree&quot;)
+axisPhylo()
+</code></pre>
+
+<p><img src="practical-ebola-reconstruction_files/figure-markdown_github/nj-1.png" alt="" /></p>
+
+<p>This phylogenetic tree shows the inferred evolution of the pathogen
+sequences. Branch length (x-axis) correspond to the number of mutations
+occuring between lineages (indicated by the axis at the bottom). The
+tree has been rooted to the index case, so that this sequence (top,
+left) is the “most ancient” part of the tree. Note that in such
+representations, distances on the y-axis are meaningless.</p>
+
+<p><font class="question">How would you interpret this phylogenetic tree?
+Many methods of outbreak reconstruction infer transmission events from
+phylogenies. What results would you expect here?</font></p>
+
+<h2 id="building-delay-distributions">Building delay distributions</h2>
+
+<p><code>outbreaker2</code> can handle different types of dates. When dates of onset
+are provided, information on the <em>generation time</em> (delay between
+primary and secondary infections) and on the <em>incubation period</em> (delay
+between infection and symptom onset) can be included in the model. These
+delays are typically modelled as Gamma distributions, which need to be
+discretised in order to account for the fact that time is reported as
+days.</p>
+
+<p>A possible approach here would be using estimates of the <em>mean</em> and
+<em>standard deviation</em> of the incubation period and the generation time
+published in the literature. From this, one would need to use <code>epitrix</code>
+to convert these parameters into <em>shape</em> and <em>scale</em> for a Gamma
+distribution, and then use <code>distcrete</code> to generate discretised
+distributions.</p>
+
+<p>Alternatively, these parameters can be estimated from a previous,
+reasonably similar outbreak. PHM asks you to use the dataset
+<code>ebola_sim_clean</code> from the <code>outbreaks</code> package to this end. Start by
+extracting data on the inbucation period (i.e. delay from infection to
+onset) and store the output in an object called <code>incub</code>; results should
+look like:</p>
+
+<pre><code>## Warning: package 'outbreaks' was built under R version 3.4.4
+incub &lt;- with(ebola_sim_clean$linelist, date_of_onset - date_of_infection)
+incub &lt;- as.integer(na.omit(incub))
+summary(incub)
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    1.00    4.00    8.00   10.08   14.00   62.00
+
+hist(incub, col = terrain.colors(10), border = &quot;white&quot;,
+     main = &quot;Incubation period&quot;,
+     xlab = &quot;Days after exposure&quot;)
+</code></pre>
+
+<p><img src="practical-ebola-reconstruction_files/figure-markdown_github/incubation-1.png" alt="" /></p>
+
+<p>Then, use <code>epicontacts</code> to extract data on the generation time
+(i.e. delay between infections between infectors and infectees):</p>
+
+<pre><code class="language-r">ebola_sim_contacts
+## 
+## /// Epidemiological Contacts //
+## 
+##   // class: epicontacts
+##   // 5,829 cases in linelist; 3,800 contacts;  directed 
+## 
+##   // linelist
+## 
+## # A tibble: 5,829 x 9
+##    id     generation date_of_infection date_of_onset date_of_hospitalisat~
+##  * &lt;chr&gt;       &lt;int&gt; &lt;date&gt;            &lt;date&gt;        &lt;date&gt;               
+##  1 d1fafd          0 NA                2014-04-07    2014-04-17           
+##  2 53371b          1 2014-04-09        2014-04-15    2014-04-20           
+##  3 f5c3d8          1 2014-04-18        2014-04-21    2014-04-25           
+##  4 6c286a          2 NA                2014-04-27    2014-04-27           
+##  5 0f58c4          2 2014-04-22        2014-04-26    2014-04-29           
+##  6 49731d          0 2014-03-19        2014-04-25    2014-05-02           
+##  7 f9149b          3 NA                2014-05-03    2014-05-04           
+##  8 881bd4          3 2014-04-26        2014-05-01    2014-05-05           
+##  9 e66fa4          2 NA                2014-04-21    2014-05-06           
+## 10 20b688          3 NA                2014-05-05    2014-05-06           
+## # ... with 5,819 more rows, and 4 more variables: date_of_outcome &lt;date&gt;,
+## #   outcome &lt;fct&gt;, gender &lt;fct&gt;, hospital &lt;fct&gt;
+## 
+##   // contacts
+## 
+## # A tibble: 3,800 x 3
+##    from   to     source 
+##  * &lt;chr&gt;  &lt;chr&gt;  &lt;fct&gt;  
+##  1 d1fafd 53371b other  
+##  2 cac51e f5c3d8 funeral
+##  3 f5c3d8 0f58c4 other  
+##  4 0f58c4 881bd4 other  
+##  5 8508df 40ae5f other  
+##  6 127d83 f547d6 funeral
+##  7 f5c3d8 d58402 other  
+##  8 20b688 d8a13d other  
+##  9 2ae019 a3c8b8 other  
+## 10 20b688 974bc1 other  
+## # ... with 3,790 more rows
+gen_time &lt;- get_pairwise(ebola_sim_contacts, &quot;date_of_infection&quot;)
+gen_time &lt;- as.integer(na.omit(gen_time))
+summary(gen_time)
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    1.00    5.00    9.00   10.96   15.00   44.00
+
+hist(gen_time, col = terrain.colors(10), border = &quot;white&quot;,
+     main = &quot;Generation time&quot;,
+     xlab = &quot;Days after exposure&quot;)
+</code></pre>
+
+<p><img src="practical-ebola-reconstruction_files/figure-markdown_github/generation-time-1.png" alt="" /></p>
+
+<p>We can now fit a discretised Gamma distributions to both delays. The
+function <code>fit_dist_gamma</code> in the package <code>epitrix</code> makes this fairly
+simple. We illustrate the procedure for the incubation period:</p>
+
+<pre><code class="language-r">library(epitrix)
+incub_fit &lt;- fit_disc_gamma(incub)
+incub_fit
+## $mu
+## [1] 10.57505
+## 
+## $cv
+## [1] 0.7022628
+## 
+## $sd
+## [1] 7.426463
+## 
+## $ll
+## [1] -12123.24
+## 
+## $converged
+## [1] TRUE
+## 
+## $distribution
+## A discrete distribution
+##   name: gamma
+##   parameters:
+##     shape: 2.02768577832022
+##     scale: 5.21532912601657
+incub_dist &lt;- incub_fit$distribution
+
+plot(0:50, incub_dist$d(0:50), type = &quot;h&quot;, col = terrain.colors(51),
+     xlab = &quot;Days after exposure&quot;, ylab = &quot;Probability&quot;,
+     main = &quot;Incubation period distribution&quot;, lend = 1, lwd = 8)
+</code></pre>
+
+<p><img src="practical-ebola-reconstruction_files/figure-markdown_github/incub_dist-1.png" alt="" /></p>
+
+<p>Using the same process, create a distribution for the generation time.
+Results should resemble:</p>
+
+<pre><code>## $mu
+## [1] 11.46512
+## 
+## $cv
+## [1] 0.6379854
+## 
+## $sd
+## [1] 7.314581
+## 
+## $ll
+## [1] -4364.861
+## 
+## $converged
+## [1] TRUE
+## 
+## $distribution
+## A discrete distribution
+##   name: gamma
+##   parameters:
+##     shape: 2.45684936922917
+##     scale: 4.66659611108255
+</code></pre>
+
+<p><img src="practical-ebola-reconstruction_files/figure-markdown_github/gen_time_dist-1.png" alt="" /></p>
+
+<h2 id="using-the-original-outbreaker-model">Using the original <code>outbreaker</code> model</h2>
+
+<p>The original <code>outbreaker</code> model combined temporal information (here,
+dates of onset) with sequence data to infer who infected whom. Here, we
+use <code>outbreaker2</code> to apply this model to the data.</p>
+
+<p>All inputs to the new <code>outbreaker</code> function are prepared using dedicated
+functions, which make a number of checks on provided inputs and define
+defaults:</p>
+
+<pre><code class="language-r">library(outbreaker2)
+
+data &lt;- outbreaker_data(dates = linelist$onset, # dates of onset
+                        dna = unname(dna), # WGS; remove labels for compatibility
+                        w_dens = gen_time_dist$d(1:100), # generation time distribution
+                        f_dens = incub_dist$d(1:100) # incubation period distribution
+                        )
+</code></pre>
+
+<p>We also create a configuration, which determines different aspects of
+the analysis, including which parameters need to be estimated, initial
+values of parameters, the length of the MCMC, etc.:</p>
+
+<pre><code class="language-r">config &lt;- create_config(move_kappa = FALSE, # don't look for missing cases
+                        move_pi = FALSE, # don't estimate reporting
+                        init_pi = 1, # set reporting to 1
+                        find_import = FALSE, # don't look for additional imported cases
+                        init_tree = &quot;star&quot; # star-like tree as starting point
+                        )
+</code></pre>
+
+<p>We can now run the analysis. This should take a couple of minutes on
+modern laptops. Note the use of <code>set.seed(0)</code> to have identical results
+across different users and computers:</p>
+
+<pre><code class="language-r">set.seed(0)
+res_basic &lt;- outbreaker(data = data, config = config)
+res_basic
+## 
+## 
+##  ///// outbreaker results ///
+## 
+## class:  outbreaker_chains data.frame
+## dimensions 201 rows,  158 columns
+## ancestries not shown: alpha_1 - alpha_50
+## infection dates not shown: t_inf_1 - t_inf_50
+## intermediate generations not shown: kappa_1 - kappa_50
+## 
+## /// head //
+##   step       post       like    prior           mu pi eps lambda
+## 1    1 -1979.3825 -1981.6850 2.302485 1.000000e-04  1 0.5   0.05
+## 2   50  -812.2698  -814.5723 2.302543 4.244632e-05  1 0.5   0.05
+## 3  100  -816.6804  -818.9829 2.302522 6.265153e-05  1 0.5   0.05
+## 
+## ...
+## /// tail //
+##      step      post      like    prior           mu pi eps lambda
+## 199  9900 -807.7895 -810.0920 2.302535 5.039668e-05  1 0.5   0.05
+## 200  9950 -810.8754 -813.1780 2.302551 3.377507e-05  1 0.5   0.05
+## 201 10000 -811.5659 -813.8684 2.302522 6.311282e-05  1 0.5   0.05
+plot(res_basic)
+</code></pre>
+
+<p><img src="practical-ebola-reconstruction_files/figure-markdown_github/outbreaker-basic-1.png" alt="" /></p>
+
+<pre><code class="language-r">plot(res_basic, burn = 500)
+</code></pre>
+
+<p><img src="practical-ebola-reconstruction_files/figure-markdown_github/outbreaker-basic-2.png" alt="" /></p>
+
+<p>The first two plots show the trace of the log-posterior densities (with,
+and without burnin). See <code>?plot.outbreaker_chains</code> for details on
+available plots. Graphics worth looking at include:</p>
+
+<pre><code class="language-r">plot(res_basic,  type = &quot;alpha&quot;, burnin = 500) # ancestries
+</code></pre>
+
+<p><img src="practical-ebola-reconstruction_files/figure-markdown_github/basic_plots-1.png" alt="" /></p>
+
+<pre><code class="language-r">plot(res_basic,  type = &quot;t_inf&quot;, burnin = 500) # infection dates
+</code></pre>
+
+<p><img src="practical-ebola-reconstruction_files/figure-markdown_github/basic_plots-2.png" alt="" /></p>
+
+<pre><code class="language-r">plot(res_basic, &quot;mu&quot;, burn = 500, type = &quot;density&quot;) # mutation rate
+</code></pre>
+
+<p><img src="practical-ebola-reconstruction_files/figure-markdown_github/basic_plots-3.png" alt="" /></p>
+
+<pre><code class="language-r">plot(res_basic,  type = &quot;network&quot;, burnin = 500, min_support = .05) # transmission trees
+</code></pre>
+
+<p><img src="practical-ebola-reconstruction_files/figure-markdown_github/basic_plots-4.png" alt="" /></p>
+
+<p>As a further help for interpretation, you can derive a consensus tree
+from the posterior samples of trees using <code>summary</code>. Look in particular
+at the <em>support</em> column, and compare the results to the contact data.</p>
+
+<pre><code class="language-r">smry_basic &lt;- summary(res_basic)
+head(smry_basic$tree)
+##   from to time   support generations
+## 1   NA  1   -8 0.2537313          NA
+## 2    1  2    0 0.4427861           1
+## 3    8  3    2 0.3283582           1
+## 4    9  4    3 0.3432836           1
+## 5   10  5    0 0.5124378          NA
+## 6    4  6    5 0.3383085           1
+tail(smry_basic$tree)
+##    from to time   support generations
+## 45   48 45   29 0.2636816           1
+## 46   49 46   31 0.3830846           1
+## 47   20 47   26 0.5174129           1
+## 48   21 48   27 0.1741294           1
+## 49   30 49   31 0.3880597           1
+## 50   48 50   34 0.1641791           1
+hist(smry_basic$tree$support, col = &quot;grey&quot;, border = &quot;white&quot;,
+     main = &quot;Consensus ancestry: support&quot;, xlim = c(0,1))
+</code></pre>
+
+<p><img src="practical-ebola-reconstruction_files/figure-markdown_github/outbreaker-basic-summary-1.png" alt="" /></p>
+
+<p><font class="question">How would you interpret the results? Is this what
+you would have expected?</font></p>
+
+<p>As a point of comparison, repeat the same analysis using temporal data
+only, and plot a graph of ancestries (<code>type = &quot;alpha&quot;</code>); you should
+obtain something along the lines of:</p>
+
+<pre><code class="language-r">set.seed(0)
+
+data &lt;- outbreaker_data(dates = linelist$onset, # dates of onset
+                        w_dens = gen_time_dist$d(1:100), # generation time distribution
+                        f_dens = incub_dist$d(1:100) # incubation period distribution
+                        )
+res_time &lt;- outbreaker(data = data, config = config)
+plot(res_time, type = &quot;alpha&quot;, burn = 500)
+</code></pre>
+
+<p><img src="practical-ebola-reconstruction_files/figure-markdown_github/outbreaker-time-1.png" alt="" /></p>
+
+<p><font class="question">What is the usefulness of temporal and genetic
+data for outbreak reconstruction? What other data would you ideally
+include?</font></p>
+
+<h2 id="adding-contact-data-to-the-reconstruction-process">Adding contact data to the reconstruction process</h2>
+
+<p>Contact data currently contains case labels. While <code>epicontacts</code> objects
+will soon be accepted as inputs in <code>outbreaker2</code>, for now we need to
+operate some minor transformations to define contacts using cases
+indices rather than labels:</p>
+
+<pre><code class="language-r">ctd &lt;- matrix(match(unlist(x$contacts), linelist$case_id), ncol = 2)
+head(ctd)
+##      [,1] [,2]
+## [1,]    6   28
+## [2,]    1   15
+## [3,]   30   46
+## [4,]    4   23
+## [5,]    4   13
+## [6,]   41   43
+dim(ctd)
+## [1] 36  2
+</code></pre>
+
+<p>All inputs to the <code>outbreaker</code> function are prepared using dedicated
+functions, which make a number of checks on provided inputs and define
+defaults:</p>
+
+<pre><code class="language-r">data &lt;- outbreaker_data(dates = linelist$onset, # dates of onset
+                        dna = unname(dna), # dna sequences
+                        ctd = ctd, # contact data
+                        w_dens = gen_time_dist$d(1:100), # generation time distribution
+                        f_dens = incub_dist$d(1:100) # incubation period distribution
+                        )
+</code></pre>
+
+<p>We are now ready to run the analysis. This may take a couple of minutes,
+depending on your computer:</p>
+
+<pre><code class="language-r">set.seed(0)
+res_full &lt;- outbreaker(data = data, config = config)
+res_full
+## 
+## 
+##  ///// outbreaker results ///
+## 
+## class:  outbreaker_chains data.frame
+## dimensions 201 rows,  158 columns
+## ancestries not shown: alpha_1 - alpha_50
+## infection dates not shown: t_inf_1 - t_inf_50
+## intermediate generations not shown: kappa_1 - kappa_50
+## 
+## /// head //
+##   step       post       like    prior           mu pi       eps
+## 1    1 -2153.0273 -2155.3298 2.302485 1.000000e-04  1 0.5000000
+## 2   50  -897.6124  -899.9149 2.302517 6.776465e-05  1 0.5889257
+## 3  100  -861.1298  -863.4323 2.302527 5.788386e-05  1 0.7036900
+##        lambda
+## 1 0.050000000
+## 2 0.016343896
+## 3 0.003869504
+## 
+## ...
+## /// tail //
+##      step      post      like    prior           mu pi       eps
+## 199  9900 -838.7367 -841.0392 2.302540 4.526663e-05  1 0.6064171
+## 200  9950 -833.8983 -836.2008 2.302538 4.745629e-05  1 0.7066745
+## 201 10000 -835.0767 -837.3792 2.302537 4.802969e-05  1 0.7478403
+##           lambda
+## 199 0.0008513904
+## 200 0.0008513904
+## 201 0.0008513904
+</code></pre>
+
+<p>Produce graphics as in the previous model. Assess convergence, choose an
+appropriate burnin, visualise ancestries and the infection timelines:</p>
+
+<p><img src="practical-ebola-reconstruction_files/figure-markdown_github/full_plots-1.png" alt="" /><img src="practical-ebola-reconstruction_files/figure-markdown_github/full_plots-2.png" alt="" /><img src="practical-ebola-reconstruction_files/figure-markdown_github/full_plots-3.png" alt="" /><img src="practical-ebola-reconstruction_files/figure-markdown_github/full_plots-4.png" alt="" /><img src="practical-ebola-reconstruction_files/figure-markdown_github/full_plots-5.png" alt="" /></p>
+
+<p><font class="question">How would you interpret the results?</font></p>
+
+<p><br></p>
+
+<p>Derive a consensus tree using <code>summary</code>, and make a new <code>epicontacts</code>
+object, using the previous linelist, to visualise the consensus tree
+with meta-information:</p>
+
+<pre><code class="language-r">smry_full &lt;- summary(res_full)
+head(smry_full$tree)
+##   from to time   support generations
+## 1   NA  1   -6        NA          NA
+## 2    1  2    2 0.6517413           1
+## 3    1  3    2 1.0000000           1
+## 4    1  4    1 0.7164179           1
+## 5    1  5    1 0.9950249           1
+## 6    4  6    6 0.6666667           1
+
+smry_full$tree$support &lt;- round(smry_full$tree$support, 2)
+
+linelist$id &lt;- 1:nrow(linelist) # add case index to linelist
+cons_tree &lt;- make_epicontacts(linelist, smry_full$tree[-1, ], id = &quot;id&quot;,
+                              from = 1, to = 2, directed = TRUE)
+</code></pre>
+
+<p>In the following, we add age class information to the linelist of
+<code>cons_tree</code>, and create color palettes which will be used to display
+information on the final graph:</p>
+
+<pre><code class="language-r">library(visNetwork)
+## Warning: package 'visNetwork' was built under R version 3.4.4
+
+support_pal &lt;- colorRampPalette(
+    c(&quot;#918D98&quot;, &quot;#645877&quot;, &quot;#423359&quot;, &quot;#281449&quot;, &quot;#1A0340&quot;)
+)
+
+age_pal &lt;- colorRampPalette(
+    c(&quot;#3288BD&quot;, &quot;#ABDDA4&quot;, &quot;#FDAE61&quot;, &quot;#D53E4F&quot;)
+)
+
+cons_tree$linelist$age_class &lt;- cut(cons_tree$linelist$age,
+                                    breaks = c(0, 10, 20, 30, 40, 90),
+                                    labels = c(&quot;0-10&quot;, &quot;11-20&quot;, &quot;21-30&quot;, &quot;31-40&quot;, &quot;41+&quot; ))
+</code></pre>
+
+<p>Looking carefully at the documentation of <code>vis_epicontacts</code>, try to
+reproduce the final consensus tree below:</p>
+
+<p><img src="practical-ebola-reconstruction_files/figure-markdown_github/consensus-plot-1.png" alt="" /></p>
+
+<p><font class="question">What are your conclusions? What are the main
+drivers of this outbreak? What recommendations would you make to further
+improve the response?</font></p>
+
+<h1 id="about-this-document">About this document</h1>
+
+<h2 id="contributors">Contributors</h2>
+
+<ul>
+<li>Thibaut Jombart: initial version</li>
+</ul>
+
+<p>Contributions are welcome via <a href="https://github.com/reconhub/learn/pulls">pull
+requests</a>. The source file is
+hosted on
+<a href="https://github.com/reconhub/learn/blob/master/content/post/2017-11-22-sim-ebola-reconstruction.Rmd">github</a>.</p>
+
+<h2 id="legal-stuff">Legal stuff</h2>
+
+<p><strong>License</strong>: <a href="https://creativecommons.org/licenses/by/3.0/">CC-BY</a>
+<strong>Copyright</strong>: Thibaut Jombart, 2017</p>
+
+<h1 id="references">References</h1>
+
+<p>Cori, Anne, Neil M Ferguson, Christophe Fraser, and Simon Cauchemez.
+2013. “A New Framework and Software to Estimate Time-Varying
+Reproduction Numbers During Epidemics.” <em>Am. J. Epidemiol.</em> 178
+(9):1505–12.</p>
+
+<p>Jombart, Thibaut, Anne Cori, Xavier Didelot, Simon Cauchemez, Christophe
+Fraser, and Neil Ferguson. 2014. “Bayesian Reconstruction of Disease
+Outbreaks by Combining Epidemiologic and Genomic Data.” <em>PLoS Comput.
+Biol.</em> 10 (1):e1003457.</p>
+    
+                </div>
+            </section>
+        
+            <footer class="post-full-footer">
+              <section class="author-card">
+                <img class="author-profile-image" src="https://reconlearn-ld.netlify.com/img/user.png" alt="Author" />
+                <section class="author-card-content">
+                        <span class="post-card-author">
+                                <a href="/authors/thibaut-jombart.html">Thibaut Jombart</a><br><a href="/authors/finlay-campbell.html">Finlay Campbell</a><br>
+                              </span>
+                </section>
+              </section>
+            </footer>
+        </article>
+    
+    
+    
+
+<div id="disqus_thread"></div>
+<script>
+
+
+
+
+var disqus_config = function () {
+this.page.url = "https:\/\/reconlearn-ld.netlify.com\/post\/practical-ebola-reconstruction.html";  
+this.page.identifier = "https:\/\/reconlearn-ld.netlify.com\/post\/practical-ebola-reconstruction.html"; 
+};
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://itsalocke.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  </div>
+</main>
+
+
+<aside class="read-next outer">
+  <div class="inner">
+    <div class="read-next-feed">      
+      
+<article class="read-next-card" style="background-color: #090a0b;">
+    <header class="read-next-card-header">
+        <small class="read-next-card-header-sitetitle">&mdash; RECON learn &mdash;</small>
+        
+    </header>
+    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+    </div>
+
+    <div class="read-next-card-content">
+      
+        <ul>
+          <li><a href="https://reconlearn-ld.netlify.com/post/compartmentalebola.html">Compartmental model, example for Ebola</a></li>            
+        
+          <li><a href="https://reconlearn-ld.netlify.com/post/reproducibility.html">Reproducibility using R</a></li>            
+        
+          <li><a href="https://reconlearn-ld.netlify.com/post/lecture-phylogenetics.html">Introduction to phylogenetics</a></li>            
+        
+          <li><a href="https://reconlearn-ld.netlify.com/post/modellingforpublichealth.html">Modelling infectious diseases for public health</a></li>            
+        </ul>
+    </div>
+    <footer class="read-next-card-footer">
+      
+    </footer>
+</article>
+
+
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="https://reconlearn-ld.netlify.com/post/practical-outbreakend.html">
+      <div class="post-card-image" style="background-image: url(https://reconlearn-ld.netlify.com/img/highres/theendisnear.png)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="https://reconlearn-ld.netlify.com/post/practical-outbreakend.html">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #epicurve 
+              #outbreak 
+              #outbreak end  </span>
+              
+              <h2 class="post-card-title">Is this outbreak over?</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Motivation At which time point during an outbreak of a person-to-person transmitted disease can one declare the outbreak as having ended? Answering this question can be important in order to calm the population, re-attract tourists, stop export bans or reduce alertness status. The current WHO method for answering the above question is as follows: a period of two times the longest possible incubation time needs to pass without observing additional cases, before the outbreak can be declared as being over. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="https://reconlearn-ld.netlify.com/img/user.png" alt="Author" />
+          <span class="post-card-author"><a href="/">Michael Höhle</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="https://reconlearn-ld.netlify.com/post/lecture-phylogenetics.html">
+      <div class="post-card-image" style="background-image: url(https://reconlearn-ld.netlify.com/img/highres/tree-radial.jpg)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="https://reconlearn-ld.netlify.com/post/lecture-phylogenetics.html">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">Introduction to phylogenetics</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>This lecture introduces general concepts pertaining to phylogenetic tree reconstruction, as well as the main approaches used for building trees, including distance-based, maximum parsimony, and maximum likelihood methods. It also discusses phylogenetic uncertainty, bootstrap, and some caveats and bad practices.
+Slides Click on the image below to access the slides:
+  
+About this document Contributors  Thibaut Jombart: initial version  Contributions are welcome via pull requests. The source files of this lecture can be found here. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="https://reconlearn-ld.netlify.com/img/user.png" alt="Author" />
+          <span class="post-card-author"><a href="/">Thibaut Jombart</a></span>
+      </footer>
+    </div>
+</article>
+      
+    </div>
+  </div>
+</aside>
+
+<div class="floating-header">
+  <div class="floating-header-logo">
+    <a href="https://reconlearn-ld.netlify.com/">
+      <img src="https://reconlearn-ld.netlify.com/img/logo/learnBlueAndWhite.png" alt="" />
+    </a>
+  </div>
+  <span class="floating-header-divider">&mdash;</span>
+  <div class="floating-header-title">Ebola simulation part 2: outbreak reconstruction</div>
+  <div class="floating-header-share">
+    <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/></svg>
+    </div>
+    
+    <a class="floating-header-share-tw" href="https://twitter.com/share?text=Ebola%20simulation%20part%202%3a%20outbreak%20reconstruction&amp;url=https%3a%2f%2freconlearn-ld.netlify.com%2fpost%2fpractical-ebola-reconstruction.html"
+          onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+      </a>
+      <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2freconlearn-ld.netlify.com%2fpost%2fpractical-ebola-reconstruction.html"
+          onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+      </a>
+  </div>
+
+  <progress class="progress" value="0">
+    <div class="progress-container">
+      <span class="progress-bar"></span>
+    </div>
+  </progress>
+</div>
+
+
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="/">RECON</a> ©2017 Thibaut Jombart <br>
+      <span style="font-size: 0.8em; color: #555;">Hugo port of <a href="https://github.com/TryGhost/Casper">Casper 2.1.7</a> by <a href="https://www.telematika.org">EM</a></span>
+    </section>
+    <nav class="site-footer-nav">
+        <a href="/">Latest Posts</a>
+        
+        <a href="https://twitter.com/teebzr" target="_blank" rel="noopener">Twitter</a>
+        <a href="https://github.com/reconhub/learn" target="_blank" rel="noopener">Github</a>
+        
+        
+    </nav>  
+  </div>
+</footer>
+
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://reconlearn-ld.netlify.com/js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <script>
+
+
+
+
+
+$(document).ready(function () {
+    
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+</body></html>

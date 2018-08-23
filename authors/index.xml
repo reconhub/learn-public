@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Authors on </title>
+    <link>https://reconlearn-ld.netlify.com/authors.html</link>
+    <description>Recent content in Authors on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://reconlearn-ld.netlify.com/authors/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Finlay Campbell</title>
+      <link>https://reconlearn-ld.netlify.com/authors/finlay-campbell.html</link>
+      <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://reconlearn-ld.netlify.com/authors/finlay-campbell.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pierre Nouvellet</title>
+      <link>https://reconlearn-ld.netlify.com/authors/pierre-nouvellet.html</link>
+      <pubDate>Wed, 13 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://reconlearn-ld.netlify.com/authors/pierre-nouvellet.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Thibaut Jombart</title>
+      <link>https://reconlearn-ld.netlify.com/authors/thibaut-jombart.html</link>
+      <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://reconlearn-ld.netlify.com/authors/thibaut-jombart.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Zulma Cucunuba</title>
+      <link>https://reconlearn-ld.netlify.com/authors/zulma-cucunuba.html</link>
+      <pubDate>Wed, 13 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://reconlearn-ld.netlify.com/authors/zulma-cucunuba.html</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

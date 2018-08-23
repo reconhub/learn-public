@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Compartmental models on </title>
+    <link>https://reconlearn-ld.netlify.com/topics/compartmental-models.html</link>
+    <description>Recent content in Compartmental models on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 11 Dec 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://reconlearn-ld.netlify.com/topics/compartmental-models/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Compartmental model, example for Ebola</title>
+      <link>https://reconlearn-ld.netlify.com/post/compartmentalebola.html</link>
+      <pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://reconlearn-ld.netlify.com/post/compartmentalebola.html</guid>
+      <description>This short lecture gives a primer in building compartmental models. It covers various aspects around epidemiological modelling such as flow diagrams, writing ordinary differential equations and reproduction number. The example of the dynamics of Ebola is used.
+Slides Click on the image below to access the slides:
+  
+About this document Contributors  Pierre Nouvellet: initial version  Contributions are welcome via pull requests. The source file can be found here.</description>
+    </item>
+    
+    <item>
+      <title>Ebola: building few models for Ebola</title>
+      <link>https://reconlearn-ld.netlify.com/post/practical-compartmental-ebola.html</link>
+      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://reconlearn-ld.netlify.com/post/practical-compartmental-ebola.html</guid>
+      <description>This practical aims to illustrate the basics of Ebola modelling using R, with an emphasis on how the method works.
+We will start with a basic model for Ebola. We will then illustrate how to account for an evolving context, e.g. implementation of control measures. Finally, we will explore basic principle of model fitting.
+Core Concepts From the previous lecture, we will further develop these concepts:
+ Compartmental models Flow diagrams and writing down a model Natural history of Ebola Control strategies Introduction to model fitting  Required packages install.</description>
+    </item>
+    
+    <item>
+      <title>VBD: building a simple model for Zika</title>
+      <link>https://reconlearn-ld.netlify.com/post/practical-vbd.html</link>
+      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://reconlearn-ld.netlify.com/post/practical-vbd.html</guid>
+      <description>This practical aims to illustrate the basics of vector borne disease (VBD) modelling using R, with an emphasis on how the methods work. We will use a basic model for an arboviral infection as an example. In this practical we will begin by gaining some understanding of the components which contribute to R0 and how potential interventions influence transmission. Later in the practical you will construct a model of Zika transmission to look at the effects of several parameters.</description>
+    </item>
+    
+  </channel>
+</rss>

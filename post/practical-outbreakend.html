@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en-us" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Is this outbreak over? &middot; </title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://reconlearn-ld.netlify.com/favicon.ico" />
+    <link rel="canonical" href="https://reconlearn-ld.netlify.com/post/practical-outbreakend.html" />
+
+     <meta name="description" content="Motivation At which time point during an outbreak of a person-to-person transmitted disease can one declare the outbreak as having ended? Answering this questio" /> 
+
+     
+    
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image" content="https://reconlearn-ld.netlify.com/img/highres/theendisnear.png"/>
+    
+ 
+    <meta name="twitter:title" content="Is this outbreak over?"/>
+    <meta name="twitter:description" content="Motivation At which time point during an outbreak of a person-to-person transmitted disease can one declare the outbreak as having ended? Answering this questio"/>
+    <meta name="twitter:url" content="https://reconlearn-ld.netlify.com/post/practical-outbreakend.html" />
+    <meta name="twitter:site" content="@teebzr"/>
+
+    <meta property="og:site_name" content="" />
+    <meta property="og:title" content="Is this outbreak over? &middot; RECON learn" />
+    <meta property="og:url" content="https://reconlearn-ld.netlify.com/post/practical-outbreakend.html" />
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="Motivation At which time point during an outbreak of a person-to-person transmitted disease can one declare the outbreak as having ended? Answering this questio" />
+
+    <meta property="article:published_time" content="2018-03-22T00:00:00Z" />
+    <meta property="article:tag" content="epicurve" /><meta property="article:tag" content="outbreak" /><meta property="article:tag" content="outbreak end" />
+
+    <meta property="og:image" content="https://reconlearn-ld.netlify.com/img/highres/theendisnear.png"/>
+
+
+    <meta name="generator" content="Hugo 0.41" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-oi8o31xSQq8S0RpBcb4FaLB8LJi9AT8oIdmS1QldR8Ui7KUQjNAnDlJjp55Ba8FG" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://reconlearn-ld.netlify.com/built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="https://reconlearn-ld.netlify.com/css/casper-two.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+     <link rel="stylesheet" href="https://reconlearn-ld.netlify.com/css/custom.css" /> 
+
+     
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+</head>
+
+
+<body class="post-template">
+  <div class="site-wrapper"> 
+
+<header class="site-header outer">
+  <div class="inner">
+    <nav class="site-nav">
+      <div class="site-nav-left">
+        <a class="site-nav-logo" href="/"><img src="https://reconlearn-ld.netlify.com/img/logo/learnBlueAndWhite.png" alt="RECON learn" /></a>
+
+        <ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="/"> Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/categories/lectures.html"><i class='far fa-align-justify'></i> Lectures</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/categories/practicals.html"><i class='far fa-align-justify'></i> Practicals</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/authors.html"><i class='far fa-align-justify'></i> Authors</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/topics.html"><i class='far fa-align-justify'></i> Topics</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/licenses.html"><i class='far fa-align-justify'></i> Licenses</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/about.html"> About</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/contact.html"> Contact</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/sample.html"> Sample</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    <a class="social-link social-link-tw" href="https://twitter.com/teebzr" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg></a>
+
+                    <a class="social-link" href="https://github.com/reconhub/learn" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    
+
+                    
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+    
+      <article class="post-full post"> 
+        <header class="post-full-header">
+            <h1 class="post-full-title">Is this outbreak over?</h1>
+            <section class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2018-03-22">22 March 2018</time>
+                <span class="date-divider">/</span>
+                
+    <a href="/categories/practicals.html">practicals</a> &nbsp;
+  
+            
+                
+            </section>
+        </header>
+        
+         
+        <section class="post-full-content">
+                <div class="kg-card-markdown">
+                
+
+<h1 id="motivation">Motivation</h1>
+
+<p>At which time point during an outbreak of a person-to-person transmitted disease can one declare the outbreak as having ended? Answering this question can be important in order to calm the population, re-attract tourists, stop export bans or reduce alertness status. The current WHO method for answering the above question is as follows: a period of two times the longest possible incubation time needs to pass without observing additional cases, before the outbreak can be declared as being over. However, as stated in their paper, Nishiura, Miyamatsu, and Mizumoto (2016) write that this criterion clearly lacks a statistical motivation. As an improvement Nishiura and co-workers formulate a statistical criterion for the decision making based on the serial interval distribution and the offspring distribution of the pathogen responsible for the outbreak.</p>
+
+<p>In what follows we shall quickly describe their method and apply it to their motivating example, which was the 2015 MERS-CoV outbreak in Korea. R code is provided implementing and illustrating the method. <strong>Warning</strong>: This practical assumes you have a certain knowledge of statistical modelling and statistical inference, i.e. knowledge about distributions, maximum likelihood inference and Monte Carlo simulation.</p>
+
+<h1 id="statistical-method">Statistical Method</h1>
+
+<p>Describing the above problem in <strong>mathematical notation</strong>, let (Y_t) be a count variable representing the number of symptom onset in cases we observe on a given day (t) during the outbreak. The sequence of the (Y_t) is also called the <a href="http://www.cdc.gov/foodsafety/outbreaks/investigating-outbreaks/epi-curves.html"><strong>epidemic cuve</strong></a> of the outbreak. Furthermore, let (D={Y_i, i=1,\ldots,n}) be the currently available outbreak data containing the time of symptom onset in in each of the (n) days the outbreak has lasted so far. For simplicity we assume that at the last observation at least some cases were observed, i.e. (Y_n&gt;0). In what follows we will be interested in what happens with (Y_t) for future time points, i.e. time points after the last currently observed onset time. In particular out interest is, whether we expect to observe either zero cases or more than zero cases for (Y_t), (t=n+1,n+2,\ldots).</p>
+
+<p>The important result of Nishiura, Miyamatsu, and Mizumoto (2016) is that the probability (\pi_t = P(Y_t &gt; 0&gt;|&gt;D)) for (t=n+1,n+2,\ldots) can be computed as follows: [
+\begin{align<em>}
+\pi<em>t = 1 - \prod</em>{i=1}^n \sum<em>{o=0}^{\infty} f</em>{\text{offspring}}(o; R<em>0, k) \cdot \left[ F</em>{\text{serial}}(t-t_i) \right]^{o},
+\end{align</em>}
+] where (f_{\text{offspring}}) denotes the probability mass function (PMF) for the number of secondary cases that one primary case induces. It is assumed that this distribution is negative binomial with expectation (R_0&gt;0) and clumping parameter (k&gt;0). In other words, (\operatorname{E}(O)=R_0) and (\operatorname{Var}(O)=R_0 + R<em>0^2/k). Furthermore, (F</em>{\text{serial}}) denotes the CDF of the serial interval distribution of the disease of interest. The serial interval is the time period between the onset of symptoms in the primary and onset of symptoms in the secondary case, see Svensson (2007) for details and definitions.</p>
+
+<p>Once (\pi<em>t) is below some pre-defined threshold (c), say (c=0.05), one would declare the outbreak to be over, if no new cases have been observed by time (t). In other words: [
+T</em>{\text{end}} = \min_{t&gt;n} { \pi_t &lt; c }.
+]</p>
+
+<p>Note that the formulated approach is conservative, because every available case is treated as having the potential to generate new secondary cases according to the entire offspring distribution. In practice, however, observed cases towards the end will be secondary cases of some of the earlier cases. Hence, these primary cases will be attributed as having the ability to generate more secondary cases than they actually have in practice. Another important assumption of the method is that all cases are observed: no asymptomatic cases nor under-reporting is taken into account.</p>
+
+<h2 id="required-packages">Required packages</h2>
+
+<p>The following packages, available on CRAN, are needed for this practical:</p>
+
+<ul>
+<li><a href="http://tidyverse.tidyverse.org"><code>tidyverse</code></a> A set of packages (aka. the <em>hadleyverse</em>) to enhance the necessary data munging</li>
+<li><a href="https://cran.r-project.org/web/packages/openxlsx/"><code>openxlsx</code></a> to read <code>.xlsx</code> files without <code>rJava</code> dependence</li>
+<li><a href="https://cran.r-project.org/web/packages/pbapply/"><code>pbapply</code></a> Package to get a progress bar for lengthy computations done using <code>apply</code>, <code>sapply</code>, and <code>lapply</code>.</li>
+</ul>
+
+<p>To install these packages, use <code>install.packages</code> and then load them using</p>
+
+<pre><code class="language-r">library(&quot;tidyverse&quot;)
+library(&quot;openxlsx&quot;)
+library(&quot;pbapply&quot;)
+</code></pre>
+
+<h2 id="data-from-the-mers-cov-oubtreak-in-korea-2015">Data from the MERS-Cov Oubtreak in Korea, 2015</h2>
+
+<p>We use the WHO MERS-CoV data available from <a href="http://www.who.int/csr/don/21-july-2015-mers-korea/en/">http://www.who.int/csr/don/21-july-2015-mers-korea/en/</a> to illustrate the statistical method. For convenience, these data were download and are distributed as part of the RECON learn github account.</p>
+
+<pre><code class="language-r">linelist &lt;- openxlsx::read.xlsx(&quot;../../static/data/MERS-CoV-cases-rok-21Jul15.xlsx&quot;, startRow=4)
+</code></pre>
+
+<p>We skip the first 3 rows as they contain irrelevant header data. After loading the data, additional data munging is needed in order to convert the date-strings to the <code>Date</code> class and fill the missing values in the <code>Date.of.symptoms.onset</code> column as described in the paper.</p>
+
+<pre><code class="language-r">##Convert all columns containing the String &quot;...Date...&quot; to the Date class
+##using the date/month/Year format (in which the data are available)
+linelist &lt;- linelist %&gt;%
+  mutate_if(grepl(&quot;Date&quot;, names(linelist)), as.Date, format=&quot;%d/%m/%Y&quot;)
+
+## As written in the @nishiura_etal2016 paper, the missing onset times
+## are handled as follows: Whenever the date of illness onset was missing,
+## we substitute it with the date of laboratory confirmation.
+linelist &lt;- linelist %&gt;%
+  mutate(Date.of.symptoms.onset =
+           if_else(is.na(Date.of.symptoms.onset),
+                   Date.of.laboratory.confirmation,
+                   Date.of.symptoms.onset))
+</code></pre>
+
+<p>At the end of the data munging the first three lines in the data look as follows:</p>
+
+<pre><code class="language-r">head(linelist, n=3)
+##   Case.no. Date.of.notification.to.WHO Age Sex Health.care.worker
+## 1        1                  2015-05-20  68   M                 No
+## 2        2                  2015-05-22  63   F                 No
+## 3        3                  2015-05-22  76   M                 No
+##   Comorbidities Date.of.symptoms.onset Date.of.first.hospitalization
+## 1          &lt;NA&gt;             2015-05-11                    2015-05-15
+## 2          &lt;NA&gt;             2015-05-19                          &lt;NA&gt;
+## 3          &lt;NA&gt;             2015-05-20                          &lt;NA&gt;
+##   Date.of.laboratory.confirmation   Status Date.of.outcome
+## 1                      2015-05-20    Alive            &lt;NA&gt;
+## 2                      2015-05-20    Alive            &lt;NA&gt;
+## 3                      2015-05-20 Deceased      2015-06-04
+</code></pre>
+
+<h1 id="analysis-of-the-mers-cov-data">Analysis of the MERS-CoV data</h1>
+
+<p>The above data is the WHO dataset on the <a href="http://www.who.int/csr/don/21-july-2015-mers-korea/en/">MERS-Cov outbreak in Korea</a>, which occurred during May-July 2015. It contains the information about 185 cases of the MERS-CoV outbreak in Korea, 2015. Using the RECON <a href="http://www.repidemicsconsortium.org/incidence/"><code>incidence</code></a> package it is easy to plot the epicurve based on the date of symptoms onset in the linelist.</p>
+
+<pre><code class="language-r">inc &lt;- incidence::incidence(linelist$Date.of.symptoms.onset, interval = 1)
+plot(inc) + xlab(&quot;Calendar Time (day)&quot;) + ylab(&quot;Number of symptom onsets&quot;)
+</code></pre>
+
+<p><img src="practical-outbreakend_files/figure-markdown_github/unnamed-chunk-4-1.png" alt="" /></p>
+
+<p>We are now interested in answering the following question: Standing at 2015-07-02, that is the day of the last reported new case with MERS symptoms, how many days without newly reported symptom onsets would we want to wait, before we would declare this outbreak as having <strong>ended</strong>?</p>
+
+<h2 id="results">Results</h2>
+
+<p>We shall distinguish our results between</p>
+
+<ol>
+<li>estimating (R_0) and (k) of the offspring distribution and the parameters of the serial interval distribution from data</li>
+<li>computating the probability (\pi_t) given the parameters found in step 1.</li>
+</ol>
+
+<p>Focus of this tutorial is on the later part. Details on the first part is available in the R code from <a href="https://raw.githubusercontent.com/hoehleatsu/learn/outbreakend/content/post/practical-outbreakend.Rmd">github</a>.</p>
+
+<h3 id="parameter-estimation-of-the-offspring-and-serial-interval-distributions">Parameter Estimation of the Offspring and Serial Interval Distributions</h3>
+
+<p>The parameters to estimate are the following:</p>
+
+<ul>
+<li>parameters of the parametric distributional family governing the serial interval distribution - in Nishiura, Miyamatsu, and Mizumoto (2016) this is assumed to be a gamma distribution with parameters (\theta_{\text{serial}} = (\alpha,\beta)&rsquo;) with expectation (\alpha/\beta) and variance (\alpha/\beta^2)</li>
+<li>parameters of the offspring distribution, which here is assumed to be negative binomial with mean (R_0) and clumping parameter (k)</li>
+</ul>
+
+<p>The first set of parameters are estimated in Nishiura, Miyamatsu, and Mizumoto (2016) by method-of-moment-matching the mean and standard deviation of the serial interval distribution with observed in secondary data - see the <a href="https://wwwnc.cdc.gov/eid/article/22/1/15-1383-techapp1.pdf">technical appendix</a> of the paper for details. The solution for (\alpha) and (\beta) of the gamma distribution can then be found analytically from these values.</p>
+
+<pre><code class="language-r">#Values for mean and std. deviation (=sqrt(Variance)) found in the paper
+E &lt;- 12.6
+SD &lt;- 2.8
+##Convert to gamma distribution parameters
+(theta_serial &lt;- c(alpha=E^2/SD^2, beta=E/SD^2))
+##     alpha      beta 
+## 20.250000  1.607143
+</code></pre>
+
+<p>The second part of the estimation task is addressed in Nishiura et al. (2015) by analysing final-size and generation data using a maximum likelihood approach. We will here only implement the methods using the data presented in Figure 1 and Table 1 of the paper. Unfortunately, one cluster size is not immediately reconstructable from the data in the paper, but guesstimating from the table on p.4 of the <a href="http://ecdc.europa.eu/en/publications/Publications/RRA-Middle-East-respiratory-syndrome-coronavirus-Korea.pdf">ECDC Rapid Risk Assessment</a> it appears to be the outbreak in Jordan with a size of 19. The likelihood is then maximized for (\mathbf{\theta}=(\log(R_0),\log(k))&rsquo;) using the <code>optim</code> function.</p>
+
+<!-- In the above `dfinalSize` and `dnGenerations` are two manually written R-functions, which contain the likelihood of observing a particular final size and a particular number of generations, respectively. -->
+
+<p>As usual in likelihood inference, a numeric approximation of the variance-covariance matrix of (\hat{\mathbf{\theta}}) can be obtained from the Hessian matrix for the loglikelihood evaluated at the MLE. Altogether, we maximize the combined likelihood consisting of 36 as well as the corresponding number of generations by:</p>
+
+<pre><code class="language-r">theta_mle &lt;- optim(c(log(1), log(1)), ll_combine, outbreaks=outbreaks, control=list(fnscale=-1), hessian=TRUE)
+exp(theta_mle$par)
+## [1] 0.8264387 0.1277683
+</code></pre>
+
+<p>Here, <code>ll_combine</code> denotes the log-likelihood function computed for the data contained in <code>outbreaks</code>. For the exact code of these functions please visit the [github source code]() of this practical.</p>
+
+<p>These numbers deviate slightly from the values of (\hat{R}_0=0.75) and (\hat{k}=0.14) reported by Nishiura et al. (2015). One explanation might be the unclear cluster size of the Jordan outbreak, here it would have been helpful to have had all data directly available in electronic form.</p>
+
+<h2 id="determining-the-outbreak-end">Determining the Outbreak End</h2>
+
+<p>The (\pi_t) equation of Nishiura, Miyamatsu, and Mizumoto (2016) stated above is implemented below as function <code>p_oneormore</code>. This function requires the use of the PMF of the offspring distribution (implemented as <code>doffspring</code>), which is the PMF of the negative binomial offspring distribution.</p>
+
+<pre><code class="language-r">###################################################################
+## Offspring distribution, this is just the negative binomial PMF.
+###################################################################
+doffspring &lt;- function(y, R_0, k, log=FALSE) {
+  dnbinom(y, mu=R_0, size=k, log=log)
+}
+
+##########################################################################
+## Probability for one or more cases at time t (vectorized for easier use).
+##
+## @param t             Vector of Time points to compute \pi_t for
+## @param R_0           Estimated value of the basic reproduction number R_0
+## @param k             Estimated value of the expected number of offspring k
+## @param theta_serial  (alpha,beta) vector parametrising the serial interval
+##                      gamma distribution
+## @param oMax          Maximum value of o to sum in the summation formula
+##                      (instead of infinity)
+##########################################################################
+p_oneormore &lt;- Vectorize(function(t, R_0, k, theta_serial, oMax=1e4) {
+  ##Init result variable
+  res &lt;- 1
+
+  ##Loop over the linelist (this might take a while for long linelists)
+  for (i in seq_len(nrow(linelist))) {
+    serial_time &lt;- as.numeric(t - linelist$Date.of.symptoms.onset[i])
+    cdf &lt;- pgamma(serial_time, theta_serial[1], theta_serial[2])
+    o &lt;- 0L:oMax
+    osum &lt;- sum( doffspring(y=o, R_0=R_0, k=k) * cdf^o)
+    res &lt;- res * osum
+  }
+  return(1-res)
+},vectorize.args=c(&quot;t&quot;,&quot;R_0&quot;,&quot;k&quot;))
+</code></pre>
+
+<p>The function allows us to re-calculate the results of Nishiura, Miyamatsu, and Mizumoto (2016) for the MERS-CoV outbreak:</p>
+
+<pre><code class="language-r">##Results from the Nishiura et al. (2015) paper
+##R_0_hat &lt;- 0.75 ; k_hat &lt;- 0.14
+##Use MLE found with the data we were able to extract.
+R_0_hat &lt;- exp(theta_mle$par[1])
+k_hat   &lt;- exp(theta_mle$par[2])
+
+## Compute probility for one or more cases on a grid of dates
+df &lt;- data_frame(t=seq(as.Date(&quot;2015-07-15&quot;), as.Date(&quot;2015-08-05&quot;), by=&quot;1 day&quot;))
+df &lt;- df %&gt;%
+  mutate(pi =  p_oneormore(t, R_0=R_0_hat, k=k_hat, theta_serial=theta_serial, oMax=250))
+## Look at the result
+head(df, n=3)
+## # A tibble: 3 x 2
+##   t             pi
+##   &lt;date&gt;     &lt;dbl&gt;
+## 1 2015-07-15 0.366
+## 2 2015-07-16 0.297
+## 3 2015-07-17 0.226
+</code></pre>
+
+<p>We can embed estimation uncertainty originating from the estimation of (R_0) and (k) by adding an additional bootstrap step with values of ((\log R_0, \log k)&rsquo;) sampled from the asymptotic normal distribution of the MLE. This distribution has expectation equal to the MLE and variance-covariance matrix equal to the observed Fisher information. Pointwise percentile-based 95% confidence intervals are then easily computed from the samples. The figure below shows this 95% CI (shaded area) together with the (\pi_t) curve. The github code contains the details of generating the sample and drawing the curve using <code>ggplot</code>.</p>
+
+<p><img src="practical-outbreakend_files/figure-markdown_github/unnamed-chunk-12-1.png" alt="" /></p>
+
+<p>Altogether, the date where we would declare the outbreak to be over, given a threshold of (c=0.05), is found as:</p>
+
+<pre><code class="language-r">(tEnd &lt;- df2 %&gt;% filter(`quantile.97.5%` &lt; c_threshold) %&gt;% slice(1L))
+##            t         pi quantile.2.5% quantile.97.5%
+## 1 2015-07-21 0.03452785    0.02458372     0.04849207
+</code></pre>
+
+<p>In other words, given the assumptions of the model and the chosen threshold, we would declare the outbreak to be over, if no new cases are observed by 2015-07-21. The adequate choice of (c) as cut-off in the procedure depends on what is at stake. Hence, choosing (c=0.05) without additional thought is more than arbitrary, but a more careful discussion is beyond the scope of this small practical tutorial.</p>
+
+<h1 id="discussion">Discussion</h1>
+
+<p>The present practical introduced the statistical modelling based approach by Nishiura, Miyamatsu, and Mizumoto (2016) for declaring the end of a person-to-person transmitted disease outbreak such as MERS-Cov, Ebola, etc. If the considered outbreak has a different mode of transmission, e.g. foodborne or originates from a point-source, then different formulas apply, see e.g. Brookmeyer and You (2006). The <a href="http://staff.math.su.se/hoehle/blog/2016/08/04/outbreakEnd.html">blog post</a>, on which this practical is based, contains an additional hierarchical modelling approach with simulation based inference. Altoghether, we hope that the avaibility of the method in R might be helpful in future outbreak analyses.</p>
+
+<h1 id="about-this-document">About this document</h1>
+
+<h2 id="contributors">Contributors</h2>
+
+<ul>
+<li><a href="http://www.math.su.se/~hoehle">Michael Höhle</a>, Stockholm University: RECON modified version of the blog post <a href="http://staff.math.su.se/hoehle/blog/2016/08/04/outbreakEnd.html">No Sleep During the Reproducibility Session</a></li>
+</ul>
+
+<p>Contributions are welcome via <a href="https://github.com/reconhub/learn/pulls">pull requests</a>. The source file is hosted on <a href="https://github.com/reconhub/learn/blob/master/content/post/2018-03-22-practical-outbreakend.Rmd">github</a>.</p>
+
+<h2 id="legal-stuff">Legal stuff</h2>
+
+<p><strong>License</strong>: This work is licensed under a <a rel="license"
+href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. The markdown+Rknitr source code of this blog is available under a <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU General Public License (GPL v3)</a> license from github.</p>
+
+<p><strong>Copyright</strong>: Michael Höhle, 2018</p>
+
+<h1 id="references">References</h1>
+
+<p>Brookmeyer, R., and X. You. 2006. “A hypothesis test for the end of a common source outbreak.” <em>Biometrics</em> 62 (1): 61–65. doi:<a href="https://doi.org/10.1111/j.1541-0420.2005.00421.x">10.1111/j.1541-0420.2005.00421.x</a>.</p>
+
+<p>Nishiura, H., Y. Miyamatsu, and K. Mizumoto. 2016. “Objective Determination of End of MERS Outbreak, South Korea, 2015.” <em>Emerging Infect. Dis.</em> 22 (1): 146–48. doi:<a href="https://doi.org/10.3201/eid2201.151383">10.3201/eid2201.151383</a>.</p>
+
+<p>Nishiura, H., Y. Miyamatsu, G. Chowell, and M. Saitoh. 2015. “Assessing the risk of observing multiple generations of Middle East respiratory syndrome (MERS) cases given an imported case.” <em>Euro Surveill.</em> 20 (27). doi:<a href="https://doi.org/10.2807/1560-7917.ES2015.20.27.21181">10.<sup>2807</sup>&frasl;<sub>1560</sub>-7917.ES2015.20.27.21181</a>.</p>
+
+<p>Svensson, Å. 2007. “A note on generation times in epidemic models.” <em>Math Biosci</em> 208 (1): 300–311. doi:<a href="https://doi.org/10.1016/j.mbs.2006.10.010">10.1016/j.mbs.2006.10.010</a>.</p>
+    
+                </div>
+            </section>
+        
+            <footer class="post-full-footer">
+              <section class="author-card">
+                <img class="author-profile-image" src="https://reconlearn-ld.netlify.com/img/user.png" alt="Author" />
+                <section class="author-card-content">
+                        <span class="post-card-author">
+                                
+                              </span>
+                </section>
+              </section>
+            </footer>
+        </article>
+    
+    
+    
+
+<div id="disqus_thread"></div>
+<script>
+
+
+
+
+var disqus_config = function () {
+this.page.url = "https:\/\/reconlearn-ld.netlify.com\/post\/practical-outbreakend.html";  
+this.page.identifier = "https:\/\/reconlearn-ld.netlify.com\/post\/practical-outbreakend.html"; 
+};
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://itsalocke.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  </div>
+</main>
+
+
+<aside class="read-next outer">
+  <div class="inner">
+    <div class="read-next-feed">      
+      
+<article class="read-next-card" style="background-color: #090a0b;">
+    <header class="read-next-card-header">
+        <small class="read-next-card-header-sitetitle">&mdash; RECON learn &mdash;</small>
+        
+        <h3 class="read-next-card-header-title"><a href="https://reconlearn-ld.netlify.com/tags/epicurve/">#epicurve</a></h3>
+    </header>
+    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+    </div>
+
+    <div class="read-next-card-content">
+      
+        <ul>
+          <li><a href="https://reconlearn-ld.netlify.com/post/basicvbdmodelling.html">Basic Concepts on Vector Borne Disease Modelling</a></li>            
+        
+          <li><a href="https://reconlearn-ld.netlify.com/post/compartmentalebola.html">Compartmental model, example for Ebola</a></li>            
+        
+          <li><a href="https://reconlearn-ld.netlify.com/post/simulated-evd-early.html">Ebola simulation part 1: early outbreak assessment</a></li>            
+        
+          <li><a href="https://reconlearn-ld.netlify.com/post/practical-phylogenetics.html">Phylogenetic tree reconstruction</a></li>            
+        </ul>
+    </div>
+    <footer class="read-next-card-footer">
+      
+        <a href="https://reconlearn-ld.netlify.com/tags/epicurve/">See all related posts →</a>
+    </footer>
+</article>
+
+
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="https://reconlearn-ld.netlify.com/post/practical-ebola-reconstruction.html">
+      <div class="post-card-image" style="background-image: url(https://reconlearn-ld.netlify.com/img/highres/ebola-blue.jpg)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="https://reconlearn-ld.netlify.com/post/practical-ebola-reconstruction.html">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">Ebola simulation part 2: outbreak reconstruction</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>This practical is the second part of the response to a simulated Ebola Virus Disease (EVD) outbreak taking place in the city of Ankh, Republic of Morporkia. While the first part focussed on early assessments of transmissibility, this part explores more methodological options for estimating transmissibility, and provides an introduction to outbreak reconstruction using outbreaker2.
+
+An update on the EVD outbreak in Ankh, Republic of Morporkia After some rather concerning preliminary results on the new EVD outbreak in the city of Ankh, Republic of Morporkia, Public Health Morporkia (PHM) has sent you updates of the linelists and contact data. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="https://reconlearn-ld.netlify.com/img/user.png" alt="Author" />
+          <span class="post-card-author"><a href="/">Thibaut Jombart, Finlay Campbell</a></span>
+      </footer>
+    </div>
+</article>
+      
+    </div>
+  </div>
+</aside>
+
+<div class="floating-header">
+  <div class="floating-header-logo">
+    <a href="https://reconlearn-ld.netlify.com/">
+      <img src="https://reconlearn-ld.netlify.com/img/logo/learnBlueAndWhite.png" alt="" />
+    </a>
+  </div>
+  <span class="floating-header-divider">&mdash;</span>
+  <div class="floating-header-title">Is this outbreak over?</div>
+  <div class="floating-header-share">
+    <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/></svg>
+    </div>
+    
+    <a class="floating-header-share-tw" href="https://twitter.com/share?text=Is%20this%20outbreak%20over%3f&amp;url=https%3a%2f%2freconlearn-ld.netlify.com%2fpost%2fpractical-outbreakend.html"
+          onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+      </a>
+      <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2freconlearn-ld.netlify.com%2fpost%2fpractical-outbreakend.html"
+          onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+      </a>
+  </div>
+
+  <progress class="progress" value="0">
+    <div class="progress-container">
+      <span class="progress-bar"></span>
+    </div>
+  </progress>
+</div>
+
+
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="/">RECON</a> ©2017 Thibaut Jombart <br>
+      <span style="font-size: 0.8em; color: #555;">Hugo port of <a href="https://github.com/TryGhost/Casper">Casper 2.1.7</a> by <a href="https://www.telematika.org">EM</a></span>
+    </section>
+    <nav class="site-footer-nav">
+        <a href="/">Latest Posts</a>
+        
+        <a href="https://twitter.com/teebzr" target="_blank" rel="noopener">Twitter</a>
+        <a href="https://github.com/reconhub/learn" target="_blank" rel="noopener">Github</a>
+        
+        
+    </nav>  
+  </div>
+</footer>
+
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://reconlearn-ld.netlify.com/js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <script>
+
+
+
+
+
+$(document).ready(function () {
+    
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+</body></html>

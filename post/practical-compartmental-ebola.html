@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en-us" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Ebola: building few models for Ebola &middot; </title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://reconlearn-ld.netlify.com/favicon.ico" />
+    <link rel="canonical" href="https://reconlearn-ld.netlify.com/post/practical-compartmental-ebola.html" />
+
+     <meta name="description" content="This practical aims to illustrate the basics of Ebola modelling using R, with an emphasis on how the method works.
+We will start with a basic model for Ebola. W" /> 
+
+     
+    
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image" content="https://reconlearn-ld.netlify.com/img/highres/ebola-green.jpg"/>
+    
+ 
+    <meta name="twitter:title" content="Ebola: building few models for Ebola"/>
+    <meta name="twitter:description" content="This practical aims to illustrate the basics of Ebola modelling using R, with an emphasis on how the method works.
+We will start with a basic model for Ebola. W"/>
+    <meta name="twitter:url" content="https://reconlearn-ld.netlify.com/post/practical-compartmental-ebola.html" />
+    <meta name="twitter:site" content="@teebzr"/>
+
+    <meta property="og:site_name" content="" />
+    <meta property="og:title" content="Ebola: building few models for Ebola &middot; RECON learn" />
+    <meta property="og:url" content="https://reconlearn-ld.netlify.com/post/practical-compartmental-ebola.html" />
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="This practical aims to illustrate the basics of Ebola modelling using R, with an emphasis on how the method works.
+We will start with a basic model for Ebola. W" />
+
+    <meta property="article:published_time" content="2017-12-04T00:00:00Z" />
+    
+
+    <meta property="og:image" content="https://reconlearn-ld.netlify.com/img/highres/ebola-green.jpg"/>
+
+
+    <meta name="generator" content="Hugo 0.41" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-oi8o31xSQq8S0RpBcb4FaLB8LJi9AT8oIdmS1QldR8Ui7KUQjNAnDlJjp55Ba8FG" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://reconlearn-ld.netlify.com/built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="https://reconlearn-ld.netlify.com/css/casper-two.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+     <link rel="stylesheet" href="https://reconlearn-ld.netlify.com/css/custom.css" /> 
+
+     
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+</head>
+
+
+<body class="post-template">
+  <div class="site-wrapper"> 
+
+<header class="site-header outer">
+  <div class="inner">
+    <nav class="site-nav">
+      <div class="site-nav-left">
+        <a class="site-nav-logo" href="/"><img src="https://reconlearn-ld.netlify.com/img/logo/learnBlueAndWhite.png" alt="RECON learn" /></a>
+
+        <ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="/"> Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/categories/lectures.html"><i class='far fa-align-justify'></i> Lectures</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/categories/practicals.html"><i class='far fa-align-justify'></i> Practicals</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/authors.html"><i class='far fa-align-justify'></i> Authors</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/topics.html"><i class='far fa-align-justify'></i> Topics</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/licenses.html"><i class='far fa-align-justify'></i> Licenses</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/about.html"> About</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/contact.html"> Contact</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/sample.html"> Sample</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    <a class="social-link social-link-tw" href="https://twitter.com/teebzr" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg></a>
+
+                    <a class="social-link" href="https://github.com/reconhub/learn" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    
+
+                    
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+    
+      <article class="post-full post"> 
+        <header class="post-full-header">
+            <h1 class="post-full-title">Ebola: building few models for Ebola</h1>
+            <section class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2017-12-04">4 December 2017</time>
+                <span class="date-divider">/</span>
+                
+    <a href="/categories/practicals.html">practicals</a> &nbsp;
+  
+            
+                
+                <span class="date-divider">/</span> <a href="https://reconlearn-ld.netlify.com/topics/ebola.html">#Ebola</a>&nbsp;<a href="https://reconlearn-ld.netlify.com/topics/compartmental-models.html">#compartmental models</a>&nbsp;
+            </section>
+        </header>
+        
+         
+        <section class="post-full-content">
+                <div class="kg-card-markdown">
+                
+
+<p>This practical aims to illustrate the basics of <strong>Ebola modelling</strong>
+using R, with an emphasis on how the method works.</p>
+
+<p>We will start with a basic model for Ebola. We will then illustrate how
+to account for an evolving context, e.g. implementation of control
+measures. Finally, we will explore basic principle of model fitting.</p>
+
+<h1 id="core-concepts">Core Concepts</h1>
+
+<p>From the previous lecture, we will further develop these concepts:</p>
+
+<ul>
+<li>Compartmental models</li>
+<li>Flow diagrams and writing down a model</li>
+<li>Natural history of Ebola</li>
+<li>Control strategies</li>
+<li>Introduction to model fitting</li>
+</ul>
+
+<h2 id="required-packages">Required packages</h2>
+
+<pre><code class="language-r">install.packages(&quot;deSolve&quot;, dep=TRUE)
+install.packages(&quot;gridExtra&quot;, dep = TRUE)
+</code></pre>
+
+<p>Then load the packages using:</p>
+
+<pre><code class="language-r">library(deSolve)
+## Warning: package 'deSolve' was built under R version 3.4.4
+</code></pre>
+
+<h1 id="the-basic-ebola-model">The basic Ebola model</h1>
+
+<ul>
+<li>S : Susceptible humans</li>
+<li>E : Exposed humans</li>
+<li>I : Infected/Infectious humans</li>
+<li>R : humans recovered from infection (with life lasting immunity)</li>
+</ul>
+
+<h2 id="the-model">The model</h2>
+
+<p>The code below will allow you to simulate an Ebola outbreak. But, can
+you understand it?</p>
+
+<p>First make a flow diagram to connect the different compartments of the
+model according to the equation below.</p>
+
+<p>On a line of code, anything after a ‘#’ is interpreted as a comment. At
+the moment the code below is not well commented on, try to comment the
+code appropriately.</p>
+
+<pre><code class="language-r">rm(list=ls())
+
+Dyn.Ebola.Basic &lt;- function (t, state, parameters) {
+   
+  
+   with(as.list(c(state,parameters)),             # ??
+        {
+          N &lt;- S + E + I + R                      # ??
+          # ??
+          dS  &lt;-  - S/N * beta * I                # ??
+          dE &lt;- S/N * beta * I - gamma * E        # ??
+          dI &lt;- gamma * E - sigma * I             # ??
+          
+          dR &lt;- (1 - p.cfr) * sigma * I           # ??
+          
+          dDead &lt;- p.cfr * sigma * I              # ??
+          dOnset &lt;- gamma * E                     # ??
+          
+          # ??
+          dx &lt;- c(dS, dE, dI, dR, dDead, dOnset)
+          list(dx)
+        }
+   )
+}
+</code></pre>
+
+<p>Then write the down the equation that characterize this particular
+model:</p>
+
+<!-- $$\ \frac{dS}{dt}  = - \beta \frac {S_t I_t}{N_t} $$ -->
+
+<!-- $$\ \frac{dE}{dt}  =  \beta \frac {S_t I_t}{N_t} - \sigma E_t $$ -->
+
+<!-- $$\ \frac{dI}{dt}  =  \sigma E_t + \gamma I_t  $$ -->
+
+<!-- $$\ \frac{dR}{dt}  =  (1-\mu) \gamma I_t  $$ -->
+
+<h3 id="the-parameters">The parameters</h3>
+
+<pre><code class="language-r"># ??
+T.lat   &lt;- 10                   #   ??
+gamma &lt;- 1/T.lat            #   ??
+
+T.outcome &lt;- 12             # ??
+sigma &lt;- 1/T.outcome        # ??
+
+p.cfr   &lt;-  0.6                 #   ??
+
+R0 &lt;- 1.5                   #   ??
+R.int &lt;- 0.9                # ??
+
+t.intervention = 25*7       # ??
+
+# ??
+N &lt;- 5e+5                   # ??
+E0 &lt;- 10                    # ??
+</code></pre>
+
+<p>Knowing the rate of transmission is typically very difficult without
+detailed studies. However, measurig the reproduction number may be
+easier.</p>
+
+<p>From knowledge of the reproduction number, we can work out what is the
+rate of transmission (<em>β</em>).</p>
+
+<p>In this simple model, we have
+$$R_0 = \frac{\beta}{\gamma} $$
+. So given the value for <em>R</em><sub>0</sub> above, what is the transmission
+rate?</p>
+
+<!-- $\beta = R_0* \gamma$. -->
+
+<h3 id="numerically-solve-the-system">Numerically solve the system</h3>
+
+<p>We then need to solve the system numerically, i.e. using parameters
+values and starting conditions, we can predict the trajectories of each
+compartment over time.</p>
+
+<p>The code below does that. Try to understand what is being done and
+comment the code appropriately.</p>
+
+<pre><code class="language-r">
+params &lt;- c(gamma=gamma, sigma=sigma,
+            p.cfr=p.cfr, beta=R0/T.outcome )   # ??
+
+
+times  = seq(0, t.intervention, by=1)          # ??
+
+# ??
+xstart &lt;- c(S = N-E0,E = E0,  
+            I = 0, R = 0,
+            Dead = 0, Onset = 0)               # ??
+
+out &lt;- as.data.frame(ode(y = xstart, times = times, 
+                         func = Dyn.Ebola.Basic, parms = params))   # ??
+</code></pre>
+
+<h3 id="plot-some-results">Plot some results</h3>
+
+<p>Can you interpret what is inside the dataframe ‘out’. you can view the
+dataframe by typing ‘View(out)’</p>
+
+<p>The code below allow to visualise some key results.</p>
+
+<p>Fill the axis and legend for the plots and comment the code. Interpret
+the results? <!-- Concept of exponential growth. --></p>
+
+<pre><code class="language-r">
+# ??
+plot(out$time, out$E, col='blue',type='l',ylim = c(0,max(out$E)),
+     xlab ='??', ylab = '??')
+lines(out$time, out$I, col='red')
+lines(out$time, out$R, col='green')
+
+legend('topleft',c('??','??','??'),lwd=2,col=c('blue','red','green'))
+</code></pre>
+
+<p><img src="practical-compartmental-ebola_files/figure-markdown_github/unnamed-chunk-6-1.png" alt="" /></p>
+
+<pre><code class="language-r">
+# ??
+f &lt;- seq(1,t.intervention,by=7)
+time &lt;- out$time[f]                # ??
+Weekly.onset &lt;- diff(out$Onset[f])  # ??
+Weekly.death &lt;- diff(out$Dead[f])   # ??
+
+plot(time[-1], Weekly.onset, col='blue',type='p', ylim = c(0,max(Weekly.onset)),
+     xlab ='??', ylab = '??')
+lines(time[-1], Weekly.death,type='p',col='red')
+
+legend('topleft',c('??','??'),pch=1,col=c('blue','red'))
+</code></pre>
+
+<p><img src="practical-compartmental-ebola_files/figure-markdown_github/unnamed-chunk-6-2.png" alt="" /></p>
+
+<p>Fill the axis and legend for the plot. Interpret the results? Concept of
+exponential growth.</p>
+
+<h3 id="change-the-transmissibility">Change the transmissibility</h3>
+
+<p>Now we want to simulate a change in transmissibility linked to an
+intervention.</p>
+
+<p>Compare to the code above, what is changed in the code below?</p>
+
+<p>Try to understand what is being done and comment the code appropriately.</p>
+
+<pre><code class="language-r"># Simulation 2
+
+params2 &lt;- c(gamma=gamma, sigma=sigma,
+             p.cfr=p.cfr, beta=R.int/T.outcome) # ??
+
+
+times2  = seq(t.intervention, 2*t.intervention, by=1)
+# Starting conditions
+xstart2 &lt;- c(S = tail(out$S,1), E = tail(out$E,1),  
+             I = tail(out$I,1), R = tail(out$R,1),
+             Dead = tail(out$Dead,1), Onset = tail(out$Onset,1))  # ??
+
+
+out2 &lt;- as.data.frame(ode(y = xstart2, times = times2, 
+                         func = Dyn.Ebola.Basic, parms = params2))  # ??
+</code></pre>
+
+<p>What is being done in the code above?</p>
+
+<!-- 1- The reproduction number takes its second value, therefore the rate of transmission is decreased. -->
+
+<!-- 2- The new initial conditions are set to the previous final state of the system. -->
+
+<!-- 3- The model is then run. -->
+
+<p>Some results for the new output can be seen below. Try to comment the
+code and fill in relevant information in the graphs.</p>
+
+<pre><code class="language-r"># ??
+plot(out2$time, out2$E, col='blue',type='l',ylim = c(0,max(out$E)),
+     xlab ='??', ylab = '??')
+lines(out2$time, out2$I, col='red')
+lines(out2$time, out2$R, col='green')
+
+legend('topleft',c('??','??','??'),lwd=2,col=c('blue','red','green'))
+</code></pre>
+
+<p><img src="practical-compartmental-ebola_files/figure-markdown_github/unnamed-chunk-8-1.png" alt="" /></p>
+
+<pre><code class="language-r">
+# ??
+f &lt;- seq(1,t.intervention,by=7)
+time &lt;- out2$time[f]
+Weekly.onset &lt;- diff(out2$Onset[f])
+Weekly.death &lt;- diff(out2$Dead[f])
+
+plot(time[-1], Weekly.onset, col='blue',type='p', ylim = c(0,max(Weekly.onset)),
+     xlab ='??', ylab = '??')
+lines(time[-1], Weekly.death,type='p',col='red')
+
+legend('topleft',c('?','??'),pch=1,col=c('blue','red'))
+</code></pre>
+
+<p><img src="practical-compartmental-ebola_files/figure-markdown_github/unnamed-chunk-8-2.png" alt="" /></p>
+
+<h3 id="merging-both-situations">Merging both situations</h3>
+
+<p>Can we plot both trajectory? Pre- and post-intervention? see below. Try
+to comment the code and fill in relevant information in the graphs.</p>
+
+<pre><code class="language-r">
+## check full dynamics
+# Checking the simulations
+out3 &lt;- rbind(out,out2[-1,])
+
+plot(out3$time, out3$E, col='blue',type='l',ylim = c(0,max(out$E)),
+     xlab ='??', ylab = '??')
+lines(out3$time, out3$I, col='red')
+lines(out3$time, out3$R, col='green')
+
+legend('topleft',c('??','??','??'),lwd=2,col=c('blue','red','green'))
+</code></pre>
+
+<p><img src="practical-compartmental-ebola_files/figure-markdown_github/unnamed-chunk-9-1.png" alt="" /></p>
+
+<pre><code class="language-r">
+# ??
+f &lt;- seq(1,2*t.intervention,by=7)
+time &lt;- out3$time[f]
+Weekly.onset &lt;- diff(out3$Onset[f])
+Weekly.death &lt;- diff(out3$Dead[f])
+
+plot(time[-1], Weekly.onset, col='blue',type='p', ylim = c(0,max(Weekly.onset)),
+     xlab ='??', ylab = '??')
+lines(time[-1], Weekly.death,type='p',col='red')
+
+legend('topleft',c('??','??'),pch=c(1,1),col=c('blue','red'))
+</code></pre>
+
+<p><img src="practical-compartmental-ebola_files/figure-markdown_github/unnamed-chunk-9-2.png" alt="" /></p>
+
+<h1 id="second-model">Second model</h1>
+
+<p>We aim to reproduce the results above by calling the numerical solver
+only once. We also would like to compare our results to data.</p>
+
+<p>Comment an interpret the code below:</p>
+
+<p>What changed compared to the code used above?</p>
+
+<p>First, we write a new model that will be able to account for changes in
+transmissibility.</p>
+
+<p>Try to understand what is being done and comment the code appropriately.</p>
+
+<pre><code class="language-r">
+Dyn.Ebola.Basic2 &lt;- function (t, state, parameters) {
+  
+   with(as.list(c(state,parameters)), #??
+        {
+          N &lt;- S + E + I + R  # ??
+          
+          beta &lt;- ReproNb*sigma  # ??
+         
+          # ??
+          dS  &lt;-  - S/N * beta * I                # ??
+          dE &lt;- S/N * beta * I - gamma * E        # ??
+          dI &lt;- gamma * E - sigma * I             # ??
+          
+          dR &lt;- (1 - p.cfr) * sigma * I           # ??
+          
+          dDead &lt;- p.cfr * sigma * I              # ??
+          dOnset &lt;- gamma * E                     # ??
+          
+          dReproNb &lt;- 0                           # ??
+          
+          # ??
+          dx &lt;- c(dS, dE, dI, dR, dDead, dOnset, dReproNb )
+          list(dx)
+        }
+   )
+}
+</code></pre>
+
+<h3 id="initial-conditions">Initial conditions</h3>
+
+<p>Then we set initial conditions and time varying parameters.</p>
+
+<p>Try to understand what is being done and comment the code appropriately.</p>
+
+<pre><code class="language-r">
+times  = seq(0, 2 * t.intervention, by=1)          # ??
+# ??
+xstart &lt;- c(S = N-E0,E = E0,  
+            I = 0, R = 0,
+            Dead = 0, Onset = 0, ReproNb = R0)               # ??
+
+# ??
+eventdat &lt;- data.frame(var = &quot;ReproNb&quot;, time = t.intervention,
+                       value = R.int, method = &quot;rep&quot;)         # ??
+
+
+out &lt;- as.data.frame(ode(y = xstart, times = times, 
+                         func = Dyn.Ebola.Basic2, parms = params,
+                         events = list(data = eventdat)))   # ??
+</code></pre>
+
+<h3 id="plotting-results">Plotting results</h3>
+
+<p>Finally we check the results and compare with observed data.</p>
+
+<p>First dowload the dataset:
+<a href="../../data/compartmental-ebola-pratical.csv">compartmental-ebola-pratical.csv</a>.</p>
+
+<p>Try to comment the code and fill in relevant information in the graphs.</p>
+
+<pre><code class="language-r"># Checking the simulations
+plot(out$time, out$E, col='blue',type='l',ylim = c(0,max(out$E)),
+     xlab ='??', ylab = '??')
+lines(out$time, out$I, col='red')
+lines(out$time, out$R, col='green')
+
+legend('topleft',c('??','??','??'),lwd=2,col=c('blue','red','green'))
+</code></pre>
+
+<p><img src="practical-compartmental-ebola_files/figure-markdown_github/unnamed-chunk-12-1.png" alt="" /></p>
+
+<pre><code class="language-r">
+# ??
+f &lt;- seq(1,2*t.intervention,by=7)  # ??
+time &lt;- out$time[f]                # ??
+Weekly.onset &lt;- diff(out$Onset[f])  # ??
+Weekly.death &lt;- diff(out$Dead[f])   # ??
+</code></pre>
+
+<pre><code class="language-r">dat &lt;- read.csv('onset_data.csv')
+</code></pre>
+
+<p>Once imported, the data should look like:</p>
+
+<pre><code class="language-r">
+
+plot(time[-1], Weekly.onset, col='blue',type='p', ylim = c(0,max(dat$incidence)),
+     xlab ='??', ylab = '??')
+lines(time[-1], Weekly.death,type='p',col='red')
+
+lines(dat$date, dat$incidence, type='p',pch=3, col='blue')
+
+legend('topleft',c('??','??','??'),pch=c(1,3,1),col=c('blue','blue','red'))
+</code></pre>
+
+<p><img src="practical-compartmental-ebola_files/figure-markdown_github/read_files-1.png" alt="" /></p>
+
+<p>Now, try to modify:</p>
+
+<ul>
+<li><p>the initial number in the exposed class, and</p></li>
+
+<li><p>the reproduction post-intervention.</p></li>
+</ul>
+
+<p>Re-run the model and observe the fit.</p>
+
+<p>Try to obtain a better fit by changing paraemters.</p>
+
+<h3 id="exploration-of-fitting">Exploration of fitting</h3>
+
+<p>Fitting manually to the data like above is tedious and not rigorous. We
+can explore a simple statistical method.</p>
+
+<p>Let’s assume that we want to fit the initial number in the exposed class
+and the reproduction post-intervention. Clearly, we must find the values
+for those parameters such that our predictions matched best the
+observations.</p>
+
+<p>Assuming that the incidence in a given week follows a Poisson
+distribution with mean given by our prediction:
+<em>P</em>(<em>I</em><sub><em>t</em></sub><sup>*o<strong>b</strong>s*</sup>|<em>θ</em>) ∝ *P<strong>o</strong>i<strong>s</strong>s*(<em>I</em><sub><em>t</em></sub><sup>*p<strong>r</strong>e*<em>d</em></sup>)
+.</p>
+
+<p>If each weekly incidences are assumed independent, the likelihood of the
+model could be written as:
+*L* = <em>Π</em>[<em>P</em>(<em>I</em><sub><em>t</em></sub><sup>*o<strong>b</strong>s*</sup>|<em>θ</em>)]
+.</p>
+
+<p>in a very simple way, maximizing this likelihood will give us our best
+parameters.</p>
+
+<h3 id="in-practice">In practice</h3>
+
+<p>Interpret and comment the code below and add information on the plot.</p>
+
+<p>In particular, what lighter color on the heat-graph represents? You can
+view the matrix L by typing ‘View(L)’ in the console.</p>
+
+<pre><code class="language-r">E_ini &lt;- seq(25,35,length=10)      # ??
+R2 &lt;- seq(.7,.9,length=10)         # ??
+L &lt;- matrix(NA,length(E_ini),length(R2))   # ??
+
+for (i in 1:length(E_ini)){   # ??
+  for (j in 1:length(R2)){    # ??
+    xstart &lt;- c(S = N-E_ini[i],E = E_ini[i],  
+                I = 0, R = 0,
+                Dead = 0, Onset = 0, ReproNb = R0)               # ??
+    
+    eventdat &lt;- data.frame(var = &quot;ReproNb&quot;, time = t.intervention,
+                           value = R2[j], method = &quot;rep&quot;)          # ??
+  
+    out &lt;- as.data.frame(ode(y = xstart, times = times, 
+                             func = Dyn.Ebola.Basic2, parms = params,
+                             events = list(data = eventdat)))   # ??
+    
+    Weekly.onset &lt;- diff(out$Onset[f]) # ??
+    
+    L[i,j] &lt;- sum(dpois(x = dat$incidence,lambda = Weekly.onset,log = TRUE))  # ??
+    
+  }
+}
+L[L &lt; (max(L)*1.2)] &lt;- NA          # ??
+image(E_ini,R2,L, col = heat.colors(30), xlab = '??', ylab = '??')  # ??
+</code></pre>
+
+<p><img src="practical-compartmental-ebola_files/figure-markdown_github/unnamed-chunk-14-1.png" alt="" /></p>
+
+<p>Now, from visual inspection of the graph, you can choose your best fit
+values for:</p>
+
+<ul>
+<li><p>the initial number in the exposed class, and</p></li>
+
+<li><p>the reproduction post-intervention,</p></li>
+</ul>
+
+<h3 id="plot-the-final-fit">Plot the final fit</h3>
+
+<p>Then, we want to plot the observed versus the new predicted data.</p>
+
+<p>Fill in the missing bits to be able to run the code below.</p>
+
+<p>Try to understand and comment the code below:</p>
+
+<pre><code class="language-r"># final 
+xstart &lt;- c(S = N-E_ini[i],E = 10,  
+            I = 0, R = 0,
+            Dead = 0, Onset = 0, ReproNb = 1.5)               # ??
+
+eventdat &lt;- data.frame(var = &quot;ReproNb&quot;, time = t.intervention,
+                       value = .9, method = &quot;rep&quot;)               # ??
+
+out &lt;- as.data.frame(ode(y = xstart, times = times, 
+                         func = Dyn.Ebola.Basic2, parms = params,
+                         events = list(data = eventdat)))   # ??
+
+# ??
+f &lt;- seq(1,2*t.intervention,by=7)  # ??
+time &lt;- out$time[f]                # ??
+Weekly.onset &lt;- diff(out$Onset[f])  # ??
+Weekly.death &lt;- diff(out$Dead[f])   # ??
+
+
+# plot
+plot(time[-1], Weekly.onset, col='blue',type='p', ylim = c(0,max(dat$incidence)),
+     xlab ='??', ylab = '??')
+lines(time[-1], Weekly.death,type='p',col='red')
+
+lines(dat$date, dat$incidence, type='p',pch=3, col='blue')
+
+legend('topleft',c('??','??','??'),pch=c(1,3,1),col=c('blue','blue','red'))
+</code></pre>
+
+<p><img src="practical-compartmental-ebola_files/figure-markdown_github/unnamed-chunk-15-1.png" alt="" /></p>
+
+<h1 id="final-model">Final model</h1>
+
+<p>In the previous model, the intervention was modelled as a change in the
+reproduction number. Often it is useful to know more specifically what
+changed, i.e. this is the main advantage in building a ‘mechanistic
+model’.</p>
+
+<p>For instance, if you know that isolated cases are not transmitting
+further, then an increase in ‘early’ isolation may help control the
+disease. A model can help quantify this and gain better intuition.</p>
+
+<p>Retrospectively, if we know that such an intervention was implemented,
+then we can better understand to which extent it decreased transmission.</p>
+
+<p>For instance we may know that the time to isolation decreased from
+<strong>11.5 days</strong> pre-intervention to a lower value, but we are unsure by
+how much.</p>
+
+<p>See the code below can you interpret it?</p>
+
+<p>First we write a new model:</p>
+
+<pre><code class="language-r">
+Dyn.Ebola.Basic3 &lt;- function (t, state, parameters) {
+   
+   with(as.list(c(state,parameters)), # ??
+        {
+          N &lt;- S + E + I + R  # ??
+          # ??
+          sigma.h &lt;- 1/delay_hosp                       # ??
+          sigma &lt;- 1/(delay_onset_outcome-delay_hosp)   # ??
+          
+          
+          dS  &lt;-  - S/N * beta * I                # ??
+          dE &lt;- S/N * beta * I - gamma * E        # ??
+          dI &lt;- gamma * E - sigma.h * I           # ??
+          dIh &lt;- sigma.h * I - sigma * Ih         # ??
+          
+          dR &lt;- (1 - p.cfr) * sigma * Ih           # ??
+          
+          dDead &lt;- p.cfr * sigma * Ih              # ??
+          dOnset &lt;- gamma * E                     # ??
+          
+          ddelay_hosp &lt;- 0                           # ??
+          
+          # ??
+          dx &lt;- c(dS, dE, dI, dIh, dR, dDead, dOnset, ddelay_hosp )
+          list(dx)
+        }
+   )
+}
+</code></pre>
+
+<p>As before, try to:</p>
+
+<ul>
+<li><p>understand the code and comment it,</p></li>
+
+<li><p>draw a flow diagram,</p></li>
+</ul>
+
+<p>-write dow the new equations of the system.</p>
+
+<h3 id="new-parameters">New parameters</h3>
+
+<p>This should be very familiar, but comment on the code to make sure you
+understand everything.</p>
+
+<pre><code class="language-r">#==================  Parameters 
+
+T.lat   &lt;- 10                   #   ??
+gamma &lt;- 1/T.lat            #   ??
+
+T.outcome &lt;- 12             # ??
+T.hosp.1 &lt;- 11.5            # ??
+T.hosp.2 &lt;- 5                # ??
+
+p.cfr   &lt;-  0.6                 #   ??
+
+R0 &lt;- 1.5                   #   ??
+
+# ??
+N &lt;- 5e+5                   # ??
+E0 &lt;- 10                     # ??
+
+# ??
+t.intervention = 25*7      # ??
+</code></pre>
+
+<h3 id="numerically-solve-the-model">Numerically solve the model</h3>
+
+<p>Then as before we run the model.</p>
+
+<p>Again make sure you understand everything and comment the code.</p>
+
+<p>What is being change post-intervention?</p>
+
+<pre><code class="language-r">#================== Simulation 1
+
+params &lt;- c(gamma=gamma, delay_hosp = T.hosp.1, delay_onset_outcome = T.outcome,
+            beta = R0/T.outcome,
+            p.cfr=p.cfr )   # ??
+
+
+times  = seq(0, 2 * t.intervention, by=1)          # ??
+# ??
+xstart &lt;- c(S = N-E0,E = E0,  
+            I = 0, Ih = 0, R = 0,
+            Dead = 0, Onset = 0, delay_hosp = T.hosp.1)               # ??
+
+# ??
+eventdat &lt;- data.frame(var = &quot;delay_hosp&quot;, time = t.intervention,
+                       value = T.hosp.2, method = &quot;rep&quot;)
+
+
+out &lt;- as.data.frame(ode(y = xstart, times = times, 
+                         func = Dyn.Ebola.Basic3, parms = params,
+                         events = list(data = eventdat)))   # ??
+</code></pre>
+
+<h3 id="plotting-results-1">Plotting results</h3>
+
+<p>Check the results by running the code below.</p>
+
+<p>Fill in the comment and complete the graph information</p>
+
+<pre><code class="language-r"># Checking the simulations
+plot(out$time, out$E, col='blue',type='l',ylim = c(0,max(out$E)),
+     xlab ='??', ylab = '??')
+lines(out$time, out$I, col='red')
+lines(out$time, out$R, col='green')
+
+legend('topleft',c('??','??','??'),lwd=2,col=c('blue','red','green'))
+</code></pre>
+
+<p><img src="practical-compartmental-ebola_files/figure-markdown_github/plotSim2-1.png" alt="" /></p>
+
+<pre><code class="language-r">
+# ??
+f &lt;- seq(1,2*t.intervention,by=7)
+time &lt;- out$time[f]
+Weekly.onset &lt;- diff(out$Onset[f])
+Weekly.death &lt;- diff(out$Dead[f])
+
+
+plot(time[-1], Weekly.onset, col='blue',type='p', ylim = c(0,max(dat$incidence)),
+     xlab ='??', ylab = '??')
+lines(time[-1], Weekly.death,type='p',col='red')
+
+lines(dat$date, dat$incidence, type='p',pch=3, col='blue')
+
+legend('topleft',c('??','??','??'),pch=c(1,3,1),col=c('blue','blue','red'))
+</code></pre>
+
+<p><img src="practical-compartmental-ebola_files/figure-markdown_github/plotSim2-2.png" alt="" /></p>
+
+<p>As before, try to modify:</p>
+
+<ul>
+<li><p>the initial number in the exposed class, and</p></li>
+
+<li><p>the time to hospitalisation post-intervention.</p></li>
+</ul>
+
+<p>Re-run the model and observe the fit.</p>
+
+<p>Your aim here is to fit the data better, and estimate by how much the
+time to isolation decreased after the intervention.</p>
+
+<h3 id="fitting">Fitting</h3>
+
+<p>As before, fitting the model manually is not ideal.</p>
+
+<p>Try to run the code below. Again, fill in the missing bits and interpret
+the code:</p>
+
+<pre><code class="language-r">###########################################################
+#### get likelihood  ######################################
+###########################################################
+
+E_ini &lt;- seq(20,40,length=10)  # ??
+T2 &lt;- seq(5.5,7.5,length=15) # ??
+L &lt;- matrix(NA,length(E_ini),length(T2)) # ??
+
+for (i in 1:length(E_ini)){
+  for (j in 1:length(T2)){
+    xstart &lt;- c(S = N-E_ini[i],E = E_ini[i],  
+                I = 0, Ih = 0, R = 0,
+                Dead = 0, Onset = 0, delay_hosp = T.hosp.1)               # ??
+    
+    eventdat &lt;- data.frame(var = &quot;delay_hosp&quot;, time = t.intervention,
+                          value = T2[j], method = &quot;rep&quot;)     # ??
+  
+    out &lt;- as.data.frame(ode(y = xstart, times = times, 
+                             func = Dyn.Ebola.Basic3, parms = params,
+                             events = list(data = eventdat)))   # ??
+    
+    Weekly.onset &lt;- diff(out$Onset[f]) # ??
+    
+    L[i,j] &lt;- sum(dpois(x = dat$incidence,lambda = Weekly.onset,log = TRUE))  # ??
+    
+  }
+}
+L[L &lt; (max(L)*1.5)] &lt;- NA
+image(E_ini,T2,L, col = heat.colors(30),xlab = '??', ylab='??')
+</code></pre>
+
+<p><img src="practical-compartmental-ebola_files/figure-markdown_github/unnamed-chunk-19-1.png" alt="" /></p>
+
+<p>We obtain best fit measure for the new time to hospitalisation.</p>
+
+<h3 id="final-fit">Final fit</h3>
+
+<p>Now fill in the code below to be able to run it and observe your new
+fit.</p>
+
+<pre><code class="language-r">
+# final 
+xstart &lt;- c(S = N-E_ini[i],E = 10,  
+            I = 0, Ih = 0, R = 0,
+            Dead = 0, Onset = 0, delay_hosp = T.hosp.1)               # ??
+
+eventdat &lt;- data.frame(var = &quot;delay_hosp&quot;, time = t.intervention,
+                       value = 5, method = &quot;rep&quot;)
+
+out &lt;- as.data.frame(ode(y = xstart, times = times, 
+                         func = Dyn.Ebola.Basic3, parms = params,
+                         events = list(data = eventdat)))   # ??
+
+# weekly incidence and weekly number of death
+f &lt;- seq(1,2*t.intervention,by=7)
+time &lt;- out$time[f]
+Weekly.onset &lt;- diff(out$Onset[f])
+Weekly.death &lt;- diff(out$Dead[f])
+
+# plot
+plot(time[-1], Weekly.onset, col='blue',type='p', ylim = c(0,max(dat$incidence)),
+     xlab ='??', ylab = '??')
+lines(time[-1], Weekly.death,type='p',col='red')
+
+lines(dat$date, dat$incidence, type='p',pch=3, col='blue')
+
+legend('topleft',c('??','??','??'),pch=c(1,3,1),col=c('blue','blue','red'))
+</code></pre>
+
+<p><img src="practical-compartmental-ebola_files/figure-markdown_github/unnamed-chunk-20-1.png" alt="" /></p>
+
+<h3 id="explore-further">Explore further</h3>
+
+<p>you can explore further:</p>
+
+<ul>
+<li><p>try compute the full outbreak size,</p></li>
+
+<li><p>how many live could you save by intervening earlier (perhaps draw
+graph)?</p></li>
+
+<li><p>what is the influence of T.Hosp.2 on final size?</p></li>
+</ul>
+
+<h1 id="about-this-document">About this document</h1>
+
+<h2 id="contributors">Contributors</h2>
+
+<ul>
+<li>Pierre Nouvellet &amp; Zulma Cucunuba: initial version</li>
+</ul>
+
+<h2 id="legal-stuff">Legal stuff</h2>
+
+<p><strong>License</strong>: <a href="https://creativecommons.org/licenses/by/3.0/">CC-BY</a>
+<strong>Copyright</strong>: Pierre Nouvellet &amp; Zulma Cucunuba, 2017</p>
+    
+                </div>
+            </section>
+        
+            <footer class="post-full-footer">
+              <section class="author-card">
+                <img class="author-profile-image" src="https://reconlearn-ld.netlify.com/img/user.png" alt="Author" />
+                <section class="author-card-content">
+                        <span class="post-card-author">
+                                <a href="/authors/zulma-cucunuba.html">Zulma Cucunuba</a><br><a href="/authors/pierre-nouvellet.html">Pierre Nouvellet</a><br>
+                              </span>
+                </section>
+              </section>
+            </footer>
+        </article>
+    
+    
+    
+
+<div id="disqus_thread"></div>
+<script>
+
+
+
+
+var disqus_config = function () {
+this.page.url = "https:\/\/reconlearn-ld.netlify.com\/post\/practical-compartmental-ebola.html";  
+this.page.identifier = "https:\/\/reconlearn-ld.netlify.com\/post\/practical-compartmental-ebola.html"; 
+};
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://itsalocke.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  </div>
+</main>
+
+
+<aside class="read-next outer">
+  <div class="inner">
+    <div class="read-next-feed">      
+      
+<article class="read-next-card" style="background-color: #090a0b;">
+    <header class="read-next-card-header">
+        <small class="read-next-card-header-sitetitle">&mdash; RECON learn &mdash;</small>
+        
+    </header>
+    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+    </div>
+
+    <div class="read-next-card-content">
+      
+        <ul>
+          <li><a href="https://reconlearn-ld.netlify.com/post/practical-outbreakend.html">Is this outbreak over?</a></li>            
+        
+          <li><a href="https://reconlearn-ld.netlify.com/post/practical-vbd.html">VBD: building a simple model for Zika</a></li>            
+        
+          <li><a href="https://reconlearn-ld.netlify.com/post/practical-phylogenetics.html">Phylogenetic tree reconstruction</a></li>            
+        
+          <li><a href="https://reconlearn-ld.netlify.com/post/lectureoutbreaker2.html">Outbreak investigation using outbreaker2</a></li>            
+        </ul>
+    </div>
+    <footer class="read-next-card-footer">
+      
+    </footer>
+</article>
+
+
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="https://reconlearn-ld.netlify.com/post/simulated-evd-early.html">
+      <div class="post-card-image" style="background-image: url(https://reconlearn-ld.netlify.com/img/highres/ebola.jpg)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="https://reconlearn-ld.netlify.com/post/simulated-evd-early.html">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">Ebola simulation part 1: early outbreak assessment</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>This practical simulates the early assessment and reconstruction of an Ebola Virus Disease (EVD) outbreak. It introduces various aspects of analysis of the early stage of an outbreak, including contact tracing data, epicurves, growth rate estimation from log-linear models, and more refined estimates of transmissibility. A follow-up practical will provide an introduction to transmission chain reconstruction using outbreaker2.
+
+A novel EVD outbreak in Ankh, Republic of Morporkia A new EVD outbreak has been notified in the small city of Ankh, located in the Northern, rural district of the Republic of Morporkia. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="https://reconlearn-ld.netlify.com/img/user.png" alt="Author" />
+          <span class="post-card-author"><a href="/">Thibaut Jombart, Finlay Campbell</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="https://reconlearn-ld.netlify.com/post/practical-vbd.html">
+      <div class="post-card-image" style="background-image: url(https://reconlearn-ld.netlify.com/img/highres/mosquito.jpg)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="https://reconlearn-ld.netlify.com/post/practical-vbd.html">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">VBD: building a simple model for Zika</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>This practical aims to illustrate the basics of vector borne disease (VBD) modelling using R, with an emphasis on how the methods work. We will use a basic model for an arboviral infection as an example. In this practical we will begin by gaining some understanding of the components which contribute to R0 and how potential interventions influence transmission. Later in the practical you will construct a model of Zika transmission to look at the effects of several parameters. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="https://reconlearn-ld.netlify.com/img/user.png" alt="Author" />
+          <span class="post-card-author"><a href="/">Zulma Cucunuba &amp; Pierre Nouvellet</a></span>
+      </footer>
+    </div>
+</article>
+      
+    </div>
+  </div>
+</aside>
+
+<div class="floating-header">
+  <div class="floating-header-logo">
+    <a href="https://reconlearn-ld.netlify.com/">
+      <img src="https://reconlearn-ld.netlify.com/img/logo/learnBlueAndWhite.png" alt="" />
+    </a>
+  </div>
+  <span class="floating-header-divider">&mdash;</span>
+  <div class="floating-header-title">Ebola: building few models for Ebola</div>
+  <div class="floating-header-share">
+    <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/></svg>
+    </div>
+    
+    <a class="floating-header-share-tw" href="https://twitter.com/share?text=Ebola%3a%20building%20few%20models%20for%20Ebola&amp;url=https%3a%2f%2freconlearn-ld.netlify.com%2fpost%2fpractical-compartmental-ebola.html"
+          onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+      </a>
+      <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2freconlearn-ld.netlify.com%2fpost%2fpractical-compartmental-ebola.html"
+          onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+      </a>
+  </div>
+
+  <progress class="progress" value="0">
+    <div class="progress-container">
+      <span class="progress-bar"></span>
+    </div>
+  </progress>
+</div>
+
+
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="/">RECON</a> ©2017 Thibaut Jombart <br>
+      <span style="font-size: 0.8em; color: #555;">Hugo port of <a href="https://github.com/TryGhost/Casper">Casper 2.1.7</a> by <a href="https://www.telematika.org">EM</a></span>
+    </section>
+    <nav class="site-footer-nav">
+        <a href="/">Latest Posts</a>
+        
+        <a href="https://twitter.com/teebzr" target="_blank" rel="noopener">Twitter</a>
+        <a href="https://github.com/reconhub/learn" target="_blank" rel="noopener">Github</a>
+        
+        
+    </nav>  
+  </div>
+</footer>
+
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://reconlearn-ld.netlify.com/js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <script>
+
+
+
+
+
+$(document).ready(function () {
+    
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+</body></html>

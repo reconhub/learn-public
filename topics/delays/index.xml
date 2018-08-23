@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Delays on </title>
+    <link>https://reconlearn-ld.netlify.com/topics/delays.html</link>
+    <description>Recent content in Delays on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 09 Dec 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://reconlearn-ld.netlify.com/topics/delays/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A primer on statistical outbreak analysis</title>
+      <link>https://reconlearn-ld.netlify.com/post/outbreakstatsprimer.html</link>
+      <pubDate>Sat, 09 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://reconlearn-ld.netlify.com/post/outbreakstatsprimer.html</guid>
+      <description>This short lecture gives a primer on some methodological aspects of outbreak analysis. It includes content on the estimation of key delays (e.g. incubation period, serial interval) and the characterisation of the underlying distributions, the estimation of growth rates, doubling times, of the basic reproduction number and simple short-term forecasting.
+Slides Click on the image below to access the slides:
+  
+About this document Contributors  Thibaut Jombart: initial version  Contributions are welcome via pull requests.</description>
+    </item>
+    
+  </channel>
+</rss>

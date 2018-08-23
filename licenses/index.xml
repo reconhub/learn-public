@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Licenses on </title>
+    <link>https://reconlearn-ld.netlify.com/licenses.html</link>
+    <description>Recent content in Licenses on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 24 Jan 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://reconlearn-ld.netlify.com/licenses/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CC-BY</title>
+      <link>https://reconlearn-ld.netlify.com/licenses/cc-by.html</link>
+      <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://reconlearn-ld.netlify.com/licenses/cc-by.html</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
